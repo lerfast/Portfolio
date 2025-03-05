@@ -10,7 +10,7 @@ export default function Footer() {
       <Fade bottom duration={1000} distance="5px">
         <div className="footer-div">
           <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
-            Made with <span><i id="heart" class="blink fas fa-heart"></i> </span> by Bhavin Virani
+            Made with <span><i id="heart" class="blink fas fa-heart"></i> </span> by Luis Emilio Rojas
         </p>
       </div>
     </Fade>

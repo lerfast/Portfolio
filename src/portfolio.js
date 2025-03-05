@@ -1,185 +1,130 @@
-// Summary And Greeting Section
+// src/portfolio.js
 import emoji from "react-easy-emoji";
 
+// Resumen y saludo principal
 const greeting = {
-  username: "Bhavin Virani",
+  username: "Luis Emilio Rojas Rojas",
   greetingText: "Hi all, I'm ",
-  greetingName: "Bhavin",
-  subTitle: emoji(" IT Student 👨‍💻 || Tech Writer ✍️ "),
-  resumeLink:
-    "https://drive.google.com/file/d/1Dry_N32vEzUVklFVv2iIISzhJJqWgcta/view?usp=share_link",
+  greetingName: "Luis",
+  subTitle: emoji("Full-Stack Software Developer | Business Administrator | Sustainability Expert"),
+  resumeLink: "https://drive.google.com/file/d/16KOJpFXgMhibKc7grFxfytRfSmcaQaFT/view?usp=drive_link",
 };
 
-// Social Media Links
-
+// Redes sociales
 const socialMediaLinks = {
-  github: "https://github.com/bhavinvirani",
-  linkedin: "https://www.linkedin.com/in/bhavin-virani-2a14441b7/",
-  dev: "https://dev.to/bhavinvirani",
-  gmail: "bhavinvirani45@gmail.com",
-  twitter: "https://twitter.com/BhavinVirani45",
-  discord: "https://discordapp.com/705788162516975667",
+  github: "https://github.com/lerfast",
+  linkedin: "https://www.linkedin.com/in/luisemiliorojas/",
+  email: "luisemiliorojas@hotmail.com",
 };
 
-// Skills Section
+// Sección de habilidades
 const skillsSection = {
-  title: "What I do",
-  subTitle: "CRAZY GEEK WHO WANTS TO EXPLORE SOMETHING NEW EVERYDAY.",
+  title: "What I Do",
+  subTitle: "Passionate Developer with Business and Sustainability Expertise",
   skills: [
-    emoji("⚡  Problem solving"),
-    emoji(
-      "⚡  Integration of third party services such as  OAuth 2.0 / Bootstrap "
-    ),
-    emoji("⚡ Interested in Blockchain technology and backend development "),
+    emoji("⚡ Full-Stack Development (React, Ruby on Rails, Node.js, PostgreSQL)"),
+    emoji("⚡ Business Administration & Project Management"),
+    emoji("⚡ Occupational Health & Sustainability Consulting"),
   ],
-
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-  https://fontawesome.com/icons?d=gallery */
-
   softwareSkills: [
-    {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5",
-      id: "html-5",
-    },
-    {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt",
-      id: "css3",
-    },
-    {
-      skillName: "javascript",
-      fontAwesomeClassname: "fab fa-js",
-      id: "js",
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react",
-      id: "reactjs",
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node",
-      id: "nodejs",
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm",
-      id: "npm",
-    },
-    {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database",
-      id: "sql",
-    },
-    {
-      skillName: "mongoDb",
-      fontAwesomeClassname: "fas fa-leaf",
-      id: "mongodb",
-    },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python",
-      id: "python",
-    },
-    {
-      skillName: "git",
-      fontAwesomeClassname: "fab fa-git",
-      id: "git",
-    },
+    { skillName: "HTML5", fontAwesomeClassname: "fab fa-html5", id: "html-5" },
+    { skillName: "CSS3", fontAwesomeClassname: "fab fa-css3-alt", id: "css3" },
+    { skillName: "JavaScript", fontAwesomeClassname: "fab fa-js", id: "js" },
+    { skillName: "React", fontAwesomeClassname: "fab fa-react", id: "reactjs" },
+    { skillName: "Node.js", fontAwesomeClassname: "fab fa-node", id: "nodejs" },
+    { skillName: "Ruby", fontAwesomeClassname: "fas fa-gem", id: "ruby" },
+    { skillName: "Ruby on Rails", fontAwesomeClassname: "fas fa-train", id: "rails" },
+    { skillName: "PostgreSQL", fontAwesomeClassname: "fas fa-database", id: "postgres" },
+    { skillName: "WordPress", fontAwesomeClassname: "fab fa-wordpress", id: "wordpress" },
+    { skillName: "Spree Commerce", fontAwesomeClassname: "fas fa-shopping-cart", id: "spree" },
   ],
 };
 
-
-
-// Work experience section
+// Sección de certificaciones
 const certifications = {
   certifications: [
     {
-      title: "Fullstack Web Development Bootcamp",
-      subtitle: "- Dr. Angela Yu",
-      logo_path: "udemy.png",
-      certificate_link:
-        "https://www.udemy.com/certificate/UC-c697cc98-4792-44b9-a816-95880238769e/",
-      alt_name: "udemy",
+      title: "Bachelor in Business Administration",
+      subtitle: "San Martin University, Bogotá-Colombia",
+      logo_path: "sanmartin.png",
+      certificate_link: "https://sanmartin.edu.co/",
+      alt_name: "sanmartin",
       color_code: "#F6EAEA",
     },
     {
-      title: "SQL for Data Science",
-      subtitle: "- courses",
-      logo_path: "coursera.png",
-      certificate_link:
-        "https://www.coursera.org/account/accomplishments/verify/YHZVLK4CE789",
-      alt_name: "coursera",
+      title: "Master Degree in Occupational Health and Safety Management",
+      subtitle: "Universidad del Rosario, Bogotá-Colombia",
+      logo_path: "urosario.png",
+      certificate_link: "https://urosario.edu.co/",
+      alt_name: "urosario",
       color_code: "#F0FFDD",
     },
     {
-      title: "Data Modeling",
-      subtitle: "- MongoDB",
-      logo_path: "mongodb.png",
-      certificate_link:
-        "https://university.mongodb.com/courses/M320/2021_May_25/completion",
-      alt_name: "MongoDB University",
-      color_code: "#FEF6E6",
-    },
-    {
-      title: "MongoDB for JavaScript Developers",
-      subtitle: "- MongoDB",
-      logo_path: "mongodb.png",
-      certificate_link:
-        "https://university.mongodb.com/courses/M220JS/2021_May_25/completion",
-      alt_name: "MongoDB University",
-      color_code: "#FDE9EA",
+      title: "Full Stack Web Development",
+      subtitle: "Microverse",
+      logo_path: "microverse.png",
+      certificate_link: "https://www.microverse.org/",
+      alt_name: "Microverse",
+      color_code: "#DDEFE6",
     },
   ],
 };
 
-
+// Sección para open source (GitHub)
 const openSource = {
   githubConvertedToken: process.env.REACT_APP_GITHUB_TOKEN,
-  githubUserName: "bhavinvirani", // Change to your github username to view your profile in Contact Section.
-  showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
-  display: true, // Set false to hide this section, defaults to true
+  githubUserName: "lerfast",
+  showGithubProfile: "true",
+  display: true,
 };
 
+// Sección de blogs
 const blogSection = {
   title: "Blogs",
-  subtitle:
-    "With Love for Developing cool stuff, I love to write and teach others what I have learnt",
+  subtitle: "I love writing about software development and sustainability.",
   blogs: [
     {
-      url: "https://dev.to/bhavinvirani/getting-started-with-git-1jlj",
-      title: "Getting Started with 'Git'",
-      description:
-        "Git is a version control system (VCS) that makes easier to track changes to files(code). For example, when you edit a file, git can help you to determine...",
+      url: "https://dev.to/lerfast/building-scalable-apis-with-ruby-on-rails",
+      title: "Building Scalable APIs with Ruby on Rails",
+      description: "A guide on how to design and optimize scalable APIs using Ruby on Rails.",
     },
     {
-      url: "https://dev.to/bhavinvirani/2d-vector-in-c-23gh",
-      title: " about Mongoose",
-      description:
-        "MnongoDB provides it's native driver to work with our project at server side but it may be large amount of code or repetition in code but...",
-    },
-    {
-      url: "https://dev.to/bhavinvirani/vector-in-c-4550",
-      title: "Vector in C++",
-      description:
-        "Vectors in C++ are sequence containers representing arrays that can change their size during runtime. They use contiguous storage locations for their elements...",
-    },
-    {
-      url: "https://dev.to/bhavinvirani/2d-vector-in-c-23gh",
-      title: "2D Vector in C++",
-      description:
-        "We can define 2D Vector as Vector of Vector followed by N number of rows where each of the row is individual a vector...",
+      url: "https://dev.to/lerfast/best-practices-for-postgresql-performance",
+      title: "Best Practices for PostgreSQL Performance",
+      description: "How to optimize PostgreSQL databases for high performance applications.",
     },
   ],
-  display: true, // Set false to hide this section, defaults to true
+  display: true,
 };
 
+// Sección de contacto
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all",
-  email_address: "bhavinvirani45@gmail.com",
+  subtitle: "Let's connect! Feel free to reach out.",
+  email_address: "luisemiliorojas@hotmail.com",
+};
+
+// Sección de ciclismo (Cycling)
+const cyclingSection = {
+  title: "Passion for Cycling",
+  description:
+    "Cycling has become an integral part of my life. It is not just a hobby, but a commitment to a healthier lifestyle. With determination and discipline, I am on a journey to lose weight and improve my overall well-being.",
+  image: "YOUR_CYCLING_IMAGE_URL",
+  videoUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID", // Add YouTube video or replace with a local gif URL
+};
+
+// NUEVA SECCIÓN: "commitmentSection"
+// Aquí describes tu compromiso como Especialista en Salud y Seguridad en el Trabajo
+const commitmentSection = {
+  title: "Protecting Lives",
+  subTitle: "Occupational Health & Safety Specialist",
+  description: `My commitment goes beyond coding. As an OHS specialist, 
+    I'm dedicated to safeguarding workplaces, ensuring every 
+    process is safe, and prioritizing human well-being in everything we do.
+    Let's build technology that not only changes business,
+    but also helps save lives.`,
+  // Ajusta si deseas usar una Lottie
+  lottiePath: "src/assets/lotties/ohs.json" 
 };
 
 export {
@@ -190,4 +135,6 @@ export {
   blogSection,
   contactInfo,
   certifications,
+  cyclingSection,
+  commitmentSection // <-- Exportamos la nueva sección
 };

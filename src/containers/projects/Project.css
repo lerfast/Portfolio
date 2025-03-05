@@ -1,7 +1,12 @@
+/* src/containers/projects/Project.css */
+
+/* Keep your existing rules */
+
 .main {
   padding-top: 74px;
   margin: 0 2rem;
-  text-align:justify;
+  text-align: justify;
+  color: #878787;
 }
 
 .project-title {
@@ -11,10 +16,7 @@
   margin-left: 10px;
 }
 
-.startup-project-text img {
-  max-width: 100%;
-  height: auto;
-}
+/* We left .startup-project-text, not used now */
 
 .repo-cards-div-main {
   display: grid;
@@ -22,7 +24,60 @@
   gap: 1rem 1rem;
 }
 
-/* Media Query */
+/* New additions for your custom project cards */
+.project-card {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .project-card {
+  background-color: #2b2b2b; /* or whatever color you prefer in dark mode */
+  color: #fff;
+}
+
+.project-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.project-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color:rgb(44, 25, 139);
+}
+
+.dark-mode .project-card a {
+  color: #e3affe; /* pick a color that suits dark mode */
+}
+
+/* Optional hover effect */
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Project images */
+.project-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Responsive tweaks */
 @media (max-width: 1380px) {
   .project-title {
     font-size: 40px;

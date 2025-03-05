@@ -1,0 +1,59 @@
+/* src/containers/commitment/Commitment.css */
+
+.commitment-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align:justify;
+    margin: 0 2rem;
+    padding-top: 74px;
+  }
+  
+  .commitment-text-div {
+    flex: 1;
+    /* Ajusta el max-width si quieres limitar el ancho de texto */
+    max-width: 600px;
+    margin-right: 20px;
+  }
+  
+  .commitment-title {
+    font-size: 52px;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 10px;
+  }
+  
+  .commitment-subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .commitment-text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #878787;
+  }
+  
+  /* Lottie Container */
+  .commitment-lottie-div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .commitment-main {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .commitment-text-div {
+      margin-right: 0;
+    }
+  
+    .commitment-lottie-div {
+      margin-top: 20px;
+    }
+  }
+  

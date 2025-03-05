@@ -1,8 +1,7 @@
 import React from "react";
-
 import { Fade } from "react-reveal";
 import "./Greeting.css";
-import landingPerson from "../../assets/lottie/landingPerson.json";
+import programmerAnimation from "../../assets/lottie/programmer_animation1.json"; // Nuevo JSON
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
@@ -10,16 +9,15 @@ import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 
 export default function Greeting() {
-    
     return (
         <Fade bottom duration={1300} distance="40px">
             <div className="greet-main" id="greeting">
                 <div className="greeting-main">
                     <div className="greeting-text-div">
                         <div>
-                            <h1 className="greeting-text" >
+                            <h1 className="greeting-text">
                                 {greeting.greetingText}{" "}
-                                <span className="glitch"> 
+                                <span className="glitch">
                                     {greeting.greetingName}
                                 </span>
                             </h1>
@@ -40,7 +38,7 @@ export default function Greeting() {
                     </div>
                     <div className="greeting-image-div">
                         {
-                            <DisplayLottie animationData={landingPerson} />
+                            <DisplayLottie animationData={programmerAnimation} />
                         }
                     </div>
                 </div>

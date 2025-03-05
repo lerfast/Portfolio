@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación Lottie - Programador Feliz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.1/lottie.min.js"></script>
+</head>
+<body>
+    <h1>Programador Feliz Saludando</h1>
+    <div id="lottie-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var animation = lottie.loadAnimation({
+                container: document.getElementById("lottie-container"),
+                renderer: "svg",
+                loop: true,
+                autoplay: true,
+                path: "programador.json"
+            });
+
+            animation.addEventListener("DOMLoaded", function() {
+                console.log("✅ Animación cargada correctamente.");
+            });
+
+            animation.addEventListener("data_failed", function() {
+                console.log("❌ Error al cargar el archivo JSON.");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 .main-button {
-  background-color: #55198b;
-  border: solid 1px #55198b;
+  background-color:rgb(26, 14, 137);
+  border: solid 1px rgb(26, 14, 137);
   color: white;
   font-weight: 700;
   width: max-content;
@@ -19,7 +19,7 @@
 }
 .main-button:hover {
   background-color: #ffffff;
-  color: #55198b;
+  color:rgb(25, 25, 139);
   transition: all 0.3s ease 0s;
   transform: translateY(-3px);
 }
@@ -28,6 +28,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 .project-button > .main-button {
   margin-right: 0 !important;
