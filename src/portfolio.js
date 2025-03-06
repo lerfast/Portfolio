@@ -21,8 +21,6 @@ const socialMediaLinks = {
 // Sección de habilidades
 const skillsSection = {
   title: "What I Do",
-  // Expanded "subTitle" or short paragraph:
-  // Ends with "I work with the following technologies:"
   subTitle:
   "I am a Full-Stack Developer with a background in business administration and occupational health & safety (OHS). I build high-impact solutions that boost productivity and workplace well-being. I work with the following technologies:",
     
@@ -42,7 +40,7 @@ const skillsSection = {
     { skillName: "PostgreSQL", fontAwesomeClassname: "fas fa-database", id: "postgres" },
     { skillName: "WordPress", fontAwesomeClassname: "fab fa-wordpress", id: "wordpress" },
     { skillName: "Spree Commerce", fontAwesomeClassname: "fas fa-shopping-cart", id: "spree" },
-    // New additions:
+   
     { skillName: "Python", fontAwesomeClassname: "fab fa-python", id: "python" },
     
     { skillName: "TensorFlow", fontAwesomeClassname: "fas fa-brain", id: "tensorflow" },
@@ -73,7 +71,7 @@ const certifications = {
       title: "Full Stack Web Development",
       subtitle: "Microverse",
       logo_path: "microverse.png",
-      certificate_link: "https://www.microverse.org/",
+      certificate_link: "https://www.credential.net/f7e1f4f8-726a-4501-a0ad-09d2d8923cf7#acc.fovmP9Dz",
       alt_name: "Microverse",
       color_code: "#DDEFE6",
     },

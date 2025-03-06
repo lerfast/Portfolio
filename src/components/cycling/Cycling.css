@@ -74,4 +74,8 @@
   .cycling-image {
     max-width: 80%; /* or 100% if you like */
   }
+  .cycling-title {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
 }

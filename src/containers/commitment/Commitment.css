@@ -55,5 +55,11 @@
     .commitment-lottie-div {
       margin-top: 20px;
     }
+    .commitment-title {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 10px;
+      }
   }
   

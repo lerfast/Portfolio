@@ -56,6 +56,9 @@ const Projects = () => {
           </div>
 
           {/* Right side: Clickable CHASHH logo */}
+
+
+          <Fade right duration={1200}>
           <div className="chashh-logo">
             <a
               href="https://lerfast.github.io/chashh-landing-page/"
@@ -69,7 +72,10 @@ const Projects = () => {
               />
             </a>
           </div>
+        </Fade>
         </div>
+        <Fade bottom duration={1200} distance="40px">
+        
         <h1
           className={
             isDark
@@ -79,6 +85,11 @@ const Projects = () => {
         >
           Real projects from real businesses
         </h1>
+
+        </Fade>
+        <Fade bottom duration={1200} distance="40px">
+
+
         {/* Real-world projects */}
         <div className="repo-cards-div-main">
           {/* Project 1: Arepas y Más */}
@@ -144,14 +155,16 @@ const Projects = () => {
             
           </div>
         </div>
-
+        </Fade>
         {/* Optional "More Projects" button */}
+        <Fade bottom duration={1200} distance="40px">
         <Button
           text="More Projects"
           className="project-button"
           href={socialMediaLinks.github}
           newTab={true}
         />
+        </Fade>
       </div>
     </Fade>
   );

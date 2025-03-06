@@ -71,7 +71,7 @@
 @media (max-width: 768px) {
   .blog-header-text {
     font-size: 30px;
-    text-align: justify;
+    text-align: center;
   }
 
   .blog-subtitle {

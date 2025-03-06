@@ -12,16 +12,27 @@ export default function GithubProfileCard({ prof }) {
   } else {
     prof.hireable = "No";
   }
+
   return (
     <Fade bottom duration={1000} distance="20px">
-      <div className="main" id="contact">
+      <div className="footer-main" id="contact">
+        {/* Main Title */}
         <h1 className="prof-title">Reach Out to me!</h1>
-        <div className="row">
-          <div className="main-content-profile">
+        
+        <div className="footer-row">
+          {/* Left side: text, location, social links */}
+          <div className="footer-left-col">
+            {/* Subtitle from portfolio's contactInfo */}
             <div className="blog-header">
-              <p className="subTitle blog-subtitle">{contactInfo.subtitle}</p>
+              <p className="subTitle blog-subtitle">
+                {contactInfo.subtitle}
+              </p>
             </div>
+
+            {/* Bio text */}
             <h2 className="bio-text">{emoji(String(prof.bio))}</h2>
+
+            {/* Optional location */}
             {prof.location !== null && (
               <div className="location-div">
                 <span className="desc-prof">
@@ -41,14 +52,15 @@ export default function GithubProfileCard({ prof }) {
                 </span>
               </div>
             )}
-            <div className="opp-div">
-              <span className="desc-prof">
-                Open for opportunities: Yes
-              </span>
-            </div>
+
+            <div className="opp-div" />
+            
+            {/* Social media icons */}
             <SocialMedia />
           </div>
-          <div className="image-content-profile">
+
+          {/* Right side: profile image */}
+          <div className="footer-right-col">
             <img
               src={prof.avatarUrl}
               alt={prof.name}

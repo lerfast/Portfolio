@@ -1,51 +1,68 @@
-.profile-image {
-  border-radius: 50%;
-  border: 4px solid #6c63ff;
-  margin-left: auto;
-  width: 100%;
-  max-width: 350px;
-  height: auto;
-  transition: all 0.1s ease-out;
-  /* filter: hue-rotate(50deg); */
-  filter: grayscale(80%);
+/* Parent container: a "footer" style area */
+.footer-main {
+  padding: 40px 20px;
+  /* If you want a background color, un-comment:
+     background-color: #f8f9fa; 
+  */
 }
 
-.profile-image:hover {
-  filter: none;
-}
-
+/* Title: "Reach Out to me!" */
 .prof-title {
   margin: 0;
   font-size: 40px;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
+/* The row that splits left col (text) and right col (image) on desktop */
+.footer-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between; 
+  gap: 40px; /* spacing between columns */
+}
+
+/* Left column */
+.footer-left-col {
+  flex: 1; /* let text grow */
+}
+
+/* Right column */
+.footer-right-col {
+  flex-shrink: 0; 
+  /* This keeps image from stretching */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The image styling */
+.profile-image {
+  border-radius: 50%;
+  border: 4px solid #6c63ff;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  transition: all 0.1s ease-out;
+  /* On desktop, start grayscale. 
+     We'll remove it on mobile. */
+  filter: grayscale(80%);
+}
+
+/* On hover (desktop), show color */
+.profile-image:hover {
+  filter: none;
+}
+
+/* Gray text styling in some places (subTitle, etc.) */
+.subTitle {
+  color: #868e96;
+}
+
+/* The location text style */
 .location-div {
   text-shadow: blanchedalmond;
-}
-
-.opp-div {
-  padding-bottom: 1rem;
-}
-
-.row {
-  display: flex;
-}
-
-.main-content-profile {
-  flex: 80%;
-}
-
-.image-content-profile {
-  text-align: right;
-  flex: 20%;
-  max-width: 100%;
-  height: auto;
-}
-
-.bio-text {
-  line-height: 30px;
-  font-size: 22px;
+  margin-top: 10px;
 }
 
 .desc-prof {
@@ -53,52 +70,53 @@
   font-size: 19px;
 }
 
-.subTitle {
-  color: #868e96;
+.bio-text {
+  line-height: 30px;
+  font-size: 22px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
+.opp-div {
+  padding-bottom: 1rem;
+}
+
+/* MOBILE: stack columns vertically */
 @media (max-width: 768px) {
-  .row {
-    display: flex;
-    flex-direction: column;
+
+  .prof-title {
+    font-size: 32px;
+    text-align: center;
   }
 
-  .main-content-profile {
+  .footer-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-left-col {
     text-align: center;
-    order: 2;
+    order: 2; 
+  }
+
+  .footer-right-col {
+    order: 1;
+  }
+
+  /* On mobile, remove grayscale filter by default
+     so it's always in color. */
+  .profile-image {
+    filter: none !important;
+    max-width: 250px;
   }
 
   .bio-text {
     font-size: 16px;
   }
 
-  .image-content-profile {
-    margin-left: auto;
-    margin-right: auto;
-    order: 1;
-  }
-
   .desc-prof {
     line-height: 30px;
     font-size: 16px;
-  }
-
-  .profile-image {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-  }
-
-  .profile-image:hover {
-    box-shadow: rgba(0, 0, 0, 1) 0 50px 50px -50px;
-    transition: 0.3s ease-out;
-  }
-
-  .prof-title {
-    padding-bottom: 1rem;
-    font-size: 32px;
-    text-align: center;
   }
 }

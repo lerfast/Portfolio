@@ -21,6 +21,16 @@
   animation: bit 1.5s linear infinite;
   display: inline-block;
 }
+
+@media (max-width: 768px) {
+  .footer-text {
+    text-align: center;
+    color: #868e96 !important;
+    margin-right:20px
+  }
+}
+
+
 @keyframes bit {
   0% {
     font-size: 16px;

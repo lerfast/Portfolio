@@ -2,6 +2,7 @@
 
 import React, { useContext } from "react";
 import { cyclingSection } from "../../portfolio";
+import { Fade } from "react-reveal";
 import "./Cycling.css";
 import StyleContext from "../../contexts/styleContext";
 import montandoImg from "../../assets/images/montando.png";
@@ -24,13 +25,19 @@ export default function Cycling() {
     <div className={`cycling-section ${isDark ? "dark-mode" : ""}`} id="cycling">
 
       {/* Title */}
+<Fade bottom duration={1200} distance="40px">
+
       <h1 className="cycling-title">
         {cyclingSection.title}
       </h1>
-
+      </Fade>
       {/* Main Row: left text + right image */}
+
+
+      
       <div className="cycling-row">
         {/* Left Column: multiple paragraphs */}
+        <Fade left duration={2000}>
         <div className="cycling-text-col">
           {cyclingParagraphs.map((paragraph, idx) => (
             <p key={idx} className="cycling-paragraph">
@@ -38,8 +45,10 @@ export default function Cycling() {
             </p>
           ))}
         </div>
+        </Fade>
 
         {/* Right Column: cycling image */}
+        <Fade right duration={2000}>
         <div className="cycling-image-col">
           <img
             src={montandoImg}
@@ -47,9 +56,11 @@ export default function Cycling() {
             className="cycling-image"
           />
         </div>
+        </Fade>
       </div>
 
       {/* Video below (auto-play, loop, etc.) */}
+      <Fade bottom duration={1200} distance="40px">
       <div className="cycling-video-container">
         <video
           className="cycling-video"
@@ -61,6 +72,7 @@ export default function Cycling() {
           controls
         />
       </div>
+      </Fade>
     </div>
   );
 }
