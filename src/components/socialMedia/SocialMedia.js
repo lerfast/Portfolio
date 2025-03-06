@@ -1,12 +1,11 @@
+// src/components/socialMedia/SocialMedia.js
 import React from "react";
 import "./SocialMedia.css";
-import {socialMediaLinks} from "../../portfolio";
+import { socialMediaLinks } from "../../portfolio";
 
-const socialMedia = () => {
- 
+const SocialMedia = () => {
   return (
     <div className="social-media-div">
-
       {socialMediaLinks.github ? (
         <a
           href={socialMediaLinks.github}
@@ -33,7 +32,7 @@ const socialMedia = () => {
 
       {socialMediaLinks.dev ? (
         <a
-          href={socialMediaLinks.github}
+          href={socialMediaLinks.dev}
           className="icon-button dev"
           target="_blank"
           rel="noopener noreferrer"
@@ -54,7 +53,7 @@ const socialMedia = () => {
           <span></span>
         </a>
       ) : null}
-      
+
       {socialMediaLinks.twitter ? (
         <a
           href={socialMediaLinks.twitter}
@@ -69,7 +68,7 @@ const socialMedia = () => {
 
       {socialMediaLinks.discord ? (
         <a
-          href={`mailto:${socialMediaLinks.discord}`}
+          href={socialMediaLinks.discord}
           className="icon-button discord"
           target="_blank"
           rel="noopener noreferrer"
@@ -126,8 +125,21 @@ const socialMedia = () => {
           <span></span>
         </a>
       ) : null}
+
+      {/* New: WhatsApp */}
+      {socialMediaLinks.whatsapp ? (
+        <a
+          href={socialMediaLinks.whatsapp}
+          className="icon-button whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-whatsapp icon"></i>
+          <span></span>
+        </a>
+      ) : null}
     </div>
   );
-}
+};
 
-export default socialMedia;
+export default SocialMedia;

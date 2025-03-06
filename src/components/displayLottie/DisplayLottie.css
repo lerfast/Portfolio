@@ -1,0 +1,21 @@
+/* src/components/displayLottie/DisplayLottie.css */
+.lottie-container {
+    width: 100%;
+    max-width: 600px; /* or whatever large size you prefer on desktop */
+    margin: 0 auto;   /* center it horizontally */
+  }
+  
+  .lottie-container > div {
+    /* The Lottie library places a canvas or SVG inside.
+       By default, it might expand. This ensures it cannot exceed the container width. */
+    width: 100%;
+    height: auto; /* let the aspect ratio stay correct */
+  }
+  
+  /* On smaller screens, you could shrink max-width further if desired. */
+  @media (max-width: 768px) {
+    .lottie-container {
+      max-width: 350px; /* for example, narrower on mobile */
+    }
+  }
+  

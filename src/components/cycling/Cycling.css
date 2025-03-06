@@ -1,82 +1,77 @@
 /* src/components/cycling/Cycling.css */
 
-/*
-  .cycling-section:
-  Es el contenedor general que puede heredar .dark-mode si isDark es true.
-*/
 .cycling-section {
-  width: 100%;           /* Ocupa todo el ancho en fullscreen */
+  width: 85%;
   margin: 0 auto;
-  text-align: left;      /* Alineado a la izquierda */
   padding: 50px 20px;
   font-family: "Montserrat", sans-serif;
-  /* NO forzamos background/color; se hereda de .dark-mode */
 }
 
-/* 
-  cycling-header:
-  Aquí colocamos Título y Párrafo. 
-  Solo para separarlos visualmente de la parte (imagen+video).
-*/
-.cycling-header {
+/* Dark mode styling would come from .dark-mode higher up if needed */
+
+.cycling-title {
+  font-size: 56px;
+  margin-bottom: 40px;
+}
+
+/* Main row for text+image side by side on larger screens */
+.cycling-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* space between columns */
   margin-bottom: 30px;
 }
 
-/* 
-  Título (h1) y subtítulo (p) 
-  usan las clases "blog-header-text", "subTitle", "blog-subtitle" 
-  que ya existen en tu proyecto (igual que Blogs).
-  No redefinimos aquí esas clases para no duplicar.
-*/
-
-/* 
-  cycling-main-div: 
-  Contenedor para la imagen y el video en la misma fila (horizontal) 
-  cuando la pantalla es grande (desktop). 
-*/
-.cycling-main-div {
-  display: flex;           /* Flex para colocarlos en una fila */
-  flex-direction: row;     /* Horizontal en pantallas grandes */
-  gap: 26%;               /* Espacio entre imagen y video */
-  align-items: flex-start; /* Alinea ambos al inicio vertical */
-  margin-top: 20px;        /* Algo de separación respecto al header */
+/* Left column: paragraphs */
+.cycling-text-col {
+  flex: 1;
 }
 
-/* Imagen de ciclismo */
+/* Right column: image */
+.cycling-image-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Paragraphs spacing */
+.cycling-paragraph {
+  margin-bottom: 1em;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* The cycling image */
 .cycling-image {
-  width: 80%;
-  max-width: 600px;
+  max-width: 400px;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenedor del video */
+/* The video container: optional centering, etc. */
 .cycling-video-container {
+  margin-top: 30px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* center on horizontal */
 }
 
-/* iFrame (video de YouTube) */
-.cycling-video-container iframe {
+/* The video styling (optional) */
+.cycling-video {
   width: 80%;
   max-width: 600px;
-  height: 315px;
   border-radius: 10px;
 }
 
-/* 
-  RESPONSIVE: 
-  Cuando la pantalla es menor a 768px, 
-  pasamos la imagen y video a columna, para que quepan en vertical. 
-*/
+/* Responsive: stack columns on small screens */
 @media (max-width: 768px) {
-  .cycling-main-div {
+  .cycling-row {
     flex-direction: column;
-    align-items: center; /* Centra en horizontal en pantallas pequeñas */
+    align-items: center;
   }
   
-  .cycling-video-container iframe {
-    width: 100%; 
-    height: 250px;
+  .cycling-image {
+    max-width: 80%; /* or 100% if you like */
   }
 }

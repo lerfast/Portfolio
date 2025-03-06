@@ -9,6 +9,7 @@
   box-shadow: 0 0 36px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   height: 200px;
+  text-align: justify;
 }
 
 .blog-title {

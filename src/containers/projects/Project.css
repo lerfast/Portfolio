@@ -1,30 +1,70 @@
 /* src/containers/projects/Project.css */
 
-/* Keep your existing rules */
-
-.main {
+/* Container for the entire Projects section */
+.projects-main {
   padding-top: 74px;
   margin: 0 2rem;
   text-align: justify;
-  color: #878787;
+  
 }
 
+/* Title styling */
 .project-title {
-  font-size: 52px;
+  font-size: 56px;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 30px;
+  text-align: left;
   margin-left: 10px;
 }
 
-/* We left .startup-project-text, not used now */
+/* Container to hold the CHASHH paragraph on the left and logo on the right */
+.chashh-intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;          /* space between text & logo */
+  margin-bottom: 40px;
+  color: #878787
+}
 
+/* Left column: CHASHH paragraph */
+.chashh-text {
+  flex: 1;           /* let text grow */
+  text-align: justify;
+}
+
+/* Right column: CHASHH logo (clickable) */
+.chashh-logo {
+  flex-shrink: 0;    /* do not shrink the logo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chashh-logo-image {
+  max-width: 400px;  /* enlarge the logo so it's more prominent */
+  width: 100%;
+  height: auto;
+  border-radius: 6px; /* optional rounding corners */
+}
+
+/* Paragraph style for the CHASHH text */
+.projects-text {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Cards container (unchanged) */
 .repo-cards-div-main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem 1rem;
 }
 
-/* New additions for your custom project cards */
+/* Project cards */
 .project-card {
   background-color: #f0f0f0;
   border-radius: 8px;
@@ -35,7 +75,7 @@
 }
 
 .dark-mode .project-card {
-  background-color: #2b2b2b; /* or whatever color you prefer in dark mode */
+  background-color: #2b2b2b;
   color: #fff;
 }
 
@@ -56,20 +96,20 @@
   margin-top: 10px;
   text-decoration: none;
   font-weight: bold;
-  color:rgb(44, 25, 139);
+  color: rgb(44, 25, 139);
 }
 
 .dark-mode .project-card a {
-  color: #e3affe; /* pick a color that suits dark mode */
+  color:rgba(54, 11, 244, 0.95);
 }
 
-/* Optional hover effect */
+/* Hover effect for cards (optional) */
 .project-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Project images */
+/* Project images in the cards */
 .project-image {
   width: 100%;
   max-width: 100%;
@@ -77,7 +117,7 @@
   margin-bottom: 15px;
 }
 
-/* Responsive tweaks */
+/* Responsive breakpoints */
 @media (max-width: 1380px) {
   .project-title {
     font-size: 40px;
@@ -88,6 +128,16 @@
   .project-title {
     font-size: 30px;
     text-align: center;
+  }
+
+  /* Stack the CHASHH paragraph & logo vertically on mobile */
+  .chashh-intro-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chashh-logo {
+    margin-top: 20px;
   }
 
   .repo-cards-div-main {

@@ -4,6 +4,9 @@
   font-size: 56px;
   font-weight: 400;
   line-height: normal;
+  margin-left: 30px;
+  text-align: left;
+  margin-bottom: 40px;
 }
 
 .cert-main-div>* {
@@ -13,6 +16,9 @@
 
 .cert-main-div {
   display: flex;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 40px;
 }
 
 .cert-image-div>img {

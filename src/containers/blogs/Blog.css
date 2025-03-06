@@ -18,12 +18,14 @@
 .blog-header-text {
   font-size: 56px;
   font-weight: 400;
-  margin:10px;
+  margin: 10px;
+  text-align: left; /* ensure left alignment to match other sections */
+  margin-left: 30px; /* optional spacing, if you do it for others */
+  margin-bottom: 30px; 
+  
 }
 
-.blog-subtitle {
-  text-transform: uppercase;
-}
+
 
 .blog-main-div>* {
   flex: 1;
@@ -32,6 +34,7 @@
 
 .blog-main-div {
   display: flex;
+  margin-right: 30px;
 }
 
 .blog-image-div>img {
@@ -39,10 +42,18 @@
   height: auto;
 }
 
+.blog-subtitle {
+  font-size: 19px;
+  line-height: normal;
+  text-align: justify;
+  margin-left: 30px
+}
+
 .blog-text-div {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(415px, 1fr));
   gap: 32px;
+  margin-left: 30px;
 }
 
 .subTitle {
@@ -60,13 +71,14 @@
 @media (max-width: 768px) {
   .blog-header-text {
     font-size: 30px;
-    text-align: center;
+    text-align: justify;
   }
 
   .blog-subtitle {
-    font-size: 16px;
+    font-size: 19px;
     line-height: normal;
-    text-align: center;
+    text-align: justify;
+    margin-right: 30px
   }
 }
 

@@ -59,7 +59,12 @@
     font-variant-ligatures: no-common-ligatures;
     -webkit-font-variant-ligatures: no-common-ligatures;
     padding: 0 10px;
+    color: blue; /* pick the exact shade of blue you prefer */
 }
+
+.dark-menu .logo-name {
+    color: white; /* or whatever color you currently see in dark mode */
+  }
 
 /* menu */
 

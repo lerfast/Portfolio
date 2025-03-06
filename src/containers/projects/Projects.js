@@ -6,10 +6,13 @@ import Button from "../../components/button/Button";
 import { socialMediaLinks } from "../../portfolio";
 import StyleContext from "../../contexts/styleContext";
 
-// Import images from src/assets/projectImages
+// Import images for your real-world projects
 import arepasImage from "../../assets/projectImages/arepas.png";
 import coffeeImage from "../../assets/projectImages/coffee.png";
 import budgetImage from "../../assets/projectImages/budget.png";
+
+// Import the CHASHH logo
+import chashhLogo from "../../assets/images/chashh_logo.png";
 
 const Projects = () => {
   const { isDark } = useContext(StyleContext);
@@ -17,50 +20,65 @@ const Projects = () => {
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="projects-main" id="projects">
-        {/* Text area (similar to commitment-text-div) */}
-        <div className="projects-text-div">
-          <h1
-            className={
-              isDark
-                ? "dark-mode heading projects-title"
-                : "heading projects-title"
-            }
-          >
-            Projects
-          </h1>
+        <h1
+          className={
+            isDark
+              ? "dark-mode heading projects-title"
+              : "heading projects-title", "project-title"
+          }
+        >
+          Projects in Development
+        </h1>
 
-          {/* CHASHH introduction as a 'subTitle' style */}
-          <p
-            className={
-              isDark
-                ? "dark-mode projects-text"
-                : "projects-text"
-            }
-          >
-            I am currently developing an innovative platform called 
-            <strong> CHASHH</strong> to revolutionize workplace safety 
-            by combining advanced technology with real-time data and predictive analytics. 
-            CHASHH aims to standardize how organizations identify and prevent hazards, 
-            providing actionable insights to protect employees and ensure compliance 
-            with critical regulations. By harnessing <strong>React</strong> for the frontend,{" "}
-            <strong>Ruby on Rails</strong> for the backend, and <strong>Python</strong> 
-            with <strong>TensorFlow</strong> for AI-driven risk analysis, <strong>CHASHH</strong> 
-            detects potential issues before they escalate, seamlessly integrates with existing 
-            systems, and fosters a culture of proactive risk management. From predictive risk 
-            analysis and personalized prevention strategies to continuous monitoring and 
-            education, <strong>CHASHH</strong> delivers a streamlined approach to safeguarding 
-            workers across diverse industries.
-          </p>
+        {/* CHASHH Intro Container (paragraph on left, clickable logo on right) */}
+        <div className="chashh-intro-container">
+          {/* Left side: CHASHH Paragraph */}
+          <div className="chashh-text">
+            <p className={isDark ? "dark-mode projects-text" : "projects-text"}>
+              I am currently developing an innovative platform called{" "}
+              <strong>CHASHH</strong> to revolutionize workplace safety by 
+              combining advanced technology with real-time data and predictive 
+              analytics. CHASHH aims to standardize how organizations identify 
+              and prevent hazards, providing actionable insights to protect 
+              employees and ensure compliance with critical regulations. By 
+              harnessing <strong>React</strong> for the frontend,{" "}
+              <strong>Ruby on Rails</strong> for the backend, and{" "}
+              <strong>Python</strong> with <strong>TensorFlow</strong> for 
+              AI-driven risk analysis, <strong>CHASHH</strong> detects potential 
+              issues before they escalate, seamlessly integrates with existing 
+              systems, and fosters a culture of proactive risk management. From 
+              predictive risk analysis and personalized prevention strategies to 
+              continuous monitoring and education, <strong>CHASHH</strong>{" "}
+              delivers a streamlined approach to safeguarding workers across 
+              diverse industries. <strong>For more information about this project, please 
+              click on the CHASHH logo.</strong>
+            </p>
+          </div>
 
-          {/* Button to learn more about CHASHH */}
-          <Button
-            text="For more information about CHASHH, please click here"
-            className="project-button"
-            href="https://lerfast.github.io/chashh-landing-page/"
-            newTab={true}
-          />
+          {/* Right side: Clickable CHASHH logo */}
+          <div className="chashh-logo">
+            <a
+              href="https://lerfast.github.io/chashh-landing-page/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={chashhLogo}
+                alt="CHASHH Logo"
+                className="chashh-logo-image"
+              />
+            </a>
+          </div>
         </div>
-
+        <h1
+          className={
+            isDark
+              ? "dark-mode heading projects-title"
+              : "heading projects-title", "project-title"
+          }
+        >
+          Real projects from real businesses
+        </h1>
         {/* Real-world projects */}
         <div className="repo-cards-div-main">
           {/* Project 1: Arepas y Más */}
@@ -72,17 +90,17 @@ const Projects = () => {
             />
             <h2>Arepas y Más</h2>
             <p>
-              A real business located in Miami, with many satisfied customers.
-              Built 100% in <strong>React</strong>, it provides a basic e-commerce 
-              functionality to order arepas. When checking out, it sends an email to 
-              the company with the request.
+              A real business located in Miami Florida, with many satisfied customers, thanks to this app.
+              Built 100% in <strong>React</strong>, it provides a basic 
+              e-commerce functionality to order arepas. When checking out, it 
+              sends an email to the company with the request.
             </p>
             <a
               href="https://lerfast.github.io/arepas-mas-corp/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Project
+              View Site
             </a>
           </div>
 
@@ -93,18 +111,14 @@ const Projects = () => {
               alt="Coffee Shop Landing Page"
               className="project-image"
             />
-            <h2>Coffee Shop Landing Page</h2>
+            <h2>Cata Café Landing Page</h2>
             <p>
-              A React landing page for a café in Neiva, Huila-Colombia. Customers scan
-              a QR code at their table, leading them to this page with a welcome
-              message and a button to see the menu.
+              A React landing page for a café in Neiva, Huila-Colombia. 
+              Customers scan a QR code at their table, leading them to this 
+              page with a welcome message and a button to see the menu.
             </p>
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project (Coming Soon)
+            <a href="https://lerfast.github.io/cata-cafe/" target="_blank" rel="noopener noreferrer">
+              View Site
             </a>
           </div>
 
@@ -117,17 +131,17 @@ const Projects = () => {
             />
             <h2>Personal Budget App</h2>
             <p>
-              A basic application for managing personal expenses and tracking budgets.
-              This was one of my milestone projects at Microverse, built 100% with
-              <strong> Ruby on Rails</strong>.
+              A basic application for managing personal expenses and tracking 
+              budgets. This was one of my milestone projects at Microverse, 
+              built 100% with <strong>Ruby on Rails</strong>.
             </p>
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project (Link Pending)
+            <a href="https://github.com/lerfast/Module5-Capstone-budget-app?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
+              View Source Code of the Project 
+            </a><br></br>
+            <a href="https://www.loom.com/share/3223814f988341dcabf9407e5000beb0" target="_blank" rel="noopener noreferrer">
+              View Video Project 
             </a>
+            
           </div>
         </div>
 

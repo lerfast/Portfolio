@@ -6,7 +6,7 @@ const greeting = {
   username: "Luis Emilio Rojas Rojas",
   greetingText: "Hi all, I'm ",
   greetingName: "Luis",
-  subTitle: emoji("Full-Stack Software Developer | Business Administrator | Sustainability Expert"),
+  subTitle: emoji("Full-Stack Software Developer | Business Administrator | Specialist in Occupational Health and Security (OHS)"),
   resumeLink: "https://drive.google.com/file/d/16KOJpFXgMhibKc7grFxfytRfSmcaQaFT/view?usp=drive_link",
 };
 
@@ -15,16 +15,21 @@ const socialMediaLinks = {
   github: "https://github.com/lerfast",
   linkedin: "https://www.linkedin.com/in/luisemiliorojas/",
   email: "luisemiliorojas@hotmail.com",
+  whatsapp: "https://wa.me/573187757620",
 };
 
 // Sección de habilidades
 const skillsSection = {
   title: "What I Do",
-  subTitle: "Passionate Developer with Business and Sustainability Expertise",
+  // Expanded "subTitle" or short paragraph:
+  // Ends with "I work with the following technologies:"
+  subTitle:
+  "I am a Full-Stack Developer with a background in business administration and occupational health & safety (OHS). I build high-impact solutions that boost productivity and workplace well-being. I work with the following technologies:",
+    
   skills: [
     emoji("⚡ Full-Stack Development (React, Ruby on Rails, Node.js, PostgreSQL)"),
     emoji("⚡ Business Administration & Project Management"),
-    emoji("⚡ Occupational Health & Sustainability Consulting"),
+    emoji("⚡ Occupational Health & Safety Consulting"),
   ],
   softwareSkills: [
     { skillName: "HTML5", fontAwesomeClassname: "fab fa-html5", id: "html-5" },
@@ -37,8 +42,13 @@ const skillsSection = {
     { skillName: "PostgreSQL", fontAwesomeClassname: "fas fa-database", id: "postgres" },
     { skillName: "WordPress", fontAwesomeClassname: "fab fa-wordpress", id: "wordpress" },
     { skillName: "Spree Commerce", fontAwesomeClassname: "fas fa-shopping-cart", id: "spree" },
+    // New additions:
+    { skillName: "Python", fontAwesomeClassname: "fab fa-python", id: "python" },
+    
+    { skillName: "TensorFlow", fontAwesomeClassname: "fas fa-brain", id: "tensorflow" },
   ],
 };
+
 
 // Sección de certificaciones
 const certifications = {
@@ -81,17 +91,12 @@ const openSource = {
 // Sección de blogs
 const blogSection = {
   title: "Blogs",
-  subtitle: "I love writing about software development and sustainability.",
+  subtitle: "I love writing about software development and technology.",
   blogs: [
     {
-      url: "https://dev.to/lerfast/building-scalable-apis-with-ruby-on-rails",
-      title: "Building Scalable APIs with Ruby on Rails",
-      description: "A guide on how to design and optimize scalable APIs using Ruby on Rails.",
-    },
-    {
-      url: "https://dev.to/lerfast/best-practices-for-postgresql-performance",
-      title: "Best Practices for PostgreSQL Performance",
-      description: "How to optimize PostgreSQL databases for high performance applications.",
+      url: "https://medium.com/@luisemiliorojas/how-overcoming-challenges-in-software-development-can-lead-to-personal-growth-b288352210dd",
+      title: "Embracing Challenges in Software Development: A Journey of Growth and Resilience",
+      description: "Embracing Challenges in Software Development highlights how overcoming obstacles fosters resilience, leadership, and growth. Through a personal experience, the author emphasizes the value of challenges as opportunities for continuous improvement.",
     },
   ],
   display: true,
@@ -106,12 +111,12 @@ const contactInfo = {
 
 // Sección de ciclismo (Cycling)
 const cyclingSection = {
-  title: "Passion for Cycling",
-  description:
-    "Cycling has become an integral part of my life. It is not just a hobby, but a commitment to a healthier lifestyle. With determination and discipline, I am on a journey to lose weight and improve my overall well-being.",
+  title: "Passion for MTB",
+  
   image: "YOUR_CYCLING_IMAGE_URL",
-  videoUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID", // Add YouTube video or replace with a local gif URL
+  videoUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID", 
 };
+
 
 // NUEVA SECCIÓN: "commitmentSection"
 // Aquí describes tu compromiso como Especialista en Salud y Seguridad en el Trabajo
