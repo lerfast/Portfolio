@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/2025-Portfolio/static/css/main.7afdc2b0.css",
+    "main.css": "/2025-Portfolio/static/css/main.b24b52ed.css",
     "main.js": "/2025-Portfolio/static/js/main.a2832d31.js",
     "static/css/430.a5a7ed1b.chunk.css": "/2025-Portfolio/static/css/430.a5a7ed1b.chunk.css",
     "static/js/430.cc5beb79.chunk.js": "/2025-Portfolio/static/js/430.cc5beb79.chunk.js",
@@ -29,13 +29,13 @@
     "index.html": "/2025-Portfolio/index.html",
     "static/media/googleAssistant.svg": "/2025-Portfolio/static/media/googleAssistant.3227e84a89a1650db619.svg",
     "static/media/talksCardBack.svg": "/2025-Portfolio/static/media/talksCardBack.99241699e0279aeb0db7.svg",
-    "main.7afdc2b0.css.map": "/2025-Portfolio/static/css/main.7afdc2b0.css.map",
+    "main.b24b52ed.css.map": "/2025-Portfolio/static/css/main.b24b52ed.css.map",
     "main.a2832d31.js.map": "/2025-Portfolio/static/js/main.a2832d31.js.map",
     "430.a5a7ed1b.chunk.css.map": "/2025-Portfolio/static/css/430.a5a7ed1b.chunk.css.map",
     "430.cc5beb79.chunk.js.map": "/2025-Portfolio/static/js/430.cc5beb79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7afdc2b0.css",
+    "static/css/main.b24b52ed.css",
     "static/js/main.a2832d31.js"
   ]
 }
