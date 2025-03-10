@@ -18,8 +18,9 @@ const Projects = () => {
   const { isDark } = useContext(StyleContext);
 
   return (
-    <Fade bottom duration={1000} distance="40px">
+    
       <div className="projects-main" id="projects">
+        <Fade bottom duration={1000} distance="40px">
         <h1
           className={
             isDark
@@ -29,10 +30,15 @@ const Projects = () => {
         >
           Projects in Development
         </h1>
+        </Fade>
 
+
+       
         {/* CHASHH Intro Container (paragraph on left, clickable logo on right) */}
         <div className="chashh-intro-container">
           {/* Left side: CHASHH Paragraph */}
+
+          <Fade bottom duration={1000} distance="40px"> 
           <div className="chashh-text">
             <p className={isDark ? "dark-mode projects-text" : "projects-text"}>
               I am currently developing an innovative platform called{" "}
@@ -54,7 +60,7 @@ const Projects = () => {
               click on the CHASHH logo.</strong>
             </p>
           </div>
-
+          </Fade>
           {/* Right side: Clickable CHASHH logo */}
 
 
@@ -143,7 +149,7 @@ const Projects = () => {
             <h2>Personal Budget App</h2>
             <p>
               A basic application for managing personal expenses and tracking 
-              budgets. This was one of my milestone projects at Microverse, 
+              budgets. This was one of my Capstone projects at Microverse, 
               built 100% with <strong>Ruby on Rails</strong>.
             </p>
             <a href="https://github.com/lerfast/Module5-Capstone-budget-app?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
@@ -166,7 +172,7 @@ const Projects = () => {
         />
         </Fade>
       </div>
-    </Fade>
+    
   );
 };
 

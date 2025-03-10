@@ -102,7 +102,6 @@ const blogSection = {
 
 // Sección de contacto
 const contactInfo = {
-  title: emoji("Contact Me ☎️"),
   subtitle: "Let's connect! Feel free to reach out.",
   email_address: "luisemiliorojas@hotmail.com",
 };

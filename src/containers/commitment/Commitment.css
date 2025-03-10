@@ -50,6 +50,7 @@
     
     .commitment-text-div {
       margin-right: 0;
+      text-align: justify;
     }
   
     .commitment-lottie-div {
@@ -60,6 +61,7 @@
         font-weight: 400;
         line-height: normal;
         margin-left: 10px;
+        text-align: center;
       }
   }
   
