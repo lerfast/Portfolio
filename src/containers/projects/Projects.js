@@ -155,7 +155,7 @@ const Projects = () => {
             <a href="https://github.com/lerfast/Module5-Capstone-budget-app?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
               View Source Code of the Project 
             </a><br></br>
-            <a href="https://www.loom.com/share/3223814f988341dcabf9407e5000beb0" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/watch?v=IR-94sy8DNQ" target="_blank" rel="noopener noreferrer">
               View Video Project 
             </a>
             
