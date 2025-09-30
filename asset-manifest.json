@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.558b3b0a.css",
-    "main.js": "/Portfolio/static/js/main.02038ab9.js",
+    "main.css": "/Portfolio/static/css/main.4cd6a4d8.css",
+    "main.js": "/Portfolio/static/js/main.46535a45.js",
     "static/css/430.a5a7ed1b.chunk.css": "/Portfolio/static/css/430.a5a7ed1b.chunk.css",
     "static/js/430.cc5beb79.chunk.js": "/Portfolio/static/js/430.cc5beb79.chunk.js",
     "static/media/riding480p.mp4": "/Portfolio/static/media/riding480p.c4fd9794c66d02486c5b.mp4",
@@ -27,15 +27,16 @@
     "static/media/sanmartin.png": "/Portfolio/static/media/sanmartin.1994e4ff94dc340d2a8e.png",
     "static/media/skill.svg": "/Portfolio/static/media/skill.35a147662ab0a1d15e57.svg",
     "index.html": "/Portfolio/index.html",
+    "static/media/oshx_lockup.svg": "/Portfolio/static/media/oshx_lockup.e3fd25d38110c633644f1248b9703975.svg",
     "static/media/googleAssistant.svg": "/Portfolio/static/media/googleAssistant.3227e84a89a1650db619.svg",
     "static/media/talksCardBack.svg": "/Portfolio/static/media/talksCardBack.99241699e0279aeb0db7.svg",
-    "main.558b3b0a.css.map": "/Portfolio/static/css/main.558b3b0a.css.map",
-    "main.02038ab9.js.map": "/Portfolio/static/js/main.02038ab9.js.map",
+    "main.4cd6a4d8.css.map": "/Portfolio/static/css/main.4cd6a4d8.css.map",
+    "main.46535a45.js.map": "/Portfolio/static/js/main.46535a45.js.map",
     "430.a5a7ed1b.chunk.css.map": "/Portfolio/static/css/430.a5a7ed1b.chunk.css.map",
     "430.cc5beb79.chunk.js.map": "/Portfolio/static/js/430.cc5beb79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.558b3b0a.css",
-    "static/js/main.02038ab9.js"
+    "static/css/main.4cd6a4d8.css",
+    "static/js/main.46535a45.js"
   ]
 }
