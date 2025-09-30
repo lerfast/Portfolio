@@ -1,67 +1,91 @@
-/* src/containers/commitment/Commitment.css */
-
 .commitment-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align:justify;
-    margin: 0 2rem;
-    padding-top: 74px;
+  margin: 0 2rem;
+  padding-top: 74px;
+
+  /* Palette */
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+}
+.dark-mode.commitment-main {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+}
+
+/* Each block (row) */
+.commitment-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 18px 0 36px;
+}
+
+/* Invert for Drone:
+   We queremos LOTTIE a la IZQUIERDA y TEXTO a la DERECHA,
+   así que dejamos fila normal (row) porque en el DOM el lottie va primero. */
+.commitment-block--invert {
+  flex-direction: row; /* lottie left, text right */
+  margin-top: -200px;
+}
+
+/* Titles inside each block */
+.commitment-block-title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: .2px;
+  margin: 0 0 12px 0;
+
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: .2em; /* evita cortes en g/j/y */
+}
+
+.commitment-text-div {
+  flex: 1;
+  max-width: 680px;
+}
+.commitment-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
+}
+
+.commitment-lottie-div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(2,6,23,.02);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .commitment-block-title { font-size: 32px; }
+}
+@media (max-width: 768px) {
+  .commitment-block,
+  .commitment-block--invert {
+    flex-direction: column; /* stack on mobile */
   }
-  
+  .commitment-lottie-div,
   .commitment-text-div {
-    flex: 1;
-    /* Ajusta el max-width si quieres limitar el ancho de texto */
-    max-width: 600px;
-    margin-right: 20px;
+    width: 100%;
   }
-  
-  .commitment-title {
-    font-size: 56px;
-    font-weight: 400;
-    line-height: normal;
-    margin-left: 10px;
+  .commitment-block-title {
+    font-size: 28px;
+    text-align: center;
   }
-  
-  .commitment-subtitle {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  
-  .commitment-text {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #878787;
-  }
-  
-  /* Lottie Container */
-  .commitment-lottie-div {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  
-  @media (max-width: 768px) {
-    .commitment-main {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .commitment-text-div {
-      margin-right: 0;
-      text-align: justify;
-    }
-  
-    .commitment-lottie-div {
-      margin-top: 20px;
-    }
-    .commitment-title {
-        font-size: 30px;
-        font-weight: 400;
-        line-height: normal;
-        margin-left: 10px;
-        text-align: center;
-      }
-  }
-  
+}

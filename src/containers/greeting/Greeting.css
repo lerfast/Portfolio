@@ -1,38 +1,29 @@
 .greet-main {
   width: 90%;
   padding: 20px 10px;
-  margin: 0px auto;
+  margin: 0 auto;
   margin-top: 2rem;
+
+  /* Variables para los botones (mismo look azul que Projects) */
+  --btn-primary-bg: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  --btn-primary-text: #fff;
 }
 
 .gretting-main {
   width: 90%;
   padding: 20px 10px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
-.greeting-main {
-  display: flex;
-}
-
-.greeting-main > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-
-.button-greeting-div {
-  display: flex;
-  margin-top: 20px;
-}
+.greeting-main { display: flex; }
+.greeting-main > * { flex: 1; margin-bottom: 30px; }
 
 .greeting-text {
   text-align: start;
   font-size: 70px;
   line-height: 1.1;
 }
-.glitch {
-  color: #868e96;
-}
+.glitch { color: #868e96; }
 
 .greeting-text-p {
   color: rgb(135, 135, 135);
@@ -46,79 +37,106 @@
   align-items: center;
   justify-content: center;
 }
+.greeting-image-div > img { max-width: 100%; height: auto; }
 
-.greeting-image-div > img {
-  max-width: 100%;
-  height: auto;
+/* ===== Botonera (mismo estilo azul que en Projects) ===== */
+.button-greeting-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  align-items: center;
 }
 
+/* El wrapper del Button queda TRANSPARENTE y ajustado al contenido */
+.cta-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+}
+
+/* Estilo del elemento clickeable interno (a/button) */
+.cta-button a,
+.cta-button button,
+.button-greeting-div > a,
+.button-greeting-div > button {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--btn-primary-text) !important;
+  background: var(--btn-primary-bg) !important;
+
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+
+  font-weight: 900;
+  letter-spacing: .2px;
+
+  box-shadow: 0 12px 28px rgba(2, 88, 164, .18),
+              0 2px 8px rgba(2, 6, 23, .12) !important;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+.cta-button a:hover,
+.cta-button button:hover,
+.button-greeting-div > a:hover,
+.button-greeting-div > button:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.cta-button a:focus-visible,
+.cta-button button:focus-visible,
+.button-greeting-div > a:focus-visible,
+.button-greeting-div > button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(34, 193, 238, .35),
+    0 10px 26px rgba(2, 88, 164, .22) !important;
+}
+
+/* Animación saludo */
 .wave-emoji {
-  animation-duration: 1.8s;
-  animation-iteration-count: infinite;
-  animation-name: wave;
+  animation: wave 1.8s infinite;
   display: inline-block;
   transform-origin: 70% 70%;
 }
-
 @keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  10% {
-    transform: rotate(-10deg);
-  }
-
-  20% {
-    transform: rotate(12deg);
-  }
-
-  30% {
-    transform: rotate(-10deg);
-  }
-
-  40% {
-    transform: rotate(9deg);
-  }
-
-  50% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(12deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(9deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
 /* Media Query */
 @media (max-width: 1380px) {
-  .greeting-text {
-    font-size: 50px;
-  }
+  .greeting-text { font-size: 50px; }
+  .greeting-text-p { font-size: 20px; }
+}
 
-  .greeting-text-p {
-    font-size: 20px;
-  }
+@media (max-width: 846px) {
+  .greeting-main { display: block; }
 }
 
 @media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
-  }
+  .button-greeting-div { justify-content: center; }
 
   .greeting-text {
     font-size: 30px;
     text-align: center;
   }
-
   .greeting-text-p {
     font-size: 16px;
     line-height: normal;
     text-align: center;
-  }
-}
-@media (max-width: 846px) {
-  .greeting-main {
-    display: block;
   }
 }

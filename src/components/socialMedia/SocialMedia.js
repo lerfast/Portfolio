@@ -42,6 +42,7 @@ const SocialMedia = () => {
         </a>
       ) : null}
 
+      {/* Uses gmail (not email) */}
       {socialMediaLinks.gmail ? (
         <a
           href={`mailto:${socialMediaLinks.gmail}`}
@@ -126,7 +127,7 @@ const SocialMedia = () => {
         </a>
       ) : null}
 
-      {/* New: WhatsApp */}
+      {/* WhatsApp */}
       {socialMediaLinks.whatsapp ? (
         <a
           href={socialMediaLinks.whatsapp}
@@ -135,6 +136,19 @@ const SocialMedia = () => {
           rel="noopener noreferrer"
         >
           <i className="fab fa-whatsapp icon"></i>
+          <span></span>
+        </a>
+      ) : null}
+
+      {/* NEW: YouTube */}
+      {socialMediaLinks.youtube ? (
+        <a
+          href={socialMediaLinks.youtube}
+          className="icon-button youtube"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-youtube icon"></i>
           <span></span>
         </a>
       ) : null}

@@ -1,81 +1,200 @@
-/* src/components/cycling/Cycling.css */
-
 .cycling-section {
   width: 85%;
   margin: 0 auto;
   padding: 50px 20px;
   font-family: "Montserrat", sans-serif;
+
+  /* palette + shared primary (masculine blue) */
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+
+  --btn-primary-bg: var(--accent-grad);
+  --btn-primary-text: #fff;
+  --btn-ghost-fg: #0F2740;
+  --btn-ghost-border: rgba(15,23,42,.18);
+}
+.dark-mode .cycling-section {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+  --btn-ghost-fg: #CBE7FF;
+  --btn-ghost-border: rgba(255,255,255,.22);
 }
 
-/* Dark mode styling would come from .dark-mode higher up if needed */
-
+/* Title with gradient and safe baseline (avoid clipped descenders) */
 .cycling-title {
   font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.2em;   /* evita cortes en letras g/j/y */
   margin-bottom: 40px;
 }
 
-/* Main row for text+image side by side on larger screens */
+/* Main row for text+image */
 .cycling-row {
   display: flex;
   flex-direction: row;
-  gap: 20px; /* space between columns */
-  margin-bottom: 30px;
+  gap: 24px;
+  margin-bottom: 28px;
 }
-
-/* Left column: paragraphs */
-.cycling-text-col {
-  flex: 1;
-}
-
-/* Right column: image */
+.cycling-text-col { flex: 1; color: var(--fg); }
 .cycling-image-col {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* Paragraphs spacing */
 .cycling-paragraph {
   margin-bottom: 1em;
-  line-height: 1.6;
-  text-align: justify;
+  line-height: 1.7;
+  color: var(--muted);
+  text-align: justify;           /* justificado */
+  text-justify: inter-word;
 }
 
-/* The cycling image */
+/* Image */
 .cycling-image {
   max-width: 400px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
-/* The video container: optional centering, etc. */
+/* Local riding video (placed right after MTB section) */
 .cycling-video-container {
-  margin-top: 30px;
+  margin-top: 8px;
+  margin-bottom: 34px;
   display: flex;
-  justify-content: center; /* center on horizontal */
+  justify-content: center;
 }
-
-/* The video styling (optional) */
 .cycling-video {
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
+  width: 45%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
-/* Responsive: stack columns on small screens */
+/* ----- Video & Drone block ----- */
+.vd-section { margin-top: 6px; }
+.vd-row {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .vd-row { grid-template-columns: 1fr; }
+}
+
+.vd-copy { color: var(--fg); }
+.vd-title {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.25;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: .18em;         /* evita cortes */
+  margin: 0 0 10px 0;
+}
+.vd-paragraph {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+  text-align: justify;           /* justificado */
+  text-justify: inter-word;
+}
+
+/* CTAs (shared button style with projects) */
+.cycling-btn {
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .2px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  margin-right: 10px;
+}
+.cycling-btn.primary {
+  color: var(--btn-primary-text);
+  background: var(--btn-primary-bg);
+  box-shadow: 0 12px 28px rgba(2, 88, 164, .18), 0 2px 8px rgba(2, 6, 23, .12);
+}
+.cycling-btn.primary:hover { transform: translateY(-2px); filter: saturate(1.05) brightness(1.02); }
+.cycling-btn.primary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(34, 193, 238, .35),
+    0 10px 26px rgba(2, 88, 164, .22);
+}
+.cycling-btn.ghost {
+  color: var(--btn-ghost-fg);
+  border: 2px solid var(--btn-ghost-border);
+  background: transparent;
+}
+.cycling-btn.ghost:hover { transform: translateY(-2px); }
+.cycling-btn.ghost:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(34, 193, 238, .28); }
+
+.vd-ctas { margin: 14px 0 12px; }
+
+/* Skill chips */
+.vd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.vd-chips li {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e6f1ff;
+  color: #0f2740;
+  border: 1px solid rgba(15,23,42,.12);
+}
+.dark-mode .vd-chips li {
+  background: rgba(255,255,255,.09);
+  color: #e5f2ff;
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+/* YouTube responsive embed */
+.vd-media { width: 100%; }
+.yt-embed {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.yt-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Responsive stack for the first row */
 @media (max-width: 768px) {
   .cycling-row {
     flex-direction: column;
     align-items: center;
   }
-  
-  .cycling-image {
-    max-width: 80%; /* or 100% if you like */
-  }
-  .cycling-title {
-    font-size: 30px;
-    margin-bottom: 40px;
-  }
+  .cycling-image { max-width: 80%; }
+  .cycling-title { font-size: 30px; }
 }

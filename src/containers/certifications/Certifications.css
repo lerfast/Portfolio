@@ -1,53 +1,105 @@
-/*Certification Cards Layout*/
+/* ===== Section wrapper ===== */
+.certs-section {
+  margin: 0 2rem 40px;
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
 
-.cert-header-title {
+  /* Azul masculino coherente con el resto del sitio */
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+}
+
+.dark-mode .certs-section {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+}
+
+/* ===== Header ===== */
+.certs-header {
+  margin: 0 0 28px 0;
+  padding-left: 10px;
+}
+
+.certs-title {
   font-size: 56px;
-  font-weight: 400;
-  line-height: normal;
-  margin-left: 30px;
-  text-align: left;
-  margin-bottom: 40px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin: 0 0 6px 0;
+  letter-spacing: .2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.cert-main-div>* {
-  flex: 1;
-  margin-bottom: 30px;
+.certs-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
 }
 
-.cert-main-div {
-  display: flex;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 40px;
-}
-
-.cert-image-div>img {
-  max-width: 100%;
-  height: auto;
-}
-
-.cert-text-div {
+/* ===== Grid ===== */
+.certs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  perspective: 1200px; /* para tilt 3D */
 }
 
-/* Media Query */
+/* Wrapper para cada tarjeta (envolvemos tu CertificationCard) */
+.certs-grid .cert-tilt {
+  grid-column: span 12;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  background: #fff;
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.dark-mode .certs-grid .cert-tilt {
+  background: #0b1220;
+}
+
+/* “Sheen / glare” al mover el mouse (valores desde JS con --px/--py) */
+.certs-grid .cert-tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(380px 380px at var(--px, 50%) var(--py, 50%),
+      rgba(255,255,255,.22), rgba(255,255,255,0) 45%);
+}
+.certs-grid .cert-tilt:hover::after { opacity: 1; }
+
+/* Hover (elevación suave si no hay tilt activo) */
+.certs-grid .cert-tilt:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 640px) {
+  .certs-grid .cert-tilt { grid-column: span 6; }
+}
+@media (min-width: 1024px) {
+  .certs-grid .cert-tilt { grid-column: span 4; }
+}
+
+/* Ajustes de tipografías para pantallas más pequeñas */
 @media (max-width: 1380px) {
-  .cert-header-title {
-    font-size: 40px;
-  }
+  .certs-title { font-size: 40px; }
 }
-
 @media (max-width: 768px) {
-  .cert-header-title {
+  .certs-title {
     font-size: 30px;
     text-align: center;
   }
-}
-
-@media screen and (max-width: 480px) and (min-width:300px) {
-  .cert-text-div {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+  .certs-header { padding-left: 0; text-align: center; }
 }

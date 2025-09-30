@@ -13,12 +13,11 @@ const Header = () => {
             <header className={isDark ? "dark-menu header" : "header"}>
                 {/* Logo */}
                 <div className="logo">
-    <span className="grey-color"> &lt;</span>
-    <span className={isDark ? 'dark-menu logo-name' : 'logo-name'}>{greeting.username}</span>
-    <span className="grey-color">/&gt;</span>
-</div>
+                    <span className="grey-color"> &lt;</span>
+                    <span className={isDark ? 'dark-menu logo-name' : 'logo-name'}>{greeting.username}</span>
+                    <span className="grey-color">/&gt;</span>
+                </div>
 
-                
                 {/* menu(phone) */}
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
                 <label

@@ -24,7 +24,26 @@
   font-size: 56px;
   margin-top: 0;
   font-weight: 400;
+
+  /* ---- Degradado + fixes anti “cortes” ---- */
+  background: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Evita bandas/cortes en algunos navegadores */
+  display: inline-block;
+  line-height: 1.08;
+  padding-top: 0.12em;
+  padding-bottom: 0.22em;
+  -webkit-text-stroke: 0.2px rgba(255,255,255,0.02);
 }
+
+/* Fallback si el navegador no soporta background-clip:text */
+@supports not (-webkit-background-clip: text) {
+  .skills-heading { color: #0EA5E9; }
+}
+
 .subTitle {
   color: #868e96;
   align-items: center;

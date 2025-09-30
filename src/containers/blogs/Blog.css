@@ -1,89 +1,122 @@
-/*Blog Cards Layout*/
-.square {
-  width: 440px;
-  height: 430px;
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0px 20px 50px #d9dbdf;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  margin-top: 30px;
+/* ===== Wrapper / paleta coherente con el resto ===== */
+.blogs-section {
+  margin: 0 2rem 40px;
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+}
+.dark-mode .blogs-section {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
 }
 
-.square:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+/* ===== Header ===== */
+.blog-header {
+  margin: 0 0 22px 0;
+  padding-left: 10px;
+  overflow: visible;           /* evita clip del descendente */
 }
 
 .blog-header-text {
   font-size: 56px;
-  font-weight: 400;
-  margin: 10px;
-  text-align: left; /* ensure left alignment to match other sections */
-  margin-left: 30px; /* optional spacing, if you do it for others */
-  margin-bottom: 30px; 
-  
-}
-
-
-
-.blog-main-div>* {
-  flex: 1;
-  margin-bottom: 30px;
-}
-
-.blog-main-div {
-  display: flex;
-  margin-right: 30px;
-}
-
-.blog-image-div>img {
-  max-width: 100%;
-  height: auto;
+  font-weight: 800;
+  line-height: 1.2;            /* más aire para la “g” */
+  padding-bottom: 0.2em;       /* espacio bajo la línea base */
+  margin: 10px 0 6px 0;
+  letter-spacing: .2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0 transparent; /* parche Safari/WebKit */
+  display: inline-block;       /* evita recortes verticales */
+  overflow: visible;           /* seguridad extra */
+  text-align: left;
 }
 
 .blog-subtitle {
-  font-size: 19px;
-  line-height: normal;
-  text-align: justify;
-  margin-left: 30px
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 0 8px 10px;
+  text-align: left;
 }
 
+/* ===== Layout contenedor ===== */
+.blog-main-div > * {
+  flex: 1;
+  margin-bottom: 30px;
+}
+.blog-main-div {
+  display: block;
+  margin: 0 30px 0 10px;
+}
+
+/* ===== Grid ===== */
 .blog-text-div {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(415px, 1fr));
-  gap: 32px;
-  margin-left: 30px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  perspective: 1200px; /* para tilt 3D */
+  margin-left: 0;
 }
 
-.subTitle {
-  color: #868e96;
-  margin-bottom: 22px;
-}
+/* Envoltorio de cada tarjeta (sin tocar BlogCard dentro) */
+.blog-tilt {
+  grid-column: span 12;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 
-/* Media Query */
+  transform-style: preserve-3d;
+  transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.dark-mode .blog-tilt { background: #0b1220; }
+
+/* Sheen / glare con variables --px/--py (desde JS) */
+.blog-tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(380px 380px at var(--px, 50%) var(--py, 50%),
+      rgba(255,255,255,.22), rgba(255,255,255,0) 45%);
+}
+.blog-tilt:hover::after { opacity: 1; }
+
+/* Hover base (para móvil / sin tilt) */
+.blog-tilt:hover { transform: translateY(-4px); }
+
+/* ===== Responsivo ===== */
+@media (min-width: 640px) { .blog-tilt { grid-column: span 6; } }
+@media (min-width: 1024px) { .blog-tilt { grid-column: span 4; } }
+
 @media (max-width: 1380px) {
-  .blog-header-text {
-    font-size: 40px;
-  }
+  .blog-header-text { font-size: 40px; }
 }
-
 @media (max-width: 768px) {
   .blog-header-text {
     font-size: 30px;
+    line-height: 1.25;      /* mantiene aire en móvil */
+    padding-bottom: 0.25em; /* y evita recortes */
     text-align: center;
   }
-
   .blog-subtitle {
-    font-size: 19px;
-    line-height: normal;
-    text-align: justify;
-    margin-right: 30px
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
   }
+  .blog-header { padding-left: 0; }
 }
 
-@media screen and (max-width: 480px) and (min-width: 300px) {
-  .blog-text-div {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
+/* ===== (Compat) estilos viejos que ya no usamos ===== */
+.square { display: none; }
+.subTitle { color: var(--muted); }

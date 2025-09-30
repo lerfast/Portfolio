@@ -1,3 +1,4 @@
+/* src/components/socialMedia/SocialMedia.css */
 .social-media-div {
   text-align: start;
   display: flex;
@@ -55,6 +56,7 @@
   top: 0;
 }
 
+/* Colors per network */
 .social-media-div .discord:before {
   background: #3b5999;
 }
@@ -95,12 +97,17 @@
   background-color: #c13584;
 }
 
-/* New: WhatsApp button overlay */
+/* WhatsApp */
 .social-media-div .whatsapp:before {
-  background-color: #25d366; /* typical green for WhatsApp */
+  background-color: #25d366;
 }
 
-/* Media Query */
+/* NEW: YouTube */
+.social-media-div .youtube:before {
+  background-color: #FF0000;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
   .social-media-div {
     text-align: center;

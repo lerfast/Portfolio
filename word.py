@@ -1,48 +1,49 @@
 import os
-from docx import Document
-import xml.etree.ElementTree as ET
 
-def escapar_caracteres(texto):
-    """Escapa caracteres que no son compatibles con XML."""
-    try:
-        ET.fromstring(f'<raiz>{texto}</raiz>')
-        return texto
-    except ET.ParseError:
-        # Elimina o reemplaza caracteres no válidos
-        return ''.join(char for char in texto if ord(char) > 31 or char in '\t\n\r')
+def es_codigo_frontend(nombre):
+    extensiones = (
+        '.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass', '.html', '.md', '.env', '.cjs', '.mjs'
+    )
+    archivos_especiales = (
+        'package.json', 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'vite.config.js', 'vite.config.ts',
+        'webpack.config.js', 'webpack.config.ts', 'README', 'README.md', '.env.example', '.env'
+    )
+    extensiones_bin = (
+        '.png', '.jpg', '.jpeg', '.gif', '.ico', '.svg', '.DS_Store', '.ttf', '.woff', '.woff2', '.eot', '.mp3', '.mp4'
+    )
+    if nombre.endswith(extensiones_bin):
+        return False
+    if nombre.endswith(extensiones) or nombre in archivos_especiales:
+        return True
+    return False
 
-def agregar_archivo_a_word(ruta_directorio, nombre_documento_salida):
-    doc = Document()
-    
-    archivos_encontrados = 0
-    # Ajusta las extensiones según los tipos de archivos que esperas en src
-    extensiones = ('.js', '.jsx', '.css', '.json', '.html')
-
-    # Recorre solo la carpeta 'src'
-    for root, dirs, files in os.walk(ruta_directorio):
-        for filename in files:
-            if filename.endswith(extensiones):
-                archivos_encontrados += 1
-                filepath = os.path.join(root, filename)
-                with open(filepath, 'r', encoding='utf-8') as file:
-                    code = file.read()
-
-                # Limpia el código antes de añadirlo al documento
-                code = escapar_caracteres(code)
-
-                doc.add_paragraph(f"Ruta del archivo: {filepath}")
-                doc.add_paragraph("Contenido del archivo:")
-                doc.add_paragraph(code)
-                doc.add_page_break()
-
-    print(f"Archivos procesados: {archivos_encontrados}")
-    if archivos_encontrados > 0:
-        doc.save(nombre_documento_salida)
-        print(f"Documento guardado: {nombre_documento_salida}")
-    else:
-        print("No se encontraron archivos para procesar.")
+def exportar_frontend_completo(ruta_proyecto, archivo_salida):
+    carpetas_clave = ['src', 'public']
+    archivos_exportados = 0
+    with open(archivo_salida, 'w', encoding='utf-8') as out:
+        for root, dirs, files in os.walk(ruta_proyecto):
+            # Incluye solo src, public y raíz
+            if not any(c in root for c in carpetas_clave) and root != ruta_proyecto:
+                continue
+            for filename in files:
+                if es_codigo_frontend(filename):
+                    filepath = os.path.join(root, filename)
+                    try:
+                        with open(filepath, 'r', encoding='utf-8') as f:
+                            contenido = f.read()
+                        out.write(f"{'-'*80}\n")
+                        out.write(f"Ruta del archivo: {filepath}\n")
+                        out.write(f"{'-'*80}\n")
+                        out.write(contenido)
+                        out.write("\n\n")
+                        archivos_exportados += 1
+                    except Exception as e:
+                        out.write(f"{'-'*80}\n")
+                        out.write(f"ERROR al leer {filepath}: {e}\n")
+                        out.write("\n\n")
+    print(f"Exportación terminada. Archivos procesados: {archivos_exportados}. Guardado en: {archivo_salida}")
 
 # Define la ruta directamente a la carpeta 'src'
-directorio = '/Users/luisrojas/Documents/GitHub/Protfolio2/src'
-nombre_doc_salida = 'frontreact.docx'
-agregar_archivo_a_word(directorio, nombre_doc_salida)
+directorio_front = '/Users/luisrojas/Documents/GitHub/Protfolio2/src'  # <-- tu ruta actual
+archivo_salida = 'Codigo_Frontend_Completo.txt'
+exportar_frontend_completo(directorio_front, archivo_salida)
