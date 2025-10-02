@@ -1,81 +1,63 @@
 /* header */
 
-.dark-menu {
-    background-color: #171c28 !important;
-    color: white;
-}
-
-.dark-menu li a {
-    color: white !important;
-}
-
-.dark-menu li a:hover {
-   background-color: transparent !important;
-}
+.dark-menu { background-color: #171c28 !important; color: white; }
+.dark-menu li a { color: white !important; }
+.dark-menu li a:hover { background-color: transparent !important; }
 
 .header {
-    background-color: #fff;
-    max-width: 100%;
-    padding: 15px 20px;
-    margin: 0px auto;
+  background-color: #fff;
+  max-width: 100%;
+  padding: 15px 20px;
+  margin: 0px auto;
+  position: relative; /* necesario para posicionar .lang-fab */
 }
 
-.header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-
+.header ul { margin: 0; padding: 0; list-style: none; overflow: hidden; }
 .grey-color { color: #868e96; }
 
 .header li a {
-    display: block;
-    padding: 15px 20px;
-    color: black;
-    text-decoration: none;
-
-    /* subrayado animado */
-    position: relative;
+  display: block;
+  padding: 15px 20px;
+  color: black;
+  text-decoration: none;
+  position: relative; /* subrayado animado */
 }
 .header li a::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    bottom: 10px;
-    height: 2px;
-    background: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .22s ease;
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 10px;
+  height: 2px;
+  background: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+  border-radius: 2px;
 }
 .header li a:hover::after,
-.header li a:focus-visible::after {
-    transform: scaleX(1);
-}
+.header li a:focus-visible::after { transform: scaleX(1); }
 
 .header li a:hover,
 .header .menu-btn:hover { background-color: #f4f4f4; }
 
 .header .logo {
-    display: block;
-    flex: none;
-    float: left;
-    font-size: 1.5em;
-    text-decoration: none;
-    margin-top: 10px;
-    line-height: normal;
+  display: block;
+  flex: none;
+  float: left;
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-top: 10px;
+  line-height: normal;
 }
 
 .header .logo-name {
-    font-family: "Agustina Regular";
-    font-weight: bold;
-    font-variant-ligatures: no-common-ligatures;
-    -webkit-font-variant-ligatures: no-common-ligatures;
-    padding: 0 10px;
-    color: blue; /* firma intacta */
+  font-family: "Agustina Regular";
+  font-weight: bold;
+  font-variant-ligatures: no-common-ligatures;
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  padding: 0 10px;
+  color: blue; /* firma intacta */
 }
 .dark-menu .logo-name { color: white; }
 
@@ -84,22 +66,25 @@
 
 /* menu icon */
 .header .menu-icon {
-    cursor: pointer; display: inline-block; padding: 28px 20px;
-    position: relative; user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 28px 20px;
+  position: relative; /* NO se mueve */
+  user-select: none;
 }
 .header .menu-icon .navicon {
-    background: #333; display: block; height: 2px; position: relative;
-    transition: background 0.2s ease-out; width: 18px;
+  background: #333; display: block; height: 2px; position: relative;
+  transition: background 0.2s ease-out; width: 18px;
 }
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-    background: #333; content: ""; display: block; height: 100%; position: absolute;
-    transition: all 0.2s ease-out; width: 100%;
+  background: #333; content: ""; display: block; height: 100%; position: absolute;
+  transition: all 0.2s ease-out; width: 100%;
 }
 .header .menu-icon .navicon-dark:before,
 .header .menu-icon .navicon-dark:after {
-    background: white !important; content: ""; display: block; height: 100%;
-    position: absolute; transition: all 0.2s ease-out; width: 100%;
+  background: white !important; content: ""; display: block; height: 100%;
+  position: absolute; transition: all 0.2s ease-out; width: 100%;
 }
 .header .menu-icon .navicon:before { top: 5px; }
 .header .menu-icon .navicon:after { top: -5px; }
@@ -115,17 +100,15 @@
 
 /* 48em = 768px */
 @media (min-width: 48em) {
-    .header li { float: left; }
-    .header { display: flex; align-items: center; justify-content: space-between; }
-    .header .menu { max-height: none; }
-    .header .menu-icon { display: none; }
+  .header li { float: left; }
+  .header { display: flex; align-items: center; justify-content: space-between; }
+  .header .menu { max-height: none; }
+  .header .menu-icon { display: none; }
 }
 
-@media (max-width: 960px) and (min-width: 768px) {
-    .header { font-size: 12px; }
-}
+@media (max-width: 960px) and (min-width: 768px) { .header { font-size: 12px; } }
 
-/* ===== Botón de idioma (mismo look que links) ===== */
+/* ===== Botón de idioma con estilo de link dentro del menú ===== */
 .lang-btn{
   background: transparent;
   border: 0;
@@ -136,3 +119,40 @@
 }
 .lang-btn:hover { background-color: #f4f4f4; }
 .dark-menu .lang-btn:hover { background-color: transparent !important; }
+
+/* ===== Botón flotante de idioma SIEMPRE visible en móvil ===== */
+.lang-fab{
+  display: none;               /* oculto por defecto (desktop) */
+}
+
+@media (max-width: 48em) {
+  /* Oculta el botón de idioma dentro del menú en móvil */
+  .menu .lang-btn { display: none; }
+
+  /* Chip flotante: misma altura que el hamburguesa; no lo mueve */
+  .lang-fab{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 68px;              /* a la izquierda del hamburguesa */
+    top: 69%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    padding: 6px 10px;
+    font-weight: 800;
+    letter-spacing: .4px;
+    border-radius: 999px;
+    border: 1px solid rgba(15,23,42,.2);
+    background: transparent;
+    color: #0f172a;
+    line-height: 1;
+  }
+  .lang-fab:hover { background: rgba(2,6,23,.06); }
+  .dark-menu .lang-fab{
+    border-color: rgba(255,255,255,.28);
+    color: #e5e7eb;
+  }
+  .dark-menu .lang-fab:hover{ background: rgba(255,255,255,.08); }
+}

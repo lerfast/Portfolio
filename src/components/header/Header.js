@@ -17,7 +17,7 @@ const Header = () => {
         {/* Logo */}
         <div className="logo">
           <span className="grey-color"> &lt;</span>
-          <span className={isDark ? 'dark-menu logo-name' : 'logo-name'}>
+          <span className={isDark ? "dark-menu logo-name" : "logo-name"}>
             {greeting.username}
           </span>
           <span className="grey-color">/&gt;</span>
@@ -29,6 +29,16 @@ const Header = () => {
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
 
+        {/* Botón flotante de idioma siempre visible en móvil (no mueve el hamburguesa) */}
+        <button
+          type="button"
+          className="lang-fab"
+          aria-label="Change language"
+          onClick={() => setLang(lang === "en" ? "es" : "en")}
+        >
+          {lang === "en" ? "ES" : "EN"}
+        </button>
+
         {/* Nav-Bar */}
         <ul className={isDark ? "dark-menu menu" : "menu"}>
           <li><a href="#skills">{nav.skills}</a></li>
@@ -37,7 +47,7 @@ const Header = () => {
           <li><a href="#blogs">{nav.blogs}</a></li>
           <li><a href="#contact">{nav.contact}</a></li>
 
-          {/* Botón de idioma (mantiene look de los links) */}
+          {/* Botón de idioma con look de link (visible en desktop; oculto en móvil) */}
           <li>
             <button
               type="button"
@@ -59,4 +69,5 @@ const Header = () => {
     </Headroom>
   );
 };
+
 export default Header;

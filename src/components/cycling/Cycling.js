@@ -1,18 +1,14 @@
-// src/containers/cycling/Cycling.js
 import React, { useContext } from "react";
 import { Fade } from "react-reveal";
 import "./Cycling.css";
 import StyleContext from "../../contexts/styleContext";
 import { cyclingSection } from "../../portfolio";
-
-// Si ya creaste el LangContext en tu app:
 import LangContext from "../../contexts/langContext";
 
 export default function Cycling() {
   const { isDark } = useContext(StyleContext);
   const { lang = "en" } = useContext(LangContext) || { lang: "en" };
 
-  // --- Copy EN/ES (todo el texto de esta sección) ---
   const COPY = {
     en: {
       title: cyclingSection?.title || "YouTube, Video & Drone",
@@ -154,25 +150,17 @@ export default function Cycling() {
       id="cycling"
       aria-label={t.ariaSection}
     >
-      {/* Title */}
       <Fade bottom duration={900} distance="28px">
-        <h1 className="cycling-title">
-          {t.title}
-        </h1>
+        <h1 className="cycling-title">{t.title}</h1>
       </Fade>
 
-      {/* Hero copy (expanded paragraph, no video) */}
       <Fade bottom duration={1100} distance="36px">
         <div className="vd-hero">
           <div className="vd-hero-copy">
-            <p className="lead">
-              {t.lead}
-            </p>
+            <p className="lead">{t.lead}</p>
 
             <ul className="vd-badges" aria-label={t.ariaCaps}>
-              {t.badges.map((b, i) => (
-                <li key={i}>{b}</li>
-              ))}
+              {t.badges.map((b, i) => <li key={i}>{b}</li>)}
             </ul>
 
             <div className="vd-ctas">
@@ -199,13 +187,11 @@ export default function Cycling() {
         </div>
       </Fade>
 
-      {/* Case studies */}
       <Fade bottom duration={1100} distance="32px">
         <div className="vd-cases" aria-label={t.ariaWorks}>
           {t.videos.map((v) => (
             <article className="vd-card aura hover-lift" key={v.id}>
               <div className="vd-card-inner">
-                {/* Clickable thumbnail (opens YouTube) */}
                 <a
                   className="vd-thumb"
                   href={v.url}
@@ -223,22 +209,14 @@ export default function Cycling() {
 
                 <header className="vd-card-head">
                   <h3 className="vd-card-title">{v.title}</h3>
-                  <a
-                    className="vd-card-link"
-                    href={v.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a className="vd-card-link" href={v.url} target="_blank" rel="noopener noreferrer">
                     {t.watch}
                   </a>
                 </header>
 
                 <p className="vd-card-desc">{v.desc}</p>
-
                 <ul className="vd-tech">
-                  {v.tech.map((line, i) => (
-                    <li key={i}>{line}</li>
-                  ))}
+                  {v.tech.map((line, i) => <li key={i}>{line}</li>)}
                 </ul>
               </div>
             </article>
