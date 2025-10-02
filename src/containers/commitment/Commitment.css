@@ -1,13 +1,15 @@
 .commitment-main {
-  margin: 0 2rem;
-  padding-top: 74px;
+  /* centrado y ancho cómodo */
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 74px 2rem 28px; /* ↓ pequeño aire al final para que Projects no se pegue */
 
-  /* Palette */
+  /* palette */
   --fg: #0f172a;
   --muted: #475569;
   --stroke: rgba(15,23,42,.1);
   --shadow: 0 10px 28px rgba(2,6,23,.10);
-  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  --accent-grad: linear-gradient(135deg,#22C1EE 0%,#0EA5E9 50%,#0F2740 100%);
 }
 .dark-mode.commitment-main {
   --fg: #e5e7eb;
@@ -16,40 +18,37 @@
   --shadow: 0 14px 34px rgba(0,0,0,.45);
 }
 
-/* Each block (row) */
+/* Filas */
 .commitment-block {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  margin: 18px 0 36px;
+  gap: clamp(20px, 3.5vw, 48px);  /* menos hueco entre texto y lottie */
+  margin: 8px 0 44px;             /* margen inferior moderado */
 }
 
-/* Invert for Drone:
-   We queremos LOTTIE a la IZQUIERDA y TEXTO a la DERECHA,
-   así que dejamos fila normal (row) porque en el DOM el lottie va primero. */
+/* Drone: lottie izquierda, texto derecha (sin márgenes negativos) */
 .commitment-block--invert {
-  flex-direction: row; /* lottie left, text right */
-  margin-top: -200px;
+  flex-direction: row;            /* lottie left, text right */
 }
 
-/* Titles inside each block */
+/* Títulos */
 .commitment-block-title {
-  font-size: 40px;
+  font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: .2px;
   margin: 0 0 12px 0;
-
   background: var(--accent-grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-bottom: .2em; /* evita cortes en g/j/y */
 }
 
+/* Texto ancho cómodo */
 .commitment-text-div {
-  flex: 1;
-  max-width: 680px;
+  flex: 1 1 520px;
+  max-width: 760px; /* un poco más ancho para que no “grite” en móvil */
 }
 .commitment-text {
   font-size: 18px;
@@ -60,32 +59,64 @@
   margin: 0;
 }
 
+/* Lotties pegadas a los lados del contenedor, no al centro */
 .commitment-lottie-div {
-  flex: 1;
+  flex: 1 1 420px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 280px;
-  padding: 8px;
-  border-radius: 12px;
-  background: rgba(2,6,23,.02);
+  justify-content: flex-end;    /* OHS: a la derecha */
+  min-width: 300px;
+  padding: 6px;
+}
+.commitment-block--invert .commitment-lottie-div {
+  justify-content: flex-start;  /* Drone: a la izquierda */
 }
 
-/* Responsive */
+/* Tamaño de la lottie controlado */
+.commitment-lottie-div canvas,
+.commitment-lottie-div svg,
+.commitment-lottie-div > * {
+  width: clamp(300px, 36vw, 520px);
+  max-width: 100%;
+}
+
+/* Última fila: menos separación hacia Projects */
+.commitment-main .commitment-block:last-of-type {
+  margin-bottom: 20px;
+}
+
+/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .commitment-block-title { font-size: 32px; }
 }
+
 @media (max-width: 768px) {
+  .commitment-main {
+    padding: 60px 1.25rem 22px;  /* menos padding lateral y al final */
+  }
+
   .commitment-block,
   .commitment-block--invert {
-    flex-direction: column; /* stack on mobile */
-  }
-  .commitment-lottie-div,
-  .commitment-text-div {
-    width: 100%;
-  }
-  .commitment-block-title {
-    font-size: 28px;
+    flex-direction: column;      /* apilar */
     text-align: center;
+    gap: 16px;                   /* acercar texto y lottie */
+    margin: 8px 0 26px;
+  }
+
+  .commitment-text-div,
+  .commitment-lottie-div {
+    width: 100%;
+    max-width: 860px;
+    justify-content: center;     /* centrar lottie cuando está apilada */
+  }
+
+  .commitment-lottie-div canvas,
+  .commitment-lottie-div svg,
+  .commitment-lottie-div > * {
+    width: min(440px, 88vw);     /* lottie más contenida en móvil */
+  }
+
+  .commitment-main .commitment-block:last-of-type {
+    margin-bottom: 12px;         /* pegamos mejor a Projects */
   }
 }

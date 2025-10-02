@@ -237,8 +237,10 @@ const commitmentSection = {
   title: "Protecting Lives",
   subTitle: "Occupational Health & Safety Specialist",
   description: `My commitment goes beyond coding. As an OHS specialist, I'm dedicated to safeguarding workplaces, ensuring every process is safe, and prioritizing human well-being in everything we do. Let's build technology that not only changes business, but also helps save lives.`,
-  // If you use a Lottie, provide the correct path/file in your project:
-  lottiePath: "src/assets/lotties/ohs.json",
+
+  // Title + copy for the drone block
+  droneTitle: "Aerial Perspective",
+  droneDescription: `Aerial operations have also shaped how I build products and solve problems. As a professional drone pilot, flying has taught me to read environments from above, anticipate risks, and appreciate patterns at scale. That perspective helps me design safer systems, plan better workflows, and bring cinematic clarity to storytelling through video.`,
 };
 
 export {
@@ -1988,22 +1990,17 @@ export default function BlogCard({ blog, isDark }) {
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/components/cycling/Cycling.js
 --------------------------------------------------------------------------------
-// src/components/cycling/Cycling.js
-
 import React, { useContext } from "react";
 import { cyclingSection } from "../../portfolio";
 import { Fade } from "react-reveal";
 import "./Cycling.css";
 import StyleContext from "../../contexts/styleContext";
 import montandoImg from "../../assets/images/montando.png";
-
-// Suppose you also have a local .mp4 for the video:
 import ridingVideo from "../../assets/images/riding1080p.mp4";
 
 export default function Cycling() {
   const { isDark } = useContext(StyleContext);
 
-  // Here’s an array of paragraphs, each item is a separate paragraph:
   const cyclingParagraphs = [
     "MTB has become an integral part of my life. It started as a simple hobby but quickly transformed into a lasting commitment to better health and personal growth.",
     "With every ride, I challenge myself to go farther, ride faster, and push my limits, discovering new paths both on the road and within myself. Through determination and discipline, I am on a journey to lose weight and improve my overall well-being.",
@@ -2013,55 +2010,112 @@ export default function Cycling() {
 
   return (
     <div className={`cycling-section ${isDark ? "dark-mode" : ""}`} id="cycling">
-
       {/* Title */}
-<Fade bottom duration={1200} distance="40px">
-
-      <h1 className="cycling-title">
-        {cyclingSection.title}
-      </h1>
+      <Fade bottom duration={1200} distance="40px">
+        <h1 className="cycling-title">{cyclingSection.title}</h1>
       </Fade>
-      {/* Main Row: left text + right image */}
 
-
-      
+      {/* Main Row: text + image */}
       <div className="cycling-row">
-        {/* Left Column: multiple paragraphs */}
         <Fade left duration={2000}>
-        <div className="cycling-text-col">
-          {cyclingParagraphs.map((paragraph, idx) => (
-            <p key={idx} className="cycling-paragraph">
-              {paragraph}
-            </p>
-          ))}
-        </div>
+          <div className="cycling-text-col">
+            {cyclingParagraphs.map((paragraph, idx) => (
+              <p key={idx} className="cycling-paragraph">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </Fade>
 
-        {/* Right Column: cycling image */}
         <Fade right duration={2000}>
-        <div className="cycling-image-col">
-          <img
-            src={montandoImg}
-            alt="Cycling passion"
-            className="cycling-image"
+          <div className="cycling-image-col">
+            <img
+              src={montandoImg}
+              alt="Cycling passion"
+              className="cycling-image"
+            />
+          </div>
+        </Fade>
+      </div>
+
+      {/* Local riding video JUST BELOW MTB section */}
+      <Fade bottom duration={1200} distance="40px">
+        <div className="cycling-video-container">
+          <video
+            className="cycling-video"
+            src={ridingVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls
           />
         </div>
-        </Fade>
-      </div>
+      </Fade>
 
-      {/* Video below (auto-play, loop, etc.) */}
+      {/* Video & Drone Work */}
       <Fade bottom duration={1200} distance="40px">
-      <div className="cycling-video-container">
-        <video
-          className="cycling-video"
-          src={ridingVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls
-        />
-      </div>
+        <section className="vd-section" aria-label="Video & Drone Work">
+          <div className="vd-row">
+            <div className="vd-copy">
+              <h2 className="vd-title">Video & Drone Work</h2>
+              <p className="vd-paragraph">
+                Besides coding and business, I’m a <b>video editor</b> (DaVinci
+                Resolve) and a <b>professional drone pilot</b>. Aerial
+                cinematography changed the way I see stories — flying brings a
+                new perspective to everyday life, revealing patterns, symmetry,
+                and rhythm from above.
+              </p>
+              <p className="vd-paragraph">
+                I enjoy crafting tilt-shift looks, dynamic reveals, clean titles,
+                and cinematic color. Below is one of my favorite pieces filmed
+                in Colombia — turning a real city into a living miniature.
+              </p>
+
+              <div className="vd-ctas">
+                <a
+                  className="cycling-btn primary"
+                  href="https://www.youtube.com/@rojastech1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Watch on YouTube @rojastech1"
+                >
+                  Watch on YouTube
+                </a>
+                <a
+                  className="cycling-btn ghost"
+                  href="https://youtu.be/8vYlSsoheUw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Featured: Neiva in Miniature"
+                >
+                  Featured: Neiva in Miniature
+                </a>
+              </div>
+
+              <ul className="vd-chips">
+                <li>DaVinci Resolve</li>
+                <li>Aerial Cinematography</li>
+                <li>Color Grading</li>
+                <li>Motion Titles</li>
+                <li>Licensed Drone Pilot</li>
+              </ul>
+            </div>
+
+            <div className="vd-media">
+              {/* Responsive YouTube embed */}
+              <div className="yt-embed">
+                <iframe
+                  src="https://www.youtube.com/embed/8vYlSsoheUw"
+                  title="Neiva in Miniature — Tilt-Shift"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
       </Fade>
     </div>
   );
@@ -2071,86 +2125,205 @@ export default function Cycling() {
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/components/cycling/Cycling.css
 --------------------------------------------------------------------------------
-/* src/components/cycling/Cycling.css */
-
 .cycling-section {
   width: 85%;
   margin: 0 auto;
   padding: 50px 20px;
   font-family: "Montserrat", sans-serif;
+
+  /* palette + shared primary (masculine blue) */
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+
+  --btn-primary-bg: var(--accent-grad);
+  --btn-primary-text: #fff;
+  --btn-ghost-fg: #0F2740;
+  --btn-ghost-border: rgba(15,23,42,.18);
+}
+.dark-mode .cycling-section {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+  --btn-ghost-fg: #CBE7FF;
+  --btn-ghost-border: rgba(255,255,255,.22);
 }
 
-/* Dark mode styling would come from .dark-mode higher up if needed */
-
+/* Title with gradient and safe baseline (avoid clipped descenders) */
 .cycling-title {
   font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.2em;   /* evita cortes en letras g/j/y */
   margin-bottom: 40px;
 }
 
-/* Main row for text+image side by side on larger screens */
+/* Main row for text+image */
 .cycling-row {
   display: flex;
   flex-direction: row;
-  gap: 20px; /* space between columns */
-  margin-bottom: 30px;
+  gap: 24px;
+  margin-bottom: 28px;
 }
-
-/* Left column: paragraphs */
-.cycling-text-col {
-  flex: 1;
-}
-
-/* Right column: image */
+.cycling-text-col { flex: 1; color: var(--fg); }
 .cycling-image-col {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* Paragraphs spacing */
 .cycling-paragraph {
   margin-bottom: 1em;
-  line-height: 1.6;
-  text-align: justify;
+  line-height: 1.7;
+  color: var(--muted);
+  text-align: justify;           /* justificado */
+  text-justify: inter-word;
 }
 
-/* The cycling image */
+/* Image */
 .cycling-image {
   max-width: 400px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
-/* The video container: optional centering, etc. */
+/* Local riding video (placed right after MTB section) */
 .cycling-video-container {
-  margin-top: 30px;
+  margin-top: 8px;
+  margin-bottom: 34px;
   display: flex;
-  justify-content: center; /* center on horizontal */
+  justify-content: center;
 }
-
-/* The video styling (optional) */
 .cycling-video {
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
+  width: 45%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
-/* Responsive: stack columns on small screens */
+/* ----- Video & Drone block ----- */
+.vd-section { margin-top: 6px; }
+.vd-row {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .vd-row { grid-template-columns: 1fr; }
+}
+
+.vd-copy { color: var(--fg); }
+.vd-title {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.25;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: .18em;         /* evita cortes */
+  margin: 0 0 10px 0;
+}
+.vd-paragraph {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+  text-align: justify;           /* justificado */
+  text-justify: inter-word;
+}
+
+/* CTAs (shared button style with projects) */
+.cycling-btn {
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: .2px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  margin-right: 10px;
+}
+.cycling-btn.primary {
+  color: var(--btn-primary-text);
+  background: var(--btn-primary-bg);
+  box-shadow: 0 12px 28px rgba(2, 88, 164, .18), 0 2px 8px rgba(2, 6, 23, .12);
+}
+.cycling-btn.primary:hover { transform: translateY(-2px); filter: saturate(1.05) brightness(1.02); }
+.cycling-btn.primary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(34, 193, 238, .35),
+    0 10px 26px rgba(2, 88, 164, .22);
+}
+.cycling-btn.ghost {
+  color: var(--btn-ghost-fg);
+  border: 2px solid var(--btn-ghost-border);
+  background: transparent;
+}
+.cycling-btn.ghost:hover { transform: translateY(-2px); }
+.cycling-btn.ghost:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(34, 193, 238, .28); }
+
+.vd-ctas { margin: 14px 0 12px; }
+
+/* Skill chips */
+.vd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.vd-chips li {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #e6f1ff;
+  color: #0f2740;
+  border: 1px solid rgba(15,23,42,.12);
+}
+.dark-mode .vd-chips li {
+  background: rgba(255,255,255,.09);
+  color: #e5f2ff;
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+/* YouTube responsive embed */
+.vd-media { width: 100%; }
+.yt-embed {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.yt-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Responsive stack for the first row */
 @media (max-width: 768px) {
   .cycling-row {
     flex-direction: column;
     align-items: center;
   }
-  
-  .cycling-image {
-    max-width: 80%; /* or 100% if you like */
-  }
-  .cycling-title {
-    font-size: 30px;
-    margin-bottom: 40px;
-  }
+  .cycling-image { max-width: 80%; }
+  .cycling-title { font-size: 30px; }
 }
 
 
@@ -2172,12 +2345,11 @@ const Header = () => {
             <header className={isDark ? "dark-menu header" : "header"}>
                 {/* Logo */}
                 <div className="logo">
-    <span className="grey-color"> &lt;</span>
-    <span className={isDark ? 'dark-menu logo-name' : 'logo-name'}>{greeting.username}</span>
-    <span className="grey-color">/&gt;</span>
-</div>
+                    <span className="grey-color"> &lt;</span>
+                    <span className={isDark ? 'dark-menu logo-name' : 'logo-name'}>{greeting.username}</span>
+                    <span className="grey-color">/&gt;</span>
+                </div>
 
-                
                 {/* menu(phone) */}
                 <input className="menu-btn" type="checkbox" id="menu-btn" />
                 <label
@@ -2233,7 +2405,7 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/components/he
 }
 
 .dark-menu li a:hover {
-    background-color:rgb(38, 25, 139) !important;
+   background-color: transparent !important;
 }
 
 .header {
@@ -2259,7 +2431,28 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/components/he
     padding: 15px 20px;
     color: black;
     text-decoration: none;
+
+    /* ---- NUEVO: subrayado animado ---- */
+    position: relative;
 }
+.header li a::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+    height: 2px;
+    background: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .22s ease;
+    border-radius: 2px;
+}
+.header li a:hover::after,
+.header li a:focus-visible::after {
+    transform: scaleX(1);
+}
+/* ---- FIN NUEVO ---- */
 
 .header li a:hover,
 .header .menu-btn:hover {
@@ -2282,12 +2475,12 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/components/he
     font-variant-ligatures: no-common-ligatures;
     -webkit-font-variant-ligatures: no-common-ligatures;
     padding: 0 10px;
-    color: blue; /* pick the exact shade of blue you prefer */
+    color: blue; /* firma intacta */
 }
 
 .dark-menu .logo-name {
-    color: white; /* or whatever color you currently see in dark mode */
-  }
+    color: white; /* firma en dark mode */
+}
 
 /* menu */
 
@@ -2352,24 +2545,24 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/components/he
     display: none;
 }
 
-.header .menu-btn:checked~.menu {
+.header .menu-btn:checked ~ .menu {
     max-height: 486px;
 }
 
-.header .menu-btn:checked~.menu-icon .navicon {
+.header .menu-btn:checked ~ .menu-icon .navicon {
     background: transparent;
 }
 
-.header .menu-btn:checked~.menu-icon .navicon:before {
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
     transform: rotate(-45deg);
 }
 
-.header .menu-btn:checked~.menu-icon .navicon:after {
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
     transform: rotate(45deg);
 }
 
-.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
     top: 0;
 }
 
@@ -2477,49 +2670,113 @@ export default Main;
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/blogs/Blogs.js
 --------------------------------------------------------------------------------
-import React, {useContext} from "react";
+import React, { useContext, useEffect } from "react";
 import "./Blog.css";
 import BlogCard from "../../components/blogCard/BlogCard";
-import {blogSection} from "../../portfolio";
-import {Fade} from "react-reveal";
+import { blogSection } from "../../portfolio";
+import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/styleContext";
+
 export default function Blogs() {
-  const {isDark} = useContext(StyleContext);
-  if (!blogSection.display) {
-    return null;
-  }
+  const { isDark } = useContext(StyleContext);
+
+  // Tilt 3D (se declara siempre; no rompe reglas de hooks)
+  useEffect(() => {
+    const mq = window.matchMedia
+      ? window.matchMedia("(min-width: 769px)")
+      : { matches: false, addEventListener: () => {}, removeEventListener: () => {} };
+
+    let cleanups = [];
+
+    const attachTilt = () => {
+      // Limpia anteriores
+      cleanups.forEach((fn) => fn());
+      cleanups = [];
+
+      if (!mq.matches) return; // solo desktop
+
+      const cards = document.querySelectorAll(".blog-tilt");
+      cards.forEach((card) => {
+        card.style.willChange = "transform";
+
+        const onMove = (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+
+          const max = 10;
+          const rotY = (px - 0.5) * (max * 2);
+          const rotX = -(py - 0.5) * (max * 2);
+
+          card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(
+            2
+          )}deg) translateY(-4px)`;
+          card.style.setProperty("--px", `${(px * 100).toFixed(1)}%`);
+          card.style.setProperty("--py", `${(py * 100).toFixed(1)}%`);
+        };
+
+        const onEnter = (e) => onMove(e);
+        const onLeave = () => {
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        };
+
+        card.addEventListener("mousemove", onMove);
+        card.addEventListener("mouseenter", onEnter);
+        card.addEventListener("mouseleave", onLeave);
+
+        cleanups.push(() => {
+          card.removeEventListener("mousemove", onMove);
+          card.removeEventListener("mouseenter", onEnter);
+          card.removeEventListener("mouseleave", onLeave);
+          card.style.willChange = "";
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        });
+      });
+    };
+
+    attachTilt();
+    mq.addEventListener?.("change", attachTilt);
+
+    return () => {
+      mq.removeEventListener?.("change", attachTilt);
+      cleanups.forEach((fn) => fn());
+    };
+  }, []);
+
+  if (!blogSection.display) return null;
+
   return (
     <Fade bottom duration={1200} distance="40px">
-      <div className="main" id="blogs">
-        <div className="blog-header">
+      <section className="blogs-section main" id="blogs">
+        <header className="blog-header">
           <h1 className="blog-header-text">{blogSection.title}</h1>
-          <p
-            className={
-              isDark ? "dark-mode blog-subtitle" : "subTitle blog-subtitle"
-            }
-          >
+          <p className={`blog-subtitle ${isDark ? "dark-mode" : ""}`}>
             {blogSection.subtitle}
           </p>
-        </div>
+        </header>
+
         <div className="blog-main-div">
           <div className="blog-text-div">
-            {blogSection.blogs.map((blog, i) => {
-              return (
+            {blogSection.blogs.map((blog, i) => (
+              <article className="blog-tilt" key={i}>
                 <BlogCard
-                  key={i}
                   isDark={isDark}
                   blog={{
                     url: blog.url,
                     image: blog.image,
                     title: blog.title,
-                    description: blog.description
+                    description: blog.description,
                   }}
                 />
-              );
-            })}
+              </article>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
     </Fade>
   );
 }
@@ -2528,95 +2785,128 @@ export default function Blogs() {
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/blogs/Blog.css
 --------------------------------------------------------------------------------
-/*Blog Cards Layout*/
-.square {
-  width: 440px;
-  height: 430px;
-  background: white;
-  border-radius: 4px;
-  box-shadow: 0px 20px 50px #d9dbdf;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  margin-top: 30px;
+/* ===== Wrapper / paleta coherente con el resto ===== */
+.blogs-section {
+  margin: 0 2rem 40px;
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+}
+.dark-mode .blogs-section {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
 }
 
-.square:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+/* ===== Header ===== */
+.blog-header {
+  margin: 0 0 22px 0;
+  padding-left: 10px;
+  overflow: visible;           /* evita clip del descendente */
 }
 
 .blog-header-text {
   font-size: 56px;
-  font-weight: 400;
-  margin: 10px;
-  text-align: left; /* ensure left alignment to match other sections */
-  margin-left: 30px; /* optional spacing, if you do it for others */
-  margin-bottom: 30px; 
-  
-}
-
-
-
-.blog-main-div>* {
-  flex: 1;
-  margin-bottom: 30px;
-}
-
-.blog-main-div {
-  display: flex;
-  margin-right: 30px;
-}
-
-.blog-image-div>img {
-  max-width: 100%;
-  height: auto;
+  font-weight: 800;
+  line-height: 1.2;            /* más aire para la “g” */
+  padding-bottom: 0.2em;       /* espacio bajo la línea base */
+  margin: 10px 0 6px 0;
+  letter-spacing: .2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0 transparent; /* parche Safari/WebKit */
+  display: inline-block;       /* evita recortes verticales */
+  overflow: visible;           /* seguridad extra */
+  text-align: left;
 }
 
 .blog-subtitle {
-  font-size: 19px;
-  line-height: normal;
-  text-align: justify;
-  margin-left: 30px
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 0 8px 10px;
+  text-align: left;
 }
 
+/* ===== Layout contenedor ===== */
+.blog-main-div > * {
+  flex: 1;
+  margin-bottom: 30px;
+}
+.blog-main-div {
+  display: block;
+  margin: 0 30px 0 10px;
+}
+
+/* ===== Grid ===== */
 .blog-text-div {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(415px, 1fr));
-  gap: 32px;
-  margin-left: 30px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  perspective: 1200px; /* para tilt 3D */
+  margin-left: 0;
 }
 
-.subTitle {
-  color: #868e96;
-  margin-bottom: 22px;
-}
+/* Envoltorio de cada tarjeta (sin tocar BlogCard dentro) */
+.blog-tilt {
+  grid-column: span 12;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
 
-/* Media Query */
+  transform-style: preserve-3d;
+  transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.dark-mode .blog-tilt { background: #0b1220; }
+
+/* Sheen / glare con variables --px/--py (desde JS) */
+.blog-tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(380px 380px at var(--px, 50%) var(--py, 50%),
+      rgba(255,255,255,.22), rgba(255,255,255,0) 45%);
+}
+.blog-tilt:hover::after { opacity: 1; }
+
+/* Hover base (para móvil / sin tilt) */
+.blog-tilt:hover { transform: translateY(-4px); }
+
+/* ===== Responsivo ===== */
+@media (min-width: 640px) { .blog-tilt { grid-column: span 6; } }
+@media (min-width: 1024px) { .blog-tilt { grid-column: span 4; } }
+
 @media (max-width: 1380px) {
-  .blog-header-text {
-    font-size: 40px;
-  }
+  .blog-header-text { font-size: 40px; }
 }
-
 @media (max-width: 768px) {
   .blog-header-text {
     font-size: 30px;
+    line-height: 1.25;      /* mantiene aire en móvil */
+    padding-bottom: 0.25em; /* y evita recortes */
     text-align: center;
   }
-
   .blog-subtitle {
-    font-size: 19px;
-    line-height: normal;
-    text-align: justify;
-    margin-right: 30px
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
   }
+  .blog-header { padding-left: 0; }
 }
 
-@media screen and (max-width: 480px) and (min-width: 300px) {
-  .blog-text-div {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
+/* ===== (Compat) estilos viejos que ya no usamos ===== */
+.square { display: none; }
+.subTitle { color: var(--muted); }
 
 
 --------------------------------------------------------------------------------
@@ -2954,7 +3244,7 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/gr
 import React from "react";
 import { Fade } from "react-reveal";
 import "./Greeting.css";
-import programmerAnimation from "../../assets/lottie/programmer_animation1.json"; // Nuevo JSON
+import programmerAnimation from "../../assets/lottie/programmer_animation1.json";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
@@ -2962,42 +3252,45 @@ import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 
 export default function Greeting() {
-    return (
-        <Fade bottom duration={1300} distance="40px">
-            <div className="greet-main" id="greeting">
-                <div className="greeting-main">
-                    <div className="greeting-text-div">
-                        <div>
-                            <h1 className="greeting-text">
-                                {greeting.greetingText}{" "}
-                                <span className="glitch">
-                                    {greeting.greetingName}
-                                </span>
-                            </h1>
-                            <p className="greeting-text-p">
-                                {greeting.subTitle}
-                            </p>
-                            <SocialMedia />
+  return (
+    <Fade bottom duration={1300} distance="40px">
+      <div className="greet-main" id="greeting">
+        <div className="greeting-main">
+          <div className="greeting-text-div">
+            <div>
+              <h1 className="greeting-text">
+                {greeting.greetingText}{" "}
+                <span className="glitch">{greeting.greetingName}</span>
+              </h1>
 
-                            <div className="button-greeting-div">
-                                <Button text="Contact me" href="#contact"/>
-                                <Button
-                                    text="See my resume"
-                                    newTab={true}
-                                    href={greeting.resumeLink}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="greeting-image-div">
-                        {
-                            <DisplayLottie animationData={programmerAnimation} />
-                        }
-                    </div>
-                </div>
+              <p className="greeting-text-p">{greeting.subTitle}</p>
+
+              <SocialMedia />
+
+              <div className="button-greeting-div">
+                {/* Aplica el mismo estilo azul al componente Button */}
+                <Button
+                  text="Contact me"
+                  href="#contact"
+                  className="cta-button"
+                />
+                <Button
+                  text="See my resume"
+                  newTab={true}
+                  href={greeting.resumeLink}
+                  className="cta-button"
+                />
+              </div>
             </div>
-        </Fade>
-    );
+          </div>
+
+          <div className="greeting-image-div">
+            <DisplayLottie animationData={programmerAnimation} />
+          </div>
+        </div>
+      </div>
+    </Fade>
+  );
 }
 
 
@@ -3007,38 +3300,29 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/gr
 .greet-main {
   width: 90%;
   padding: 20px 10px;
-  margin: 0px auto;
+  margin: 0 auto;
   margin-top: 2rem;
+
+  /* Variables para los botones (mismo look azul que Projects) */
+  --btn-primary-bg: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  --btn-primary-text: #fff;
 }
 
 .gretting-main {
   width: 90%;
   padding: 20px 10px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
-.greeting-main {
-  display: flex;
-}
-
-.greeting-main > * {
-  flex: 1;
-  margin-bottom: 30px;
-}
-
-.button-greeting-div {
-  display: flex;
-  margin-top: 20px;
-}
+.greeting-main { display: flex; }
+.greeting-main > * { flex: 1; margin-bottom: 30px; }
 
 .greeting-text {
   text-align: start;
   font-size: 70px;
   line-height: 1.1;
 }
-.glitch {
-  color: #868e96;
-}
+.glitch { color: #868e96; }
 
 .greeting-text-p {
   color: rgb(135, 135, 135);
@@ -3052,80 +3336,107 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/gr
   align-items: center;
   justify-content: center;
 }
+.greeting-image-div > img { max-width: 100%; height: auto; }
 
-.greeting-image-div > img {
-  max-width: 100%;
-  height: auto;
+/* ===== Botonera (mismo estilo azul que en Projects) ===== */
+.button-greeting-div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  align-items: center;
 }
 
+/* El wrapper del Button queda TRANSPARENTE y ajustado al contenido */
+.cta-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+}
+
+/* Estilo del elemento clickeable interno (a/button) */
+.cta-button a,
+.cta-button button,
+.button-greeting-div > a,
+.button-greeting-div > button {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--btn-primary-text) !important;
+  background: var(--btn-primary-bg) !important;
+
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+
+  font-weight: 900;
+  letter-spacing: .2px;
+
+  box-shadow: 0 12px 28px rgba(2, 88, 164, .18),
+              0 2px 8px rgba(2, 6, 23, .12) !important;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+.cta-button a:hover,
+.cta-button button:hover,
+.button-greeting-div > a:hover,
+.button-greeting-div > button:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.cta-button a:focus-visible,
+.cta-button button:focus-visible,
+.button-greeting-div > a:focus-visible,
+.button-greeting-div > button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(34, 193, 238, .35),
+    0 10px 26px rgba(2, 88, 164, .22) !important;
+}
+
+/* Animación saludo */
 .wave-emoji {
-  animation-duration: 1.8s;
-  animation-iteration-count: infinite;
-  animation-name: wave;
+  animation: wave 1.8s infinite;
   display: inline-block;
   transform-origin: 70% 70%;
 }
-
 @keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  10% {
-    transform: rotate(-10deg);
-  }
-
-  20% {
-    transform: rotate(12deg);
-  }
-
-  30% {
-    transform: rotate(-10deg);
-  }
-
-  40% {
-    transform: rotate(9deg);
-  }
-
-  50% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(12deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(9deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
 /* Media Query */
 @media (max-width: 1380px) {
-  .greeting-text {
-    font-size: 50px;
-  }
+  .greeting-text { font-size: 50px; }
+  .greeting-text-p { font-size: 20px; }
+}
 
-  .greeting-text-p {
-    font-size: 20px;
-  }
+@media (max-width: 846px) {
+  .greeting-main { display: block; }
 }
 
 @media (max-width: 768px) {
-  .button-greeting-div {
-    justify-content: space-around;
-  }
+  .button-greeting-div { justify-content: center; }
 
   .greeting-text {
     font-size: 30px;
     text-align: center;
   }
-
   .greeting-text-p {
     font-size: 16px;
     line-height: normal;
     text-align: center;
-  }
-}
-@media (max-width: 846px) {
-  .greeting-main {
-    display: block;
   }
 }
 
@@ -3134,7 +3445,7 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/gr
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/projects/Projects.js
 --------------------------------------------------------------------------------
 // src/containers/projects/Projects.js
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Fade } from "react-reveal";
 import "./Project.css";
 import Button from "../../components/button/Button";
@@ -3146,168 +3457,276 @@ import arepasImage from "../../assets/projectImages/arepas.png";
 import coffeeImage from "../../assets/projectImages/coffee.png";
 import budgetImage from "../../assets/projectImages/budget.png";
 
-// Import the CHASHH logo
-import chashhLogo from "../../assets/images/chashh_logo.png";
+// Oshlix logo (SVG)
+import oshlixLogo from "../../assets/images/oshx_lockup.svg";
 
 const Projects = () => {
   const { isDark } = useContext(StyleContext);
 
+  // --- Scroll-snap shelf state (mobile only) ---
+  const shelfRef = useRef(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const updateEdges = () => {
+    const el = shelfRef.current;
+    if (!el) return;
+    const nearStart = el.scrollLeft <= 2;
+    const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+    setAtStart(nearStart);
+    setAtEnd(nearEnd);
+  };
+
+  useEffect(() => {
+    const el = shelfRef.current;
+    if (!el) return;
+    updateEdges();
+    el.addEventListener("scroll", updateEdges, { passive: true });
+    window.addEventListener("resize", updateEdges);
+    return () => {
+      el.removeEventListener("scroll", updateEdges);
+      window.removeEventListener("resize", updateEdges);
+    };
+  }, []);
+
+  // --- Tilt 3D only on desktop (≥769px) ---
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 769px)");
+    let cleanupFns = [];
+
+    const attachTilt = () => {
+      cleanupFns.forEach((fn) => fn());
+      cleanupFns = [];
+
+      if (!mq.matches) return;
+
+      const cards = document.querySelectorAll(".snap-card");
+      cards.forEach((card) => {
+        card.style.willChange = "transform";
+
+        const onMove = (e) => {
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width;
+          const py = (e.clientY - rect.top) / rect.height;
+
+          const maxDeg = 10;
+          const rotY = (px - 0.5) * (maxDeg * 2);
+          const rotX = -(py - 0.5) * (maxDeg * 2);
+
+          card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(
+            2
+          )}deg) translateY(-4px)`;
+          card.style.setProperty("--px", `${(px * 100).toFixed(1)}%`);
+          card.style.setProperty("--py", `${(py * 100).toFixed(1)}%`);
+        };
+
+        const onEnter = (e) => onMove(e);
+        const onLeave = () => {
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        };
+
+        card.addEventListener("mousemove", onMove);
+        card.addEventListener("mouseenter", onEnter);
+        card.addEventListener("mouseleave", onLeave);
+
+        cleanupFns.push(() => {
+          card.removeEventListener("mousemove", onMove);
+          card.removeEventListener("mouseenter", onEnter);
+          card.removeEventListener("mouseleave", onLeave);
+          card.style.willChange = "";
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        });
+      });
+    };
+
+    attachTilt();
+    mq.addEventListener?.("change", attachTilt);
+    return () => {
+      mq.removeEventListener?.("change", attachTilt);
+      cleanupFns.forEach((fn) => fn());
+    };
+  }, []);
+
   return (
-    
-      <div className="projects-main" id="projects">
-        <Fade bottom duration={1000} distance="40px">
-        <h1
-          className={
-            isDark
-              ? "dark-mode heading projects-title"
-              : "heading projects-title", "project-title"
-          }
-        >
+    <div className="projects-main" id="projects">
+      <Fade bottom duration={1000} distance="40px">
+        <h1 className={`${isDark ? "dark-mode " : ""}project-title`}>
           Projects in Development
         </h1>
-        </Fade>
+      </Fade>
 
-
-       
-        {/* CHASHH Intro Container (paragraph on left, clickable logo on right) */}
-        <div className="chashh-intro-container">
-          {/* Left side: CHASHH Paragraph */}
-
-          <Fade bottom duration={1000} distance="40px"> 
-          <div className="chashh-text">
+      {/* Oshlix Intro Container */}
+      <div className="oshlix-intro-container">
+        {/* Left: copy */}
+        <Fade bottom duration={1000} distance="40px">
+          <div className="oshlix-text">
             <p className={isDark ? "dark-mode projects-text" : "projects-text"}>
-              I am currently developing an innovative platform called{" "}
-              <strong>CHASHH</strong> to revolutionize workplace safety by 
-              combining advanced technology with real-time data and predictive 
-              analytics. CHASHH aims to standardize how organizations identify 
-              and prevent hazards, providing actionable insights to protect 
-              employees and ensure compliance with critical regulations. By 
-              harnessing <strong>React</strong> for the frontend,{" "}
-              <strong>Ruby on Rails</strong> for the backend, and{" "}
-              <strong>Python</strong> with <strong>TensorFlow</strong> for 
-              AI-driven risk analysis, <strong>CHASHH</strong> detects potential 
-              issues before they escalate, seamlessly integrates with existing 
-              systems, and fosters a culture of proactive risk management. From 
-              predictive risk analysis and personalized prevention strategies to 
-              continuous monitoring and education, <strong>CHASHH</strong>{" "}
-              delivers a streamlined approach to safeguarding workers across 
-              diverse industries. <strong>For more information about this project, please 
-              click on the CHASHH logo.</strong>
+              I’m currently developing an innovative platform called{" "}
+              <strong>Oshlix</strong> to elevate workplace safety by combining
+              advanced technology with real-time data and predictive analytics.
+              Oshlix helps organizations identify and prevent hazards, protect
+              employees, and stay compliant with critical regulations. With a{" "}
+              <strong>React</strong> frontend, a <strong>Ruby on Rails</strong>{" "}
+              API, and AI-driven risk analysis, <strong>Oshlix</strong> detects
+              potential issues before they escalate, integrates with existing
+              systems, and fosters a culture of proactive risk management—from
+              predictive risk analysis and personalized prevention strategies to
+              continuous monitoring and education.{" "}
+              <strong>Click the Oshlix logo to learn more.</strong>
             </p>
           </div>
-          </Fade>
-          {/* Right side: Clickable CHASHH logo */}
+        </Fade>
 
-
-          <Fade right duration={1200}>
-          <div className="chashh-logo">
+        {/* Right: logo */}
+        <Fade right duration={1200}>
+          <div className="oshlix-logo">
             <a
-              href="https://lerfast.github.io/chashh-landing-page/"
+              href="https://www.oshlix.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src={chashhLogo}
-                alt="CHASHH Logo"
-                className="chashh-logo-image"
+                src={oshlixLogo}
+                alt="Oshlix Logo"
+                className="oshlix-logo-image"
               />
             </a>
           </div>
         </Fade>
-        </div>
-        <Fade bottom duration={1200} distance="40px">
-        
-        <h1
-          className={
-            isDark
-              ? "dark-mode heading projects-title"
-              : "heading projects-title", "project-title"
-          }
-        >
-          Real projects from real businesses
+      </div>
+
+      <Fade bottom duration={1200} distance="40px">
+        <h1 className={`${isDark ? "dark-mode " : ""}project-title`}>
+          Real Projects from Real Businesses
         </h1>
+      </Fade>
 
-        </Fade>
-        <Fade bottom duration={1200} distance="40px">
+      {/* Showcase: carousel (mobile) + grid (desktop) */}
+      <Fade bottom duration={1200} distance="40px">
+        <section
+          className={`projects-shelf-wrapper ${atStart ? "at-start" : ""} ${
+            atEnd ? "at-end" : ""
+          }`}
+          aria-label="Projects showcase"
+        >
+          <div className="shelf-gradient left" aria-hidden="true" />
+          <div className="shelf-gradient right" aria-hidden="true" />
 
+          <div className="projects-shelf" ref={shelfRef}>
+            {/* Arepas y Más */}
+            <article className="snap-card">
+              <div className="snap-media">
+                <img src={arepasImage} alt="Arepas y Más website preview" />
+              </div>
+              <div className="snap-body">
+                <h3 className="snap-title">Arepas y Más</h3>
+                <p className="snap-desc">
+                  A real business in Miami, Florida. Built in <strong>React</strong>,
+                  it provides basic e-commerce to order arepas. On checkout, an email
+                  with the order is sent to the company.
+                </p>
+                <div className="snap-actions">
+                  <a
+                    className="snap-btn primary"
+                    href="https://lerfast.github.io/arepas-mas-corp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Site
+                  </a>
+                  <ul className="snap-tags">
+                    <li>React</li>
+                    <li>SPA</li>
+                    <li>Email Order</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
 
-        {/* Real-world projects */}
-        <div className="repo-cards-div-main">
-          {/* Project 1: Arepas y Más */}
-          <div className="project-card">
-            <img
-              src={arepasImage}
-              alt="Arepas y Más"
-              className="project-image"
-            />
-            <h2>Arepas y Más</h2>
-            <p>
-              A real business located in Miami Florida, with many satisfied customers, thanks to this app.
-              Built 100% in <strong>React</strong>, it provides a basic 
-              e-commerce functionality to order arepas. When checking out, it 
-              sends an email to the company with the request.
-            </p>
-            <a
-              href="https://lerfast.github.io/arepas-mas-corp/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Site
-            </a>
+            {/* Cata Café Landing Page */}
+            <article className="snap-card">
+              <div className="snap-media">
+                <img src={coffeeImage} alt="Cata Café landing page preview" />
+              </div>
+              <div className="snap-body">
+                <h3 className="snap-title">Cata Café Landing Page</h3>
+                <p className="snap-desc">
+                  A React landing page for a café in Neiva, Huila-Colombia.
+                  Customers scan a QR code at their table and land on a welcome
+                  page with a CTA to see the menu.
+                </p>
+                <div className="snap-actions">
+                  <a
+                    className="snap-btn primary"
+                    href="https://lerfast.github.io/cata-cafe/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Site
+                  </a>
+                  <ul className="snap-tags">
+                    <li>React</li>
+                    <li>QR Flow</li>
+                    <li>Landing</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            {/* Personal Budget App */}
+            <article className="snap-card">
+              <div className="snap-media">
+                <img src={budgetImage} alt="Personal Budget App preview" />
+              </div>
+              <div className="snap-body">
+                <h3 className="snap-title">Personal Budget App</h3>
+                <p className="snap-desc">
+                  Track expenses and manage budgets. Capstone at Microverse,
+                  built with <strong>Ruby on Rails</strong>.
+                </p>
+                <div className="snap-actions">
+                  <a
+                    className="snap-btn ghost"
+                    href="https://github.com/lerfast/Module5-Capstone-budget-app?tab=readme-ov-file"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Source
+                  </a>
+                  <a
+                    className="snap-btn primary"
+                    href="https://www.youtube.com/watch?v=IR-94sy8DNQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Video
+                  </a>
+                  <ul className="snap-tags">
+                    <li>Ruby on Rails</li>
+                    <li>Capstone</li>
+                    <li>CRUD</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
           </div>
+        </section>
+      </Fade>
 
-          {/* Project 2: Coffee Shop Landing */}
-          <div className="project-card">
-            <img
-              src={coffeeImage}
-              alt="Coffee Shop Landing Page"
-              className="project-image"
-            />
-            <h2>Cata Café Landing Page</h2>
-            <p>
-              A React landing page for a café in Neiva, Huila-Colombia. 
-              Customers scan a QR code at their table, leading them to this 
-              page with a welcome message and a button to see the menu.
-            </p>
-            <a href="https://lerfast.github.io/cata-cafe/" target="_blank" rel="noopener noreferrer">
-              View Site
-            </a>
-          </div>
-
-          {/* Project 3: Personal Budget App */}
-          <div className="project-card">
-            <img
-              src={budgetImage}
-              alt="Personal Budget App"
-              className="project-image"
-            />
-            <h2>Personal Budget App</h2>
-            <p>
-              A basic application for managing personal expenses and tracking 
-              budgets. This was one of my Capstone projects at Microverse, 
-              built 100% with <strong>Ruby on Rails</strong>.
-            </p>
-            <a href="https://github.com/lerfast/Module5-Capstone-budget-app?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
-              View Source Code of the Project 
-            </a><br></br>
-            <a href="https://www.youtube.com/watch?v=IR-94sy8DNQ" target="_blank" rel="noopener noreferrer">
-              View Video Project 
-            </a>
-            
-          </div>
-        </div>
-        </Fade>
-        {/* Optional "More Projects" button */}
-        <Fade bottom duration={1200} distance="40px">
+      {/* More Projects — matches blue style, sin franja detrás y con aire inferior */}
+      <Fade bottom duration={1200} distance="40px">
         <Button
           text="More Projects"
           className="project-button"
           href={socialMediaLinks.github}
           newTab={true}
         />
-        </Fade>
-      </div>
-    
+      </Fade>
+    </div>
   );
 };
 
@@ -3317,150 +3736,270 @@ export default Projects;
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/projects/Project.css
 --------------------------------------------------------------------------------
-/* src/containers/projects/Project.css */
-
 /* Container for the entire Projects section */
 .projects-main {
   margin: 0 2rem;
   text-align: justify;
-  
+
+  /* palette */
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15, 23, 42, .1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+
+  /* Blue masculine gradient for primary buttons */
+  --btn-primary-bg: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  --btn-primary-text: #fff;
+
+  --btn-ghost-fg: #0F2740;
+  --btn-ghost-border: rgba(15,23,42,.18);
+
+  --fadeL: linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0));
+  --fadeR: linear-gradient(270deg, rgba(255,255,255,1), rgba(255,255,255,0));
+
+  /* separa del siguiente bloque ("Certifications") */
+  padding-bottom: 56px;
 }
 
-/* Title styling */
+.dark-mode .projects-main {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+
+  --btn-primary-text: #fff;
+  --btn-ghost-fg: #CBE7FF;
+  --btn-ghost-border: rgba(255,255,255,.2);
+
+  --fadeL: linear-gradient(90deg, rgba(15,23,42,1), rgba(15,23,42,0));
+  --fadeR: linear-gradient(270deg, rgba(15,23,42,1), rgba(15,23,42,0));
+}
+
+/* Titles: centered, gradient, heavy, sin cortes de descendentes */
 .project-title {
   font-size: 56px;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 30px;
-  text-align: left;
-  margin-left: 10px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: .2px;
+  margin: 10px 0 22px;  /* centrado: sin margin-left */
+  text-align: center;
+
+  background: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* evita que se corten letras como g, j, y */
+  padding-bottom: .25em;
 }
 
-/* Container to hold the CHASHH paragraph on the left and logo on the right */
-.chashh-intro-container {
+/* Oshlix intro */
+.oshlix-intro-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 30px;          /* space between text & logo */
+  gap: 30px;
   margin-bottom: 40px;
-  color: #878787
+  color: #878787;
 }
+.oshlix-text { flex: 1; text-align: justify; }
+.oshlix-logo { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.oshlix-logo-image { max-width: 600px; width: 100%; height: auto; border-radius: 6px; }
 
-/* Left column: CHASHH paragraph */
-.chashh-text {
-  flex: 1;           /* let text grow */
-  text-align: justify;
+.projects-text { font-size: 19px; line-height: 1.6; margin-bottom: 20px; }
+
+/* ===== Showcase híbrido ===== */
+.projects-shelf-wrapper {
+  position: relative;
+  margin-top: 8px;
+  padding: 2px 0 16px;
 }
+.projects-shelf-wrapper .shelf-gradient {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 64px;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity .18s ease;
+}
+.projects-shelf-wrapper .shelf-gradient.left { left: 0; background: var(--fadeL); opacity: 1; }
+.projects-shelf-wrapper .shelf-gradient.right { right: 0; background: var(--fadeR); opacity: 1; }
+.projects-shelf-wrapper.at-start .shelf-gradient.left { opacity: 0; }
+.projects-shelf-wrapper.at-end .shelf-gradient.right { opacity: 0; }
 
-/* Right column: CHASHH logo (clickable) */
-.chashh-logo {
-  flex-shrink: 0;    /* do not shrink the logo */
-  display: flex;
+/* Shelf: horizontal en móvil */
+.projects-shelf {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 86%;
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 6px 8px 10px;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 8px;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.projects-shelf::-webkit-scrollbar { height: 8px; }
+.projects-shelf::-webkit-scrollbar-thumb { background: rgba(148,163,184,.45); border-radius: 999px; }
+.projects-shelf::-webkit-scrollbar-track { background: transparent; }
+
+.snap-card {
+  position: relative;
+  scroll-snap-align: start;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  transition: transform .18s ease, box-shadow .2s ease;
+}
+.dark-mode .snap-card { background: #0b1220; }
+
+/* Sheen / glare (desktop) */
+.snap-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+  mix-blend-mode: screen;
+  background: radial-gradient(400px 400px at var(--px, 50%) var(--py, 50%), rgba(255,255,255,.22), rgba(255,255,255,0) 45%);
+}
+.snap-card:hover::after { opacity: 1; }
+
+/* Media */
+.snap-media { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.snap-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.snap-card:hover .snap-media img { transform: scale(1.08); }
+
+/* Body */
+.snap-body { padding: 16px 16px 18px; color: var(--fg); }
+.snap-title { margin: 8px 0 6px; font-size: 22px; font-weight: 800; letter-spacing: .2px; }
+.snap-desc { margin: 0 0 14px; color: var(--muted); font-size: 15.5px; line-height: 1.55; }
+
+/* Actions */
+.snap-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; justify-content: space-between; }
+
+/* ===== Buttons ===== */
+.snap-btn {
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.chashh-logo-image {
-  max-width: 400px;  /* enlarge the logo so it's more prominent */
-  width: 100%;
-  height: auto;
-  border-radius: 6px; /* optional rounding corners */
+/* PRIMARY — blue masculine gradient */
+.snap-btn.primary {
+  color: var(--btn-primary-text);
+  background: var(--btn-primary-bg);
+  box-shadow: 0 12px 28px rgba(2, 88, 164, .18), 0 2px 8px rgba(2, 6, 23, .12);
+}
+.snap-btn.primary:hover { transform: translateY(-2px); filter: saturate(1.05) brightness(1.02); }
+.snap-btn.primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 193, 238, .35), 0 10px 26px rgba(2, 88, 164, .22);
 }
 
-/* Paragraph style for the CHASHH text */
-.projects-text {
-  font-size: 19px;
-  line-height: 1.6;
-  margin-bottom: 20px;
+/* GHOST */
+.snap-btn.ghost { color: var(--btn-ghost-fg); border: 2px solid var(--btn-ghost-border); background: transparent; }
+.snap-btn.ghost:hover { transform: translateY(-2px); }
+.snap-btn.ghost:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(34, 193, 238, .28); }
+
+/* Tags */
+.snap-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 0 auto; padding: 0; list-style: none; }
+.snap-tags li {
+  font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 999px;
+  background: #e6f1ff; color: #0f2740; border: 1px solid rgba(15, 23, 42, .12);
+}
+.dark-mode .snap-tags li { background: rgba(255,255,255,.09); color: #e5f2ff; border: 1px solid rgba(255,255,255,.14); }
+
+/* ===== Desktop / Tablet: GRID ===== */
+@media (min-width: 769px) {
+  .projects-shelf-wrapper .shelf-gradient { display: none; }
+
+  .projects-shelf {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 0;
+    perspective: 1200px;
+  }
+
+  .snap-card { grid-column: span 6; transform-style: preserve-3d; }
+  @media (min-width: 1024px) { .snap-card { grid-column: span 4; } }
+
+  .snap-card:focus-within { outline: none; transform: translateY(-4px) scale(1.01); }
 }
 
-/* Cards container (unchanged) */
-.repo-cards-div-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem 1rem;
+/* ==== “More Projects” (sin franja detrás) ==== */
+/* Wrapper (del componente Button): transparente, centrado y con más aire abajo */
+.project-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 24px auto 64px !important; /* separa del siguiente bloque */
 }
 
-/* Project cards */
-.project-card {
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  text-align: left;
-  transition: all 0.3s ease;
-}
-
-.dark-mode .project-card {
-  background-color: #2b2b2b;
-  color: #fff;
-}
-
-.project-card h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.project-card p {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.project-card a {
-  display: inline-block;
-  margin-top: 10px;
+/* Elemento clickeable interno */
+.project-button a,
+.project-button button {
   text-decoration: none;
-  font-weight: bold;
-  color: rgb(44, 25, 139);
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+
+  font-weight: 900;
+  letter-spacing: .2px;
+  padding: 12px 18px;
+  border-radius: 14px;
+
+  color: var(--btn-primary-text) !important;
+  background: var(--btn-primary-bg) !important;
+  box-shadow: 0 12px 28px rgba(2, 88, 164, .18), 0 2px 8px rgba(2, 6, 23, .12) !important;
+  border: none;
+
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
 }
 
-.dark-mode .project-card a {
-  color:rgba(54, 11, 244, 0.95);
+.project-button a:hover,
+.project-button button:hover { transform: translateY(-2px); filter: saturate(1.05) brightness(1.02); }
+
+.project-button a:focus-visible,
+.project-button button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 193, 238, .35), 0 10px 26px rgba(2, 88, 164, .22) !important;
 }
 
-/* Hover effect for cards (optional) */
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Project images in the cards */
-.project-image {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-/* Responsive breakpoints */
-@media (max-width: 1380px) {
-  .project-title {
-    font-size: 40px;
-  }
-}
-
+/* Responsive tweaks */
 @media (max-width: 768px) {
-  .project-title {
-    font-size: 30px;
-    text-align: center;
-  }
+  .project-title { font-size: 30px; text-align: center; }
 
-  /* Stack the CHASHH paragraph & logo vertically on mobile */
-  .chashh-intro-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .chashh-logo {
-    margin-top: 20px;
-  }
-
-  .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+  .oshlix-intro-container { flex-direction: column; align-items: center; }
+  .oshlix-logo { margin-top: 20px; }
 }
 
 
@@ -3469,113 +4008,193 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/co
 --------------------------------------------------------------------------------
 import React, { useContext } from "react";
 import { Fade } from "react-reveal";
-import { commitmentSection } from "../../portfolio"; 
+import { commitmentSection } from "../../portfolio";
 import "./Commitment.css";
 import StyleContext from "../../contexts/styleContext";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
-import ohsAnimation from "../../assets/lottie/ohs.json"; 
+
+// Lotties
+import ohsAnimation from "../../assets/lottie/ohs.json";
+import droneAnimation from "../../assets/lottie/dronepilot.json";
 
 export default function Commitment() {
   const { isDark } = useContext(StyleContext);
 
   return (
     <Fade bottom duration={1000} distance="40px">
-      <div className="commitment-main" id="commitment">
-        <Fade bottom duration={1200} distance="40px">
-        <div className="commitment-text-div">
-          <h1 className={isDark ? "dark-mode heading commitment-title" : "heading commitment-title"}>
-            {commitmentSection.title}
-          </h1>
+      <section
+        className={`commitment-main ${isDark ? "dark-mode" : ""}`}
+        id="commitment"
+      >
+        {/* Block 1 — OHS: text LEFT + lottie RIGHT */}
+        <div className="commitment-block">
+          <Fade bottom duration={1200} distance="40px">
+            <div className="commitment-text-div">
+              <h2 className="commitment-block-title">
+                {commitmentSection.title}
+              </h2>
+              <p className="commitment-text">{commitmentSection.description}</p>
+            </div>
+          </Fade>
 
-          
-
-          <p className={isDark ? "dark-mode commitment-text" : "commitment-text"}>
-            {commitmentSection.description}
-          </p>
-        </div>
-        </Fade>
-        <Fade right duration={1200}>
-          <div className="skills-image-div">
-            {
+          <Fade right duration={1200}>
+            <div className="commitment-lottie-div">
               <DisplayLottie animationData={ohsAnimation} />
-            }
-          </div>
-        </Fade>
-      </div>
+            </div>
+          </Fade>
+        </div>
+
+        {/* Block 2 — Drone: lottie LEFT + text RIGHT */}
+        <div className="commitment-block commitment-block--invert">
+          <Fade left duration={1200}>
+            <div className="commitment-lottie-div">
+              <DisplayLottie animationData={droneAnimation} />
+            </div>
+          </Fade>
+
+          <Fade bottom duration={1200} distance="40px">
+            <div className="commitment-text-div">
+              <h2 className="commitment-block-title">
+                {commitmentSection.droneTitle}
+              </h2>
+              <p className="commitment-text">
+                {commitmentSection.droneDescription}
+              </p>
+            </div>
+          </Fade>
+        </div>
+      </section>
     </Fade>
   );
 }
 
+
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/commitment/Commitment.css
 --------------------------------------------------------------------------------
-/* src/containers/commitment/Commitment.css */
-
 .commitment-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align:justify;
-    margin: 0 2rem;
-    padding-top: 74px;
+  /* centrado y ancho cómodo */
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 74px 2rem 28px; /* ↓ pequeño aire al final para que Projects no se pegue */
+
+  /* palette */
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
+  --accent-grad: linear-gradient(135deg,#22C1EE 0%,#0EA5E9 50%,#0F2740 100%);
+}
+.dark-mode.commitment-main {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+}
+
+/* Filas */
+.commitment-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(20px, 3.5vw, 48px);  /* menos hueco entre texto y lottie */
+  margin: 8px 0 44px;             /* margen inferior moderado */
+}
+
+/* Drone: lottie izquierda, texto derecha (sin márgenes negativos) */
+.commitment-block--invert {
+  flex-direction: row;            /* lottie left, text right */
+}
+
+/* Títulos */
+.commitment-block-title {
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: .2px;
+  margin: 0 0 12px 0;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: .2em; /* evita cortes en g/j/y */
+}
+
+/* Texto ancho cómodo */
+.commitment-text-div {
+  flex: 1 1 520px;
+  max-width: 760px; /* un poco más ancho para que no “grite” en móvil */
+}
+.commitment-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0;
+}
+
+/* Lotties pegadas a los lados del contenedor, no al centro */
+.commitment-lottie-div {
+  flex: 1 1 420px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;    /* OHS: a la derecha */
+  min-width: 300px;
+  padding: 6px;
+}
+.commitment-block--invert .commitment-lottie-div {
+  justify-content: flex-start;  /* Drone: a la izquierda */
+}
+
+/* Tamaño de la lottie controlado */
+.commitment-lottie-div canvas,
+.commitment-lottie-div svg,
+.commitment-lottie-div > * {
+  width: clamp(300px, 36vw, 520px);
+  max-width: 100%;
+}
+
+/* Última fila: menos separación hacia Projects */
+.commitment-main .commitment-block:last-of-type {
+  margin-bottom: 20px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .commitment-block-title { font-size: 32px; }
+}
+
+@media (max-width: 768px) {
+  .commitment-main {
+    padding: 60px 1.25rem 22px;  /* menos padding lateral y al final */
   }
-  
-  .commitment-text-div {
-    flex: 1;
-    /* Ajusta el max-width si quieres limitar el ancho de texto */
-    max-width: 600px;
-    margin-right: 20px;
+
+  .commitment-block,
+  .commitment-block--invert {
+    flex-direction: column;      /* apilar */
+    text-align: center;
+    gap: 16px;                   /* acercar texto y lottie */
+    margin: 8px 0 26px;
   }
-  
-  .commitment-title {
-    font-size: 56px;
-    font-weight: 400;
-    line-height: normal;
-    margin-left: 10px;
-  }
-  
-  .commitment-subtitle {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-  }
-  
-  .commitment-text {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #878787;
-  }
-  
-  /* Lottie Container */
+
+  .commitment-text-div,
   .commitment-lottie-div {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    max-width: 860px;
+    justify-content: center;     /* centrar lottie cuando está apilada */
   }
-  
-  @media (max-width: 768px) {
-    .commitment-main {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .commitment-text-div {
-      margin-right: 0;
-      text-align: justify;
-    }
-  
-    .commitment-lottie-div {
-      margin-top: 20px;
-    }
-    .commitment-title {
-        font-size: 30px;
-        font-weight: 400;
-        line-height: normal;
-        margin-left: 10px;
-        text-align: center;
-      }
+
+  .commitment-lottie-div canvas,
+  .commitment-lottie-div svg,
+  .commitment-lottie-div > * {
+    width: min(440px, 88vw);     /* lottie más contenida en móvil */
   }
-  
+
+  .commitment-main .commitment-block:last-of-type {
+    margin-bottom: 12px;         /* pegamos mejor a Projects */
+  }
+}
+
 
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/profile/Profile.js
@@ -3638,85 +4257,209 @@ export default function Profile() {
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/certifications/Certifications.css
 --------------------------------------------------------------------------------
-/*Certification Cards Layout*/
+/* ===== Section wrapper ===== */
+.certs-section {
+  margin: 0 2rem 40px;
+  --fg: #0f172a;
+  --muted: #475569;
+  --stroke: rgba(15,23,42,.1);
+  --shadow: 0 10px 28px rgba(2,6,23,.10);
 
-.cert-header-title {
+  /* Azul masculino coherente con el resto del sitio */
+  --accent-grad: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+}
+
+.dark-mode .certs-section {
+  --fg: #e5e7eb;
+  --muted: #9aa4b2;
+  --stroke: rgba(255,255,255,.12);
+  --shadow: 0 14px 34px rgba(0,0,0,.45);
+}
+
+/* ===== Header ===== */
+.certs-header {
+  margin: 0 0 28px 0;
+  padding-left: 10px;
+}
+
+.certs-title {
   font-size: 56px;
-  font-weight: 400;
-  line-height: normal;
-  margin-left: 30px;
-  text-align: left;
-  margin-bottom: 40px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin: 0 0 6px 0;
+  letter-spacing: .2px;
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.cert-main-div>* {
-  flex: 1;
-  margin-bottom: 30px;
+.certs-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
 }
 
-.cert-main-div {
-  display: flex;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 40px;
-}
-
-.cert-image-div>img {
-  max-width: 100%;
-  height: auto;
-}
-
-.cert-text-div {
+/* ===== Grid ===== */
+.certs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  perspective: 1200px; /* para tilt 3D */
 }
 
-/* Media Query */
+/* Wrapper para cada tarjeta (envolvemos tu CertificationCard) */
+.certs-grid .cert-tilt {
+  grid-column: span 12;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  background: #fff;
+  overflow: hidden;
+
+  transform-style: preserve-3d;
+  transition: transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.dark-mode .certs-grid .cert-tilt {
+  background: #0b1220;
+}
+
+/* “Sheen / glare” al mover el mouse (valores desde JS con --px/--py) */
+.certs-grid .cert-tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(380px 380px at var(--px, 50%) var(--py, 50%),
+      rgba(255,255,255,.22), rgba(255,255,255,0) 45%);
+}
+.certs-grid .cert-tilt:hover::after { opacity: 1; }
+
+/* Hover (elevación suave si no hay tilt activo) */
+.certs-grid .cert-tilt:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 640px) {
+  .certs-grid .cert-tilt { grid-column: span 6; }
+}
+@media (min-width: 1024px) {
+  .certs-grid .cert-tilt { grid-column: span 4; }
+}
+
+/* Ajustes de tipografías para pantallas más pequeñas */
 @media (max-width: 1380px) {
-  .cert-header-title {
-    font-size: 40px;
-  }
+  .certs-title { font-size: 40px; }
 }
-
 @media (max-width: 768px) {
-  .cert-header-title {
+  .certs-title {
     font-size: 30px;
     text-align: center;
   }
+  .certs-header { padding-left: 0; text-align: center; }
 }
 
-@media screen and (max-width: 480px) and (min-width:300px) {
-  .cert-text-div {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
 
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/certifications/Certifications.js
 --------------------------------------------------------------------------------
-import React from 'react';
-import './Certifications.css';
+import React, { useEffect } from "react";
+import "./Certifications.css";
 import { Fade } from "react-reveal";
-import {certifications} from "../../portfolio";
-import CertificationCard from '../../components/certificationCard/CertificationCard';
+import { certifications } from "../../portfolio";
+import CertificationCard from "../../components/certificationCard/CertificationCard";
 
 const Certifications = () => {
+  // Tilt 3D (solo desktop)
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 769px)");
+    let cleanups = [];
+
+    const attachTilt = () => {
+      // Limpia bindings previos
+      cleanups.forEach((fn) => fn());
+      cleanups = [];
+
+      if (!mq.matches) return;
+
+      const cards = document.querySelectorAll(".cert-tilt");
+      cards.forEach((card) => {
+        card.style.willChange = "transform";
+
+        const onMove = (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+
+          const max = 10; // grados
+          const rotY = (px - 0.5) * (max * 2);
+          const rotX = -(py - 0.5) * (max * 2);
+
+          card.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(
+            2
+          )}deg) translateY(-4px)`;
+          card.style.setProperty("--px", `${(px * 100).toFixed(1)}%`);
+          card.style.setProperty("--py", `${(py * 100).toFixed(1)}%`);
+        };
+
+        const onEnter = (e) => onMove(e);
+        const onLeave = () => {
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        };
+
+        card.addEventListener("mousemove", onMove);
+        card.addEventListener("mouseenter", onEnter);
+        card.addEventListener("mouseleave", onLeave);
+
+        cleanups.push(() => {
+          card.removeEventListener("mousemove", onMove);
+          card.removeEventListener("mouseenter", onEnter);
+          card.removeEventListener("mouseleave", onLeave);
+          card.style.willChange = "";
+          card.style.transform = "";
+          card.style.removeProperty("--px");
+          card.style.removeProperty("--py");
+        });
+      });
+    };
+
+    attachTilt();
+    mq.addEventListener?.("change", attachTilt);
+
+    return () => {
+      mq.removeEventListener?.("change", attachTilt);
+      cleanups.forEach((fn) => fn());
+    };
+  }, []);
+
   return (
     <Fade bottom duration={1200} distance="40px">
-    <div className="main" id="certs">
-			<h1 className="cert-header-title">Certifications</h1>
-      <div className="cert-main-div">
-        <div className="cert-text-div">
-          {certifications.certifications.map(cert => {
-						return <CertificationCard certificate={cert} id={cert.id} />;
-					})}
+      <section className="certs-section" id="certs">
+        <header className="certs-header">
+          <h1 className="certs-title">Certifications</h1>
+          <p className="certs-sub">
+            Degrees, diplomas & professional credentials
+          </p>
+        </header>
+
+        <div className="certs-grid">
+          {certifications.certifications.map((cert, idx) => (
+            <article className="cert-tilt" key={`${cert.title}-${idx}`}>
+              {/* No tocamos tu tarjeta, solo la envolvemos para efectos */}
+              <CertificationCard certificate={cert} id={cert.id} />
+            </article>
+          ))}
         </div>
-      </div>
-    </div>
+      </section>
     </Fade>
   );
-}
+};
 
 export default Certifications;
 
@@ -3789,6 +4532,7 @@ const Skills = () => {
 
 export default Skills;
 
+
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/skills/Skills.css
 --------------------------------------------------------------------------------
@@ -3818,7 +4562,26 @@ Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/containers/sk
   font-size: 56px;
   margin-top: 0;
   font-weight: 400;
+
+  /* ---- Degradado + fixes anti “cortes” ---- */
+  background: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Evita bandas/cortes en algunos navegadores */
+  display: inline-block;
+  line-height: 1.08;
+  padding-top: 0.12em;
+  padding-bottom: 0.22em;
+  -webkit-text-stroke: 0.2px rgba(255,255,255,0.02);
 }
+
+/* Fallback si el navegador no soporta background-clip:text */
+@supports not (-webkit-background-clip: text) {
+  .skills-heading { color: #0EA5E9; }
+}
+
 .subTitle {
   color: #868e96;
   align-items: center;
@@ -19316,6 +20079,11 @@ h1 {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
+--------------------------------------------------------------------------------
+Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/assets/lottie/dronepilot.json
+--------------------------------------------------------------------------------
+{"v":"5.5.1","fr":30,"ip":0,"op":121,"w":800,"h":800,"nm":"5","ddd":0,"assets":[],"layers":[{"ddd":0,"ind":2,"ty":4,"nm":"Illustrations 14","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":0,"s":[0]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":30,"s":[13]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":60,"s":[-5]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":90,"s":[10]},{"t":120,"s":[0]}],"ix":10},"p":{"a":1,"k":[{"i":{"x":0.833,"y":0.847},"o":{"x":0.167,"y":0.167},"t":0,"s":[580.346,310.973,0],"to":[11.167,15.5,0],"ti":[-38.167,37.5,0]},{"i":{"x":0.833,"y":0.832},"o":{"x":0.167,"y":0.182},"t":30,"s":[689.346,307.973,0],"to":[12.963,-12.737,0],"ti":[7.909,4.646,0]},{"i":{"x":0.833,"y":0.844},"o":{"x":0.167,"y":0.165},"t":60,"s":[678.346,210.973,0],"to":[-34.333,-20.167,0],"ti":[3.5,-1.167,0]},{"i":{"x":0.833,"y":0.833},"o":{"x":0.167,"y":0.179},"t":90,"s":[580.346,222.973,0],"to":[-3.5,1.167,0],"ti":[-10.623,-14.745,0]},{"t":120,"s":[580.346,310.973,0]}],"ix":2},"a":{"a":0,"k":[415.432,-111.284,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,5.03],[25.111,-3.56]],"o":[[0,-3.812],[0,0]],"v":[[342.387,-136.938],[314.453,-136.938]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.678431391716,0.827450990677,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,5.03],[-25.111,-3.56]],"o":[[0,-3.812],[0,0]],"v":[[357.31,-136.938],[385.243,-136.938]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.678431391716,0.827450990677,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,5.03],[25.111,-3.56]],"o":[[0,-3.812],[0,0]],"v":[[473.555,-136.938],[445.621,-136.938]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.678431391716,0.827450990677,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,5.03],[-25.111,-3.56]],"o":[[0,-3.812],[0,0]],"v":[[488.478,-136.938],[516.412,-136.938]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.678431391716,0.827450990677,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[353.352,-133.635],[346.345,-133.635]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.554,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[484.52,-133.635],[477.513,-133.635]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.554,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 6","np":2,"cix":2,"bm":0,"ix":6,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,3.086],[-6.16,0],[-2.046,-2.404]],"o":[[-2.026,-2.019],[0,-6.16],[3.404,0],[0,0]],"v":[[407.558,-105.77],[404.279,-113.669],[415.432,-124.823],[423.93,-120.895]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.427450984716,0.811764717102,0.964705884457,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 7","np":2,"cix":2,"bm":0,"ix":7,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-7.587],[7.587,0],[0,7.587],[-7.587,0]],"o":[[0,7.587],[-7.587,0],[0,-7.587],[7.587,0]],"v":[[429.169,-113.669],[415.432,-99.932],[401.696,-113.669],[415.432,-127.406]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.149019613862,0.701960802078,0.984313726425,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 8","np":2,"cix":2,"bm":0,"ix":8,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-11.616],[11.616,0],[0,11.616],[-11.616,0]],"o":[[0,11.616],[-11.616,0],[0,-11.616],[11.616,0]],"v":[[436.466,-113.669],[415.432,-92.636],[394.399,-113.669],[415.432,-134.702]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 9","np":2,"cix":2,"bm":0,"ix":9,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[4.357,0],[0,0],[0,4.357],[0,0]],"o":[[0,0],[0,4.357],[0,0],[-4.357,0],[0,0],[0,0]],"v":[[481.016,-137.826],[481.016,-120.676],[473.127,-112.786],[357.738,-112.786],[349.848,-120.676],[349.848,-137.826]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":7.008,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 10","np":2,"cix":2,"bm":0,"ix":10,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[3.503,0],[0,0],[0,3.503],[0,0],[0,0],[0,0]],"o":[[0,0],[-3.503,0],[0,0],[0,0],[0,0],[0,3.503]],"v":[[437.908,-91.145],[394.262,-91.145],[387.893,-97.514],[387.893,-112.786],[444.277,-112.786],[444.277,-97.514]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.286274522543,0.32549020648,0.384313732386,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 11","np":2,"cix":2,"bm":0,"ix":11,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[-3.854,0],[0,0],[0,-3.854],[0,0]],"o":[[0,0],[0,-3.854],[0,0],[3.854,0],[0,0],[0,0]],"v":[[385.066,-82.864],[385.066,-102.658],[392.074,-109.665],[438.791,-109.665],[445.799,-102.658],[445.799,-82.864]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":7.008,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 12","np":2,"cix":2,"bm":0,"ix":12,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[-7.099,0],[0,0]],"o":[[0,0],[0,7.099],[0,0],[0,0]],"v":[[364.321,-112.786],[364.321,-112.786],[377.175,-99.932],[389.339,-99.932]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.470588237047,0.709803938866,0.54509806633,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2.92,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 13","np":2,"cix":2,"bm":0,"ix":13,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[7.099,0],[0,0]],"o":[[0,0],[0,7.099],[0,0],[0,0]],"v":[[469.295,-112.786],[469.295,-112.786],[456.442,-99.932],[444.277,-99.932]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.960784316063,0.54509806633,0.51372551918,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2.92,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 14","np":2,"cix":2,"bm":0,"ix":14,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":3,"ty":4,"nm":"Illustrations 13","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":0,"s":[0]},{"t":60,"s":[11]}],"ix":10,"x":"var $bm_rt;\n$bm_rt = loopOut('pingpong');"},"p":{"a":0,"k":[384.448,381.033,0],"ix":2},"a":{"a":0,"k":[170.56,-23.709,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0.858,-3.049]],"o":[[0,0],[0,0]],"v":[[190.119,-82.354],[187.45,-80.609]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.674509823322,0.40000000596,0.380392163992,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[1.126,-3.654]],"o":[[0,0],[0,0]],"v":[[184.174,-79.986],[178.875,-76.212]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.674509823322,0.40000000596,0.380392163992,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[4.149,1.691]],"o":[[0,0],[0,0]],"v":[[194.543,-51.524],[188.52,-51.682]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.913725495338,0.541176497936,0.51372551918,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-1.036,-2.635],[1.694,-0.666],[1.036,2.635],[-1.694,0.666]],"o":[[1.036,2.635],[-1.694,0.666],[-1.036,-2.635],[1.694,-0.666]],"v":[[199.027,-75.093],[197.836,-69.117],[192.894,-72.682],[194.084,-78.658]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.360000014305,0.360000014305,0.360000014305,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-1.036,-2.635],[1.7,-0.668],[1.036,2.635],[-1.7,0.668]],"o":[[1.036,2.635],[-1.7,0.668],[-1.036,-2.635],[1.7,-0.668]],"v":[[190.035,-71.557],[188.833,-65.576],[183.879,-69.137],[185.081,-75.118]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.360000014305,0.360000014305,0.360000014305,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[190.385,-71.307],[192.808,-72.26]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.360000014305,0.360000014305,0.360000014305,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 6","np":2,"cix":2,"bm":0,"ix":6,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[166.698,-61.754],[183.54,-68.377]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.360000014305,0.360000014305,0.360000014305,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.746,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 7","np":2,"cix":2,"bm":0,"ix":7,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-7.035,7.476],[-0.722,1.159],[1.407,4.943],[0.153,0.122],[-0.215,-0.812],[0.606,-0.608],[8.485,-4.671],[3.057,-4.391],[-9.741,-9.929],[0,0],[5.414,9.593],[2.006,4.24],[-1.846,-4.694],[-17.645,-1.4],[4.361,5.79],[11.623,-0.444],[-1.007,7.466]],"o":[[0.449,-0.477],[0.377,-0.606],[-1.738,-6.106],[0.474,0.268],[0.396,1.494],[-4.397,4.409],[-0.814,0.448],[-9.592,13.779],[9.741,9.929],[0,0],[-0.564,-0.912],[-3.263,-6.896],[1.846,4.694],[11.802,0.904],[0,0],[-11.623,0.444],[0.734,-5.441]],"v":[[183.774,-88.086],[185.659,-90.511],[187.848,-101.379],[177.664,-111.37],[179.066,-109.785],[177.309,-106.131],[153.909,-98.753],[145.914,-91.38],[153.951,-48.676],[164.588,-35.485],[169.485,-51.833],[162.299,-56.987],[169.779,-58.442],[186.756,-39.241],[196.899,-61.395],[182.969,-57.586],[167.254,-74.755]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"gf","o":{"a":0,"k":100,"ix":10},"r":1,"bm":0,"g":{"p":3,"k":{"a":0,"k":[0,0.8,0.51,0.404,0.5,0.62,0.367,0.363,1,0.439,0.224,0.322],"ix":9}},"s":{"a":0,"k":[169.874,-112],"ix":5},"e":{"a":0,"k":[169.874,-36.115],"ix":6},"t":1,"nm":"Gradient Fill 1","mn":"ADBE Vector Graphic - G-Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 8","np":2,"cix":2,"bm":0,"ix":8,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[3.948,10.04],[10.357,-4.073],[-5.195,-13.211],[-1.909,-2.387],[1.594,-3.708],[-9.004,-2.016],[-6.392,6.703],[-0.105,3.064]],"o":[[-5.195,-13.211],[-10.357,4.073],[1.219,3.099],[2.866,5.864],[0,0],[0,0],[0.388,-3.639],[5.478,-6.251]],"v":[[194.724,-74.082],[166.565,-90.629],[157.219,-59.335],[161.977,-51.074],[163.681,-29.328],[180.599,-23.709],[184.318,-40.42],[191.72,-47.295]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.929411768913,0.623529434204,0.470588237047,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 9","np":2,"cix":2,"bm":0,"ix":9,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":4,"ty":4,"nm":"Illustrations 12","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":0,"s":[0]},{"t":60,"s":[-14]}],"ix":10,"x":"var $bm_rt;\n$bm_rt = loopOut('pingpong');"},"p":{"a":0,"k":[364.675,378.606,0],"ix":2},"a":{"a":0,"k":[145.844,-26.743,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.595,0.362]],"o":[[0,0],[0,0]],"v":[[169.808,42.948],[172.055,44.398]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[1.457,-6.955]],"o":[[0,0],[0,0]],"v":[[179.065,29.721],[172.823,36.676]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[1,1,1,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-0.904,-0.448],[0,0],[-0.41,1.132],[0,0],[1.023,0.397],[0,0],[0.366,-1.092],[0,0]],"o":[[0,0],[1.079,0.534],[0,0],[0.374,-1.031],[0,0],[-1.074,-0.417],[0,0],[-0.321,0.957]],"v":[[255.007,50.275],[255.007,50.275],[257.801,49.154],[265.627,27.56],[264.46,24.991],[263.939,24.789],[261.294,26.029],[253.989,47.825]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0.815,-0.765],[0.765,0.815],[-0.815,0.765],[-0.765,-0.815]],"o":[[-0.815,0.765],[-0.765,-0.815],[0.815,-0.765],[0.765,0.815]],"v":[[250.973,45.783],[248.111,45.693],[248.202,42.831],[251.063,42.922]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[247.93,50.486],[249.4,45.378]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2.61,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-1.118],[1.118,0],[0,1.118],[-1.118,0]],"o":[[0,1.118],[-1.118,0],[0,-1.118],[1.118,0]],"v":[[246.119,44.26],[244.095,46.284],[242.071,44.26],[244.095,42.235]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 6","np":2,"cix":2,"bm":0,"ix":6,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[247.466,49.696],[244.747,45.13]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2.61,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 7","np":2,"cix":2,"bm":0,"ix":7,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[2.499,8.158],[11.252,1.976],[-1.945,-7.371],[-2.238,-1.588],[0,0],[0,0],[-0.478,0],[0,0],[-0.442,0.682],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[-2.394,-7.814],[-9.516,-1.671],[3.775,14.306],[2.238,1.588],[0,0],[0.371,0.302],[0,0],[0.813,0],[0,0],[0,0]],"v":[[239.673,51.151],[240.165,47.781],[237.193,47.932],[229.704,49.65],[179.097,30],[170.782,-3.284],[158.199,-26.547],[146.301,-11.498],[170.216,44.663],[227.597,57.138],[232.198,60.887],[233.511,61.354],[239.622,61.354],[241.636,60.26],[244.095,56.466]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.929411768913,0.61960786581,0.40000000596,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 8","np":2,"cix":2,"bm":0,"ix":8,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[-0.249,-2.548],[0,0],[2.361,-0.357],[0,0]],"o":[[0,0],[2.534,-0.363],[0,0],[0.232,2.377],[0,0],[0,0]],"v":[[240.036,47.799],[253.129,45.925],[258.236,49.936],[258.236,49.936],[254.437,54.813],[237.048,57.444]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.337254911661,0.380392163992,0.450980395079,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 9","np":2,"cix":2,"bm":0,"ix":9,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":5,"ty":4,"nm":"Illustrations 11","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[360.934,413.247,0],"ix":2},"a":{"a":0,"k":[141.167,16.559,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[147.241,-21.184],[149.445,52.314],[176.912,56.466],[179.889,41.893]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.874509811401,0.341176480055,0.290196090937,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.615,-13.917],[-1.202,9.338],[0,0],[-0.708,-0.345],[0,0],[2.168,-16.625],[1.88,-12.375],[11.623,0.423],[6.273,1.212],[1.3,4.256],[-9.203,31.122],[-11.733,2.464]],"o":[[0,0],[2.615,13.917],[1.202,-9.338],[0,0],[0.856,0.417],[0,0],[-2.168,16.625],[-0.564,3.716],[-11.623,-0.423],[-5.056,-0.977],[0,0],[2.741,-9.268],[4.142,-0.58]],"v":[[163.681,-29.328],[173.137,-7.252],[186.727,-8.352],[184.68,-25.413],[187.54,-24.235],[188.914,-23.382],[190.677,3.088],[176.237,60.036],[162.564,73.465],[137.815,70.976],[117.903,62.821],[132.408,3.088],[154.079,-28.926]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,0.368627458811,0.298039227724,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[190.24,-14.211],[187.292,-24.352],[177.513,-28.322],[167.054,-30.034],[156.704,-28.153],[176.042,8.114],[187.774,1.328]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.929411768913,0.623529434204,0.470588237047,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":3,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[-0.633,0],[0,0],[0.093,-0.881],[0,0]],"o":[[0,0],[0.21,-0.597],[0,0],[0.886,0],[0,0],[0,0]],"v":[[139.141,-32.568],[141.739,-39.364],[143.146,-40.36],[150.762,-40.36],[152.245,-38.712],[152.06,-35.003]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.733333349228,0.607843160629,0.278431385756,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2.175,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[20.405,-40.012],[0,0]],"o":[[0,0],[-20.405,40.012],[0,0]],"v":[[152.068,-35.154],[117.727,-3.773],[98.353,63.676]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.733333349228,0.607843160629,0.278431385756,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":2.175,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[25.049,-17.121],[-12.395,-12.895],[-2.923,3.571]],"o":[[0,0],[-17.607,12.034],[12.395,12.895],[2.923,-3.571]],"v":[[160.756,-29.767],[124.811,-30.034],[94.301,60.036],[129.506,71.033]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.349019616842,0.32549020648,0.152941182256,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[10.438,-20.006],[-2.343,-10.908],[-6.782,-5.586]],"o":[[0,0],[-10.438,20.006],[1.105,5.146],[6.782,5.586]],"v":[[121.908,-26.732],[100.66,-7.846],[92.18,33.036],[101.554,52.049]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.305882364511,0.286274522543,0.121568627656,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":6,"ty":4,"nm":"Illustrations 10","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":0,"s":[0]},{"t":60,"s":[-14]}],"ix":10,"x":"var $bm_rt;\n$bm_rt = loopOut('pingpong');"},"p":{"a":0,"k":[386.259,380.192,0],"ix":2},"a":{"a":0,"k":[172.823,-24.761,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[2.499,8.158],[11.252,1.975],[-1.945,-7.372],[-2.238,-1.588],[-8.697,-1.972],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[-2.394,-7.814],[-9.517,-1.671],[3.775,14.306],[1.905,1.352],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[244.55,47.05],[242.071,42.851],[236.782,46.158],[206.076,31.982],[197.761,-1.302],[185.178,-24.565],[173.28,-9.515],[195.194,44.387],[235.152,54.435],[234.62,57.138],[238.643,57.138],[241.47,49.846],[240.165,47.78]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.866666674614,0.580392181873,0.376470595598,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":7,"ty":4,"nm":"Illustrations 9","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[340.668,540.558,0],"ix":2},"a":{"a":0,"k":[115.835,175.698,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[85.442,279.016],[82.512,280.398]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.372549027205,0.290196090937,0.219607844949,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.001,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[84.206,277.421],[81.277,278.803]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.372549027205,0.290196090937,0.219607844949,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.001,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[82.779,275.76],[79.85,277.142]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.372549027205,0.290196090937,0.219607844949,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.001,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-2.43,-2.824],[-1.937,2.936],[0,0],[0,0],[0.894,-1.64],[1.2,-0.028],[4.64,2.938],[3.74,3.351],[-1.616,2.45]],"o":[[0,0],[2.033,2.363],[0,0],[0,0],[0.924,0.92],[-0.53,0.973],[-1.004,0.023],[-6.399,-4.052],[-1.505,-1.348],[0,0]],"v":[[66.575,258.425],[67.275,267.171],[76.892,268.47],[86.398,280.398],[92.688,282.185],[92.789,286.525],[90.257,288.345],[73.519,285.904],[60.302,274.268],[60.269,267.742]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.57647061348,0.384313732386,0.274509817362,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[6.047,12.923],[0,0],[-1.24,-1.39],[-2.61,-1.099],[-3.91,0.109],[-0.502,1.184],[0,0],[5.876,2.175]],"o":[[0,0],[0,0],[2.61,2.926],[2.61,1.099],[3.91,-0.109],[0.502,-1.184],[0,0],[-5.876,-2.175]],"v":[[59.633,268.92],[57.609,274.046],[59.066,276.451],[72.831,288.387],[87.296,290.03],[93.422,288.387],[93.385,284.73],[82.512,287.203]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.850980401039,0.945098042488,0.992156863213,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[87.296,207.481],[103.384,216.094]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.211764708161,0.72549021244,0.541176497936,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 6","np":2,"cix":2,"bm":0,"ix":6,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[121.231,130.705],[119.077,149.406]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"d":[{"n":"d","nm":"dash","v":{"a":0,"k":5.219,"ix":1}}],"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 7","np":2,"cix":2,"bm":0,"ix":7,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[2.465,-14.642]],"o":[[0,0],[0,0]],"v":[[133.689,74.864],[127.377,100.116]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"d":[{"n":"d","nm":"dash","v":{"a":0,"k":5.219,"ix":1}}],"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 8","np":2,"cix":2,"bm":0,"ix":8,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[107.982,148.092],[134.48,154.334]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 9","np":2,"cix":2,"bm":0,"ix":9,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[120.746,102.915],[121.215,100.732],[140.352,104.272],[133.176,129.632],[131.29,129.632],[137.851,106.168]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.121568627656,0.258823543787,0.419607847929,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 10","np":2,"cix":2,"bm":0,"ix":10,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[119.874,110.715],[125.88,116.952],[132.251,114.214]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 11","np":2,"cix":2,"bm":0,"ix":11,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[119.44,104.272],[136.22,107.509],[130.131,129.632],[116.069,126.356]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 12","np":2,"cix":2,"bm":0,"ix":12,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-6.57,-2.22],[-7.468,7.684]],"o":[[0,0],[6.57,2.22],[0,0]],"v":[[116.069,67.497],[125.88,72.671],[172.823,75.76]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 13","np":2,"cix":2,"bm":0,"ix":13,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[-8.891,5.063]],"o":[[0,0],[0,0],[0,0],[8.891,-5.063]],"v":[[174.062,67.423],[140.064,162.735],[107.842,155.084],[117.903,62.821]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.145098045468,0.298039227724,0.474509805441,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 14","np":2,"cix":2,"bm":0,"ix":14,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[75.95,267.021],[78.246,270.791],[69.189,270.828],[63.229,264.361],[68.455,255.334]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 15","np":2,"cix":2,"bm":0,"ix":15,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[65.759,260.657],[86.906,202.77],[108.832,213.772],[76.814,268.92]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 16","np":2,"cix":2,"bm":0,"ix":16,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[3.914,-16.962],[1.305,-50.016],[2.185,-5.405],[0,0],[0,0],[0,0],[-6.014,16.861],[0,0]],"o":[[0,0],[0,0],[-9.027,22.329],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[112.544,78.861],[109.666,152.148],[98.817,171.587],[65.075,263.207],[76.814,268.92],[138.463,162.735],[174.062,67.423],[120.1,61.354]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.929411768913,0.61960786581,0.40000000596,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 17","np":2,"cix":2,"bm":0,"ix":17,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":8,"ty":4,"nm":"Illustrations 8","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[389.803,537.753,0],"ix":2},"a":{"a":0,"k":[177.254,172.191,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[226.233,276.535],[224.549,279.302]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.372549027205,0.290196090937,0.219607844949,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.001,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[224.324,275.883],[222.64,278.651]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.372549027205,0.290196090937,0.219607844949,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.001,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[222.218,275.283],[220.534,278.05]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.372549027205,0.290196090937,0.219607844949,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":1.001,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-3.583,-1.019],[0,3.517],[0,0],[-0.157,-1.862],[0.986,-0.684],[8.701,0.386],[0,2.935]],"o":[[0,0],[2.998,0.853],[0,0],[1.278,0.259],[0.093,1.104],[-1.963,1.362],[-2.018,-0.089],[0,0]],"v":[[199.258,269.663],[204.546,276.652],[213.289,272.441],[234.235,279.259],[236.709,282.826],[235.598,285.739],[202.635,286.416],[199.013,280.987]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.57647061348,0.384313732386,0.274509817362,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-1.163,-2.812],[-1.993,0.057],[0,0],[0.474,3.152],[0,0]],"o":[[0,0],[0.553,1.337],[1.306,-0.037],[0,0],[0,0],[0,0]],"v":[[199.013,280.987],[199.866,286.741],[202.835,288.362],[234.221,288.362],[236.729,284.231],[200.515,284.231]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.850980401039,0.945098042488,0.992156863213,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[185.221,213.847],[200.832,211.787]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.211764708161,0.72549021244,0.541176497936,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 6","np":2,"cix":2,"bm":0,"ix":6,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[177.537,157.38],[174.062,158.25]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 7","np":2,"cix":2,"bm":0,"ix":7,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[198.802,152.114],[179.889,156.727]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0,0.411764711142,0.709803938866,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":0.478,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 8","np":2,"cix":2,"bm":0,"ix":8,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[149.268,131.285],[174.062,67.423],[163.565,154.334]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.121568627656,0.258823543787,0.419607847929,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 9","np":2,"cix":2,"bm":0,"ix":9,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0]],"v":[[181.225,210.116],[205.436,207.047],[211.705,271.75],[199.837,271.843]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 10","np":2,"cix":2,"bm":0,"ix":10,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[20.147,-14.736],[-14.135,-18.919],[0,0],[0,0],[3.479,6.524]],"o":[[0,0],[14.135,18.919],[0,0],[0,0],[-3.479,-6.524]],"v":[[117.903,62.821],[129.506,104.001],[171.743,167.042],[200.832,159.539],[174.062,67.423]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.145098045468,0.298039227724,0.474509805441,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 11","np":2,"cix":2,"bm":0,"ix":11,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[7.735,32.274],[0.599,4.491],[15.785,23.422],[0,0]],"o":[[0,0],[0,0],[0,0],[0.725,-0.151],[-2.303,-9.611],[0,0],[-15.95,-23.666],[0,0]],"v":[[169.25,71.253],[200.832,159.539],[211.705,271.75],[200.107,271.75],[175.8,189.419],[173.493,166.591],[127.264,96.476],[123.584,56.466]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.929411768913,0.61960786581,0.40000000596,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 12","np":2,"cix":2,"bm":0,"ix":12,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[211.705,271.75],[215.697,273.632],[208.159,278.651],[199.622,276.535],[199.013,266.122]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[1,1,1,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 13","np":2,"cix":2,"bm":0,"ix":13,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":9,"ty":4,"nm":"Illustrations 7","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[543.879,494.844,0],"ix":2},"a":{"a":0,"k":[374.38,102.859,0],"ix":1},"s":{"a":1,"k":[{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":35,"s":[0,0,100]},{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":40.5,"s":[88,88,100]},{"i":{"x":[0.833,0.833,0.833],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":46,"s":[80,80,100]},{"i":{"x":[0.833,0.833,0.833],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":86,"s":[80,80,100]},{"t":96,"s":[0,0,100]}],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0]],"v":[[374.38,79.183],[374.38,57.002],[411.564,57.002]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.86274510622,0.949019610882,0.988235294819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0]],"o":[[0,0],[0,0]],"v":[[376.555,74.052],[376.555,102.859]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.86274510622,0.949019610882,0.988235294819,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":4.349,"ix":5},"lc":1,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false}],"ip":35,"op":156,"st":35,"bm":0},{"ddd":0,"ind":10,"ty":4,"nm":"Illustrations 6","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[544.704,498.929,0],"ix":2},"a":{"a":0,"k":[374.38,115.161,0],"ix":1},"s":{"a":1,"k":[{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":33,"s":[0,0,100]},{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":38.5,"s":[88,88,100]},{"i":{"x":[0.833,0.833,0.833],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":44,"s":[80,80,100]},{"i":{"x":[0.833,0.833,0.833],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":86,"s":[80,80,100]},{"t":96,"s":[0,0,100]}],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-9.248],[9.248,0],[0,9.248],[-9.248,0]],"o":[[0,9.248],[-9.248,0],[0,-9.248],[9.248,0]],"v":[[391.124,115.161],[374.38,131.905],[357.636,115.161],[374.38,98.417]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.86274510622,0.949019610882,0.988235294819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":33,"op":154,"st":33,"bm":0},{"ddd":0,"ind":11,"ty":4,"nm":"Illustrations 4","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[93.977,595.662,0],"ix":2},"a":{"a":0,"k":[-196.528,242.078,0],"ix":1},"s":{"a":1,"k":[{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":0,"s":[0,0,100]},{"i":{"x":[0.667,0.667,0.667],"y":[1,1,1]},"o":{"x":[0.333,0.333,0.333],"y":[0,0,0]},"t":5.5,"s":[88,88,100]},{"i":{"x":[0.833,0.833,0.833],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":11,"s":[80,80,100]},{"i":{"x":[0.833,0.833,0.833],"y":[1,1,1]},"o":{"x":[0.167,0.167,0.167],"y":[0,0,0]},"t":112,"s":[80,80,100]},{"t":120,"s":[0,0,100]}],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,-9.248],[9.248,0],[0,9.248],[-9.248,0]],"o":[[0,9.248],[-9.248,0],[0,-9.248],[9.248,0]],"v":[[-179.784,242.078],[-196.528,258.822],[-213.273,242.078],[-196.528,225.333]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.86274510622,0.949019610882,0.988235294819,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":12,"ty":4,"nm":"Illustrations 5","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[317.69,527.454,0],"ix":2},"a":{"a":0,"k":[87.112,159.317,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],"v":[[-190.097,245.436],[-75.089,178.673],[-18.499,124.757],[68.678,82.331],[136.22,148.092],[265.748,73.199],[364.321,121.38]],"c":false},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"st","c":{"a":0,"k":[0.937254905701,0.976470589638,0.996078431606,1],"ix":3},"o":{"a":0,"k":100,"ix":4},"w":{"a":0,"k":18.756,"ix":5},"lc":2,"lj":1,"ml":10,"bm":0,"nm":"Stroke 1","mn":"ADBE Vector Graphic - Stroke","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"tm","s":{"a":0,"k":0,"ix":1},"e":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":8,"s":[0]},{"i":{"x":[0.833],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":38,"s":[100]},{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.167],"y":[0]},"t":90,"s":[100]},{"t":120,"s":[0]}],"ix":2},"o":{"a":0,"k":0,"ix":3},"m":1,"ix":2,"nm":"Trim Paths 1","mn":"ADBE Vector Filter - Trim","hd":false}],"ip":8,"op":129,"st":8,"bm":0},{"ddd":0,"ind":13,"ty":4,"nm":"Illustrations 3","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":1,"k":[{"i":{"x":[0.667],"y":[1]},"o":{"x":[0.333],"y":[0]},"t":0,"s":[6]},{"t":60,"s":[-5]}],"ix":10,"x":"var $bm_rt;\n$bm_rt = loopOut('pingpong');"},"p":{"a":0,"k":[690.363,628.308,0],"ix":2},"a":{"a":0,"k":[552.954,285.384,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[17.435,18.811],[0,0]],"o":[[0,0],[-17.435,-18.811],[0,0]],"v":[[561.623,285.384],[545.565,237.21],[553.607,285.384]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.035294119269,0.89411765337,0.776470601559,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[23.153,11.035],[0,0]],"o":[[0,0],[-23.153,-11.035],[0,0]],"v":[[561.071,282.421],[528.343,243.594],[553.622,285.384]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.745098054409,0.615686297417,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-17.435,18.811],[0,0]],"o":[[0,0],[17.435,-18.811],[0,0]],"v":[[554.191,285.384],[570.249,237.21],[562.207,285.384]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.745098054409,0.615686297417,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-17.435,18.811],[0,0]],"o":[[0,0],[17.435,-18.811],[0,0]],"v":[[561.674,285.384],[577.732,237.21],[569.691,285.384]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.035294119269,0.89411765337,0.776470601559,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-10.421,23.436],[0,0]],"o":[[0,0],[10.421,-23.436],[0,0]],"v":[[554.351,273.181],[553.98,222.401],[561.937,270.59]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.168627455831,0.615686297417,0.57647061348,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 5","np":2,"cix":2,"bm":0,"ix":5,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":14,"ty":4,"nm":"Illustrations 2","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[671.814,535.66,0],"ix":2},"a":{"a":0,"k":[529.767,169.575,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[-13.249,60.227],[-15.064,12.162],[-16.901,0.442],[-31.783,-39.912],[15.969,-25.297],[3.015,-0.768],[36.729,30.646]],"o":[[2.716,-12.348],[16.631,-13.427],[17.734,-0.463],[15.617,19.611],[-9.56,15.144],[-28.163,7.174],[-27.034,-22.557]],"v":[[425.122,110.961],[450.723,70.287],[509.979,53.889],[613.609,92.188],[629.379,174.04],[599.737,194.595],[513.734,166.559]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.215686276555,0.745098054409,0.615686297417,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-12.015,-9.677],[49.565,-33.27],[0,0],[5.682,13.549],[-12.205,17.734],[0,0],[0,0],[5.317,-3.297],[0.751,12.922],[0,0],[0,0],[4.289,-7.649],[6.008,13.068],[0,0]],"o":[[0,0],[12.015,9.677],[0,0],[0,0],[-6.508,-15.52],[12.205,-17.734],[0,0],[0,0],[-3.844,2.384],[-0.751,-12.922],[0,0],[0,0],[-2.031,3.622],[-6.008,-13.068],[0,0]],"v":[[473.931,151.537],[488.199,200.888],[487.675,285.384],[561.04,285.384],[536.238,263.129],[534.753,208.447],[558.036,190.37],[549.025,184.018],[530.544,200.888],[513.731,194.201],[517.485,158.794],[510.727,156.515],[506.221,191.302],[490.451,186.087],[484.444,148.443]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.274509817362,0.329411774874,0.466666668653,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0},{"ddd":0,"ind":15,"ty":4,"nm":"Illustrations","sr":1,"ks":{"o":{"a":0,"k":100,"ix":11},"r":{"a":0,"k":0,"ix":10},"p":{"a":0,"k":[378.359,560.234,0],"ix":2},"a":{"a":0,"k":[162.949,200.292,0],"ix":1},"s":{"a":0,"k":[80,80,100],"ix":6}},"ao":0,"shapes":[{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[6.585,-11.03],[-5.597,-6.173],[-16.062,-6.082],[0,0],[0,0]],"o":[[0,0],[5.597,6.173],[16.062,6.082],[0,0],[0,0]],"v":[[46.958,160.646],[57.609,175.431],[52.283,196.755],[12.879,231.172],[106.457,186.44]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.419607847929,0.811764717102,0.709803938866,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 1","np":2,"cix":2,"bm":0,"ix":1,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[58.007,12.664],[0,-11.03],[-19.272,-3.948],[0,0],[-14.854,-2.844],[0,0],[0,0],[0,0],[0,0]],"o":[[0,0],[0,11.03],[19.272,3.948],[0,0],[14.854,2.844],[0,0],[0,0],[0,0],[0,0]],"v":[[258.595,115.419],[281.482,137.007],[270.039,161.505],[304.968,166.966],[315.339,189.082],[342.387,205.956],[364.321,244.137],[346.345,284.821],[522.427,285.402]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.337254911661,0.75686275959,0.68235296011,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 2","np":2,"cix":2,"bm":0,"ix":2,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-69.912,20.831],[0,0]],"o":[[0,0],[25.497,-7.597],[0,0]],"v":[[-89.36,284.708],[258.595,115.419],[522.427,285.402]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.419607847929,0.811764717102,0.709803938866,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 3","np":2,"cix":2,"bm":0,"ix":3,"mn":"ADBE Vector Group","hd":false},{"ty":"gr","it":[{"ind":0,"ty":"sh","ix":1,"ks":{"a":0,"k":{"i":[[0,0],[-56.815,36.631],[0,0]],"o":[[0,0],[24.372,-15.713],[0,0]],"v":[[-196.528,284.614],[46.958,160.646],[231.578,284.983]],"c":true},"ix":2},"nm":"Path 1","mn":"ADBE Vector Shape - Group","hd":false},{"ty":"fl","c":{"a":0,"k":[0.654901981354,0.866666674614,0.815686285496,1],"ix":4},"o":{"a":0,"k":100,"ix":5},"r":1,"bm":0,"nm":"Fill 1","mn":"ADBE Vector Graphic - Fill","hd":false},{"ty":"tr","p":{"a":0,"k":[0,0],"ix":2},"a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"r":{"a":0,"k":0,"ix":6},"o":{"a":0,"k":100,"ix":7},"sk":{"a":0,"k":0,"ix":4},"sa":{"a":0,"k":0,"ix":5},"nm":"Transform"}],"nm":"Group 4","np":2,"cix":2,"bm":0,"ix":4,"mn":"ADBE Vector Group","hd":false}],"ip":0,"op":121,"st":0,"bm":0}],"markers":[]}
 
 --------------------------------------------------------------------------------
 Ruta del archivo: /Users/luisrojas/Documents/GitHub/Protfolio2/src/assets/lottie/programmer_animation_fixed.json
