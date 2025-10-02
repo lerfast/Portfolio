@@ -1,12 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import "./Blog.css";
 import BlogCard from "../../components/blogCard/BlogCard";
-import { blogSection } from "../../portfolio";
 import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/styleContext";
 
+import LangContext from "../../contexts/langContext";
+import { getContent } from "../../portfolio";
+
 export default function Blogs() {
   const { isDark } = useContext(StyleContext);
+  const { lang } = useContext(LangContext);
+  const { blogSection } = getContent(lang);
 
   // Tilt 3D (se declara siempre; no rompe reglas de hooks)
   useEffect(() => {

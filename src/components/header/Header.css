@@ -27,9 +27,7 @@
     overflow: hidden;
 }
 
-.grey-color {
-    color: #868e96;
-}
+.grey-color { color: #868e96; }
 
 .header li a {
     display: block;
@@ -37,7 +35,7 @@
     color: black;
     text-decoration: none;
 
-    /* ---- NUEVO: subrayado animado ---- */
+    /* subrayado animado */
     position: relative;
 }
 .header li a::after {
@@ -57,12 +55,9 @@
 .header li a:focus-visible::after {
     transform: scaleX(1);
 }
-/* ---- FIN NUEVO ---- */
 
 .header li a:hover,
-.header .menu-btn:hover {
-    background-color: #f4f4f4;
-}
+.header .menu-btn:hover { background-color: #f4f4f4; }
 
 .header .logo {
     display: block;
@@ -82,119 +77,62 @@
     padding: 0 10px;
     color: blue; /* firma intacta */
 }
-
-.dark-menu .logo-name {
-    color: white; /* firma en dark mode */
-}
+.dark-menu .logo-name { color: white; }
 
 /* menu */
-
-.header .menu {
-    clear: both;
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-}
+.header .menu { clear: both; max-height: 0; transition: max-height 0.2s ease-out; }
 
 /* menu icon */
-
 .header .menu-icon {
-    cursor: pointer;
-    display: inline-block;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
+    cursor: pointer; display: inline-block; padding: 28px 20px;
+    position: relative; user-select: none;
 }
-
 .header .menu-icon .navicon {
-    background: #333;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background 0.2s ease-out;
-    width: 18px;
+    background: #333; display: block; height: 2px; position: relative;
+    transition: background 0.2s ease-out; width: 18px;
 }
-
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-    background: #333;
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    width: 100%;
+    background: #333; content: ""; display: block; height: 100%; position: absolute;
+    transition: all 0.2s ease-out; width: 100%;
 }
-
 .header .menu-icon .navicon-dark:before,
 .header .menu-icon .navicon-dark:after {
-    background: white !important;
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    width: 100%;
+    background: white !important; content: ""; display: block; height: 100%;
+    position: absolute; transition: all 0.2s ease-out; width: 100%;
 }
-
-.header .menu-icon .navicon:before {
-    top: 5px;
-}
-
-.header .menu-icon .navicon:after {
-    top: -5px;
-}
+.header .menu-icon .navicon:before { top: 5px; }
+.header .menu-icon .navicon:after { top: -5px; }
 
 /* menu btn */
-
-.header .menu-btn {
-    display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-    max-height: 486px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
-}
-
+.header .menu-btn { display: none; }
+.header .menu-btn:checked ~ .menu { max-height: 486px; }
+.header .menu-btn:checked ~ .menu-icon .navicon { background: transparent; }
+.header .menu-btn:checked ~ .menu-icon .navicon:before { transform: rotate(-45deg); }
+.header .menu-btn:checked ~ .menu-icon .navicon:after { transform: rotate(45deg); }
 .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
-}
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after { top: 0; }
 
 /* 48em = 768px */
-
 @media (min-width: 48em) {
-    .header li {
-        float: left;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .header .menu {
-        max-height: none;
-    }
-
-    .header .menu-icon {
-        display: none;
-    }
+    .header li { float: left; }
+    .header { display: flex; align-items: center; justify-content: space-between; }
+    .header .menu { max-height: none; }
+    .header .menu-icon { display: none; }
 }
 
 @media (max-width: 960px) and (min-width: 768px) {
-    .header {
-        font-size: 12px;
-    }
+    .header { font-size: 12px; }
 }
+
+/* ===== Botón de idioma (mismo look que links) ===== */
+.lang-btn{
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+.lang-btn:hover { background-color: #f4f4f4; }
+.dark-menu .lang-btn:hover { background-color: transparent !important; }

@@ -1,10 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Certifications.css";
 import { Fade } from "react-reveal";
-import { certifications } from "../../portfolio";
 import CertificationCard from "../../components/certificationCard/CertificationCard";
 
+import LangContext from "../../contexts/langContext";
+import { getContent } from "../../portfolio";
+
 const Certifications = () => {
+  const { lang } = useContext(LangContext);
+  const { certifications, ui } = getContent(lang);
+
   // Tilt 3D (solo desktop)
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 769px)");
@@ -73,10 +78,8 @@ const Certifications = () => {
     <Fade bottom duration={1200} distance="40px">
       <section className="certs-section" id="certs">
         <header className="certs-header">
-          <h1 className="certs-title">Certifications</h1>
-          <p className="certs-sub">
-            Degrees, diplomas & professional credentials
-          </p>
+          <h1 className="certs-title">{ui.certificationsTitle}</h1>
+          <p className="certs-sub">{ui.certificationsSubtitle}</p>
         </header>
 
         <div className="certs-grid">
