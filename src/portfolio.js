@@ -18,7 +18,7 @@ const greeting = {
 const socialMediaLinks = {
   github: "https://github.com/lerfast",
   linkedin: "https://www.linkedin.com/in/luisemiliorojas/",
-  gmail: "luisemiliorojas@hotmail.com",
+  gmail: "luisemiliorojas@oshlix.com",
   whatsapp: "https://wa.me/573187757620",
   youtube: "https://www.youtube.com/@rojastech1",
 };
@@ -119,12 +119,12 @@ const blogSection = {
 // ===== Contact =====
 const contactInfo = {
   subtitle: "Let's connect! Feel free to reach out.",
-  email_address: "luisemiliorojas@hotmail.com",
+  email_address: "luisemiliorojas@oshlix.com",
 };
 
 // ===== Cycling (optional) =====
 const cyclingSection = {
-  title: "Passion for MTB",
+  title: "YouTube, Video & Drone",
   image: "YOUR_CYCLING_IMAGE_URL",
   videoUrl: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
 };

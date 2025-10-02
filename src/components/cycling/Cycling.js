@@ -1,130 +1,170 @@
 import React, { useContext } from "react";
-import { cyclingSection } from "../../portfolio";
 import { Fade } from "react-reveal";
 import "./Cycling.css";
 import StyleContext from "../../contexts/styleContext";
-import montandoImg from "../../assets/images/montando.png";
-import ridingVideo from "../../assets/images/riding1080p.mp4";
+import { cyclingSection } from "../../portfolio";
 
 export default function Cycling() {
   const { isDark } = useContext(StyleContext);
 
-  const cyclingParagraphs = [
-    "MTB has become an integral part of my life. It started as a simple hobby but quickly transformed into a lasting commitment to better health and personal growth.",
-    "With every ride, I challenge myself to go farther, ride faster, and push my limits, discovering new paths both on the road and within myself. Through determination and discipline, I am on a journey to lose weight and improve my overall well-being.",
-    "I find cycling to be an extraordinary way to stay active, explore nature, and maintain a balanced mindset. Whether it’s the calm of riding solo at sunrise or the thrill of racing alongside friends, this activity continues to inspire and energize me every day.",
-    "Beyond the physical benefits, cycling has taught me resilience and patience. Every uphill climb, every new distance reached, reminds me that true growth often involves embracing challenges rather than avoiding them. By making cycling a central part of my life, I feel stronger, healthier, and more in tune with the world around me."
+  // Video data (ID, title, url, technical bullets, short description)
+  const videos = [
+    {
+      id: "4j1mb_pBtpw",
+      title: "Neiva Épica — City Beats with Cinematic Drone",
+      url: "https://youtu.be/4j1mb_pBtpw",
+      desc:
+        "City portrait driven by music and rhythm. Landmarks, plazas and bridges flow with dynamic aerial coverage and clean editorial pacing.",
+      tech: [
+        "Beat-synced edits to music (cutting on transients)",
+        "Reveal/orbit moves with speed-ramping & motion-blur",
+        "Match-cuts between bridges/avenues for visual continuity",
+        "Hyperlapse sections for river/traffic progressions",
+        "Primary color balance + soft highlight roll-off",
+        "Subtle grain & adaptive sharpening for YouTube delivery",
+      ],
+    },
+    {
+      id: "8vYlSsoheUw",
+      title: "Miniature Neiva — Tilt-Shift City Short",
+      url: "https://youtu.be/8vYlSsoheUw",
+      desc:
+        "Elevated compositions + tilt-shift emulation to shrink the city into a living model. A playful scale illusion supported by time-remapping.",
+      tech: [
+        "Lens-blur tilt-shift (gradient power windows & depth falloff)",
+        "Hyperlapse + speed ramps to accentuate miniature motion",
+        "Selective saturation lift & contrast for toy-like palette",
+        "Clean micro-titles; minimal motion graphics",
+        "Noise-managed highlights to protect fine detail",
+      ],
+    },
+    {
+      id: "XyXbs0icyPQ",
+      title: "80-Meter Reclining Christ — Aerial Documentary",
+      url: "https://youtu.be/XyXbs0icyPQ",
+      desc:
+        "Monument overview with documentary tone: establishing wides, lateral parallax and gentle dolly-ins to underline scale and context.",
+      tech: [
+        "Shot design: establish → context → detail (wide → mid → close)",
+        "Lateral parallax passes; controlled gimbal-pitch reveals",
+        "Primary/secondary grading (HSL isolations for stone/sky)",
+        "Lower-third facts; restrained diffusion & clean typography",
+        "Deliverable tailored for YouTube compression (2-pass export)",
+      ],
+    },
   ];
 
   return (
-    <div className={`cycling-section ${isDark ? "dark-mode" : ""}`} id="cycling">
+    <section
+      className={`cycling-section ${isDark ? "dark-mode" : ""}`}
+      id="cycling"
+      aria-label="YouTube, Video & Drone"
+    >
       {/* Title */}
-      <Fade bottom duration={1200} distance="40px">
-        <h1 className="cycling-title">{cyclingSection.title}</h1>
+      <Fade bottom duration={900} distance="28px">
+        <h1 className="cycling-title">
+          {cyclingSection?.title || "YouTube, Video & Drone"}
+        </h1>
       </Fade>
 
-      {/* Main Row: text + image */}
-      <div className="cycling-row">
-        <Fade left duration={2000}>
-          <div className="cycling-text-col">
-            {cyclingParagraphs.map((paragraph, idx) => (
-              <p key={idx} className="cycling-paragraph">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </Fade>
+      {/* Hero copy (expanded paragraph, no video) */}
+      <Fade bottom duration={1100} distance="36px">
+        <div className="vd-hero">
+          <div className="vd-hero-copy">
+            <p className="lead">
+              I’m a <b>full-stack developer</b> who also produces cinematic content for YouTube.
+              As a <b>certified drone pilot</b>, I plan flights with airspace checks, weather windows
+              and shot lists; in the air I execute manual arcs, orbits, parallax passes and reveal
+              trajectories to convey scale and rhythm. In <b>DaVinci Resolve</b> I follow a node-based
+              pipeline: ingest & sync, selects, beat-aligned assembly, time-remapping/speed-ramping
+              with eased curves, stabilization (Cropping vs. Lock), optical-flow motion estimation,
+              tilt-shift via gradient power windows, tracked masks, HSL qualifiers and secondary
+              isolations (sky/stone/foliage). I grade under DaVinci YRGB Color Managed / CST,
+              balancing primaries, shaping contrast/pivot, subtle halation and film-grain,
+              plus clean titles and micro lower-thirds. Audio goes through noise reduction, EQ,
+              gentle bus compression and loudness normalization for YouTube delivery. Final exports
+              target 4K high-bitrate H.264/H.265 with two-pass settings tuned for web clarity.
+            </p>
 
-        <Fade right duration={2000}>
-          <div className="cycling-image-col">
-            <img
-              src={montandoImg}
-              alt="Cycling passion"
-              className="cycling-image"
-            />
-          </div>
-        </Fade>
-      </div>
+            <ul className="vd-badges" aria-label="Capabilities">
+              <li>Certified Drone Pilot</li>
+              <li>DaVinci Resolve</li>
+              <li>Color Managed (CST)</li>
+              <li>Motion Titles</li>
+              <li>Speed Ramping</li>
+              <li>Hyperlapse</li>
+            </ul>
 
-      {/* Local riding video JUST BELOW MTB section */}
-      <Fade bottom duration={1200} distance="40px">
-        <div className="cycling-video-container">
-          <video
-            className="cycling-video"
-            src={ridingVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls
-          />
+            <div className="vd-ctas">
+              <a
+                className="cycling-btn primary"
+                href="https://www.youtube.com/@rojastech1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit YouTube channel @rojastech1"
+              >
+                Visit my YouTube Channel
+              </a>
+              <a
+                className="cycling-btn ghost"
+                href="https://www.youtube.com/@rojastech1/videos"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="See all videos"
+              >
+                See all videos
+              </a>
+            </div>
+          </div>
         </div>
       </Fade>
 
-      {/* Video & Drone Work */}
-      <Fade bottom duration={1200} distance="40px">
-        <section className="vd-section" aria-label="Video & Drone Work">
-          <div className="vd-row">
-            <div className="vd-copy">
-              <h2 className="vd-title">Video & Drone Work</h2>
-              <p className="vd-paragraph">
-                Besides coding and business, I’m a <b>video editor</b> (DaVinci
-                Resolve) and a <b>professional drone pilot</b>. Aerial
-                cinematography changed the way I see stories — flying brings a
-                new perspective to everyday life, revealing patterns, symmetry,
-                and rhythm from above.
-              </p>
-              <p className="vd-paragraph">
-                I enjoy crafting tilt-shift looks, dynamic reveals, clean titles,
-                and cinematic color. Below is one of my favorite pieces filmed
-                in Colombia — turning a real city into a living miniature.
-              </p>
-
-              <div className="vd-ctas">
+      {/* Case studies with animated micro-gradient border + thumbnails */}
+      <Fade bottom duration={1100} distance="32px">
+        <div className="vd-cases" aria-label="Selected works">
+          {videos.map((v) => (
+            <article className="vd-card aura hover-lift" key={v.id}>
+              <div className="vd-card-inner">
+                {/* Clickable thumbnail (opens YouTube) */}
                 <a
-                  className="cycling-btn primary"
-                  href="https://www.youtube.com/@rojastech1"
+                  className="vd-thumb"
+                  href={v.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Watch on YouTube @rojastech1"
+                  aria-label={`Open ${v.title} on YouTube`}
                 >
-                  Watch on YouTube
+                  <img
+                    src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`}
+                    alt={v.title}
+                    loading="lazy"
+                  />
+                  <span className="vd-play" aria-hidden="true"></span>
                 </a>
-                <a
-                  className="cycling-btn ghost"
-                  href="https://youtu.be/8vYlSsoheUw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Featured: Neiva in Miniature"
-                >
-                  Featured: Neiva in Miniature
-                </a>
-              </div>
 
-              <ul className="vd-chips">
-                <li>DaVinci Resolve</li>
-                <li>Aerial Cinematography</li>
-                <li>Color Grading</li>
-                <li>Motion Titles</li>
-                <li>Licensed Drone Pilot</li>
-              </ul>
-            </div>
+                <header className="vd-card-head">
+                  <h3 className="vd-card-title">{v.title}</h3>
+                  <a
+                    className="vd-card-link"
+                    href={v.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch
+                  </a>
+                </header>
 
-            <div className="vd-media">
-              {/* Responsive YouTube embed */}
-              <div className="yt-embed">
-                <iframe
-                  src="https://www.youtube.com/embed/8vYlSsoheUw"
-                  title="Neiva in Miniature — Tilt-Shift"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                <p className="vd-card-desc">{v.desc}</p>
+
+                <ul className="vd-tech">
+                  {v.tech.map((t, i) => (
+                    <li key={i}>{t}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          </div>
-        </section>
+            </article>
+          ))}
+        </div>
       </Fade>
-    </div>
+    </section>
   );
 }
