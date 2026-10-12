@@ -33,7 +33,7 @@ const Header = () => {
         <button
           type="button"
           className="lang-fab"
-          aria-label="Change language"
+          aria-label={lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
           onClick={() => setLang(lang === "en" ? "es" : "en")}
         >
           {lang === "en" ? "ES" : "EN"}
@@ -52,7 +52,7 @@ const Header = () => {
             <button
               type="button"
               className="lang-btn"
-              aria-label="Change language"
+              aria-label={lang === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
               onClick={() => setLang(lang === "en" ? "es" : "en")}
             >
               {lang === "en" ? "ES" : "EN"}

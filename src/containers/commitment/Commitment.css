@@ -106,9 +106,15 @@
   .commitment-text-div,
   .commitment-lottie-div {
     width: 100%;
-    max-width: 860px;
+    max-width: 100%;
+    min-width: 0;
+    flex: 0 1 auto;
+    box-sizing: border-box;
     justify-content: center;     /* centrar lottie cuando está apilada */
   }
+
+  .commitment-text { text-align: left; }
+  .commitment-block-title { overflow-wrap: anywhere; }
 
   .commitment-lottie-div canvas,
   .commitment-lottie-div svg,

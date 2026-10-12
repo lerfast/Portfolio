@@ -1,11 +1,10 @@
 require("dotenv").config();
 console.log("GITHUB_USERNAME:", process.env.GITHUB_USERNAME);
-console.log("GITHUB_TOKEN:", process.env.REACT_APP_GITHUB_TOKEN);
 
 const fs = require("fs");
 const https = require("https");
 
-const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 
 if (GITHUB_USERNAME === undefined) {

@@ -9,6 +9,7 @@ const content = {
       projects: "Projects",
       certs: "Certifications",
       blogs: "Blogs",
+      contact: "Contact Me",
       
     },
     ui: {
@@ -26,7 +27,7 @@ const content = {
       greetingText: "Hi all, I'm ",
       greetingName: "Luis",
       subTitle: emoji(
-        "Full-Stack Software Developer | Business Administrator | Specialist in Occupational Health & Safety (OHS) | Video Editor | Professional Drone Pilot"
+        "Business Administrator | Specialist in Occupational Health and Safety Management | Software Developer | Video Editor | Professional Drone Pilot"
       ),
       resumeLink:
         "https://drive.google.com/file/d/16KOJpFXgMhibKc7grFxfytRfSmcaQaFT/view?usp=drive_link",
@@ -84,7 +85,7 @@ const content = {
           color_code: "#F6EAEA",
         },
         {
-          title: "Master Degree in Occupational Health and Safety Management",
+          title: "Specialization in Occupational Health and Safety Management",
           subtitle: "Universidad del Rosario, Bogotá-Colombia",
           logo_path: "urosario.png",
           certificate_link: "https://urosario.edu.co/",
@@ -105,7 +106,6 @@ const content = {
 
     // Open Source
     openSource: {
-      githubConvertedToken: process.env.REACT_APP_GITHUB_TOKEN,
       githubUserName: "lerfast",
       showGithubProfile: "true",
       display: true,
@@ -158,6 +158,7 @@ const content = {
       projects: "Proyectos",
       certs: "Certificaciones",
       blogs: "Blogs",
+      contact: "Contáctame",
       
     },
     ui: {
@@ -174,7 +175,7 @@ const content = {
       greetingText: "Hola a todos, soy ",
       greetingName: "Luis",
       subTitle: emoji(
-        "Desarrollador Full-Stack | Administrador de Empresas | Especialista en Seguridad y Salud en el Trabajo (SST) | Editor de video | Piloto profesional de drones"
+        "Administrador de Empresas | Especialista en Gerencia de la Seguridad y Salud en el Trabajo | Desarrollador de Software | Editor de video | Piloto profesional de drones"
       ),
       resumeLink:
         "https://drive.google.com/file/d/16KOJpFXgMhibKc7grFxfytRfSmcaQaFT/view?usp=drive_link",
@@ -229,7 +230,7 @@ const content = {
           color_code: "#F6EAEA",
         },
         {
-          title: "Maestría en Gestión de Seguridad y Salud en el Trabajo",
+          title: "Especialización en Gerencia de la Seguridad y Salud en el Trabajo",
           subtitle: "Universidad del Rosario, Bogotá-Colombia",
           logo_path: "urosario.png",
           certificate_link: "https://urosario.edu.co/",
@@ -249,7 +250,6 @@ const content = {
     },
 
     openSource: {
-      githubConvertedToken: process.env.REACT_APP_GITHUB_TOKEN,
       githubUserName: "lerfast",
       showGithubProfile: "true",
       display: true,

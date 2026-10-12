@@ -17,20 +17,20 @@ import Top from "./topbutton/Top";
 import Cycling from "../components/cycling/Cycling";
 
 const Main = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(() => {
+    const savedTheme = localStorage.getItem("isDark");
+    if (savedTheme === "true" || savedTheme === "false") {
+      return savedTheme === "true";
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(() => {
-    if (localStorage.getItem("isDark") === null) {
-      const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
-      localStorage.setItem("isDark", darkPref.matches);
-    }
-    setIsDark({ isDark: JSON.parse(localStorage.getItem("isDark")) });
-  }, []);
+    localStorage.setItem("isDark", JSON.stringify(isDark));
+  }, [isDark]);
 
   const changeTheme = () => {
-    setIsDark(!isDark, () => {
-      localStorage.setItem("isDark", isDark);
-    });
+    setIsDark(previousIsDark => !previousIsDark);
   };
 
   return (
