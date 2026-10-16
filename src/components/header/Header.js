@@ -44,6 +44,9 @@ const Header = () => {
           <li><a href="#skills">{nav.skills}</a></li>
           <li><a href="#projects">{nav.projects}</a></li>
           <li><a href="#certs">{nav.certs}</a></li>
+          <li><a href="#drone-operations">{nav.drones}</a></li>
+          <li><a href="#gaussian-splatting">{nav.threeD}</a></li>
+          <li><a href="#mission-patrimonio">{nav.mission}</a></li>
           <li><a href="#blogs">{nav.blogs}</a></li>
           <li><a href="#contact">{nav.contact}</a></li>
 

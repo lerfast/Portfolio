@@ -17,6 +17,12 @@ export default function Greeting() {
 
   // 👇 Obtén el pack según el idioma
   const { greeting: g } = getContent(lang);
+  // Keep the translated source of truth, including react-easy-emoji's array.
+  const subtitleParts = React.Children.toArray(g.subTitle);
+  const roles = subtitleParts.every(part => typeof part === "string")
+    ? subtitleParts.join("").split(" | ")
+    : [];
+
 
   // Textos de los botones (puedes moverlos a portfolio si quieres)
   const contactLabel = lang === "es" ? "Contáctame" : "Contact me";
@@ -36,8 +42,21 @@ export default function Greeting() {
                 <span className="glitch">{g.greetingName}</span>
               </h1>
 
-              {/* Ahora el subtítulo cambia con el idioma */}
-              <p className="greeting-text-p">{g.subTitle}</p>
+              {roles.length === 5 ? (
+                <>
+                  <p className="greeting-text-p greeting-desktop-subtitle">{g.subTitle}</p>
+                  <div className="greeting-roles">
+                  <ul className="greeting-primary-roles">
+                    {roles.slice(0, 3).map(role => <li key={role}>{role}</li>)}
+                  </ul>
+                  <ul className="greeting-complementary-roles">
+                    {roles.slice(3).map(role => <li key={role}>{role}</li>)}
+                  </ul>
+                  </div>
+                </>
+              ) : (
+                <p className="greeting-text-p">{g.subTitle}</p>
+              )}
 
               <SocialMedia />
 

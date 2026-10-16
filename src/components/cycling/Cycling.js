@@ -13,6 +13,9 @@ export default function Cycling() {
     en: {
       title: cyclingSection?.title || "YouTube, Video & Drone",
       ariaSection: "YouTube, Video & Drone",
+      headline: "Ride & Fly: stories told from the ground and the sky",
+      story: "Alongside my technical work, I produce documentaries and aerial videos to share Colombia's landscapes, places, and cultural heritage. This is the audiovisual home of Misión Patrimonio, a motorcycle journey that brings together drone flights, 360° filming, and the reality of travel behind the camera.",
+      technicalLabel: "Read about my audiovisual production workflow",
       lead:
         "I’m a full-stack developer who also produces cinematic content for YouTube. As a certified drone pilot, I plan flights with airspace checks, weather windows and shot lists; in the air I execute manual arcs, orbits, parallax passes and reveal trajectories to convey scale and rhythm. In DaVinci Resolve I follow a node-based pipeline: ingest & sync, selects, beat-aligned assembly, time-remapping/speed-ramping with eased curves, stabilization (Cropping vs. Lock), optical-flow motion estimation, tilt-shift via gradient power windows, tracked masks, HSL qualifiers and secondary isolations (sky/stone/foliage). I grade under DaVinci YRGB Color Managed / CST, balancing primaries, shaping contrast/pivot, subtle halation and film-grain, plus clean titles and micro lower-thirds. Audio goes through noise reduction, EQ, gentle bus compression and loudness normalization for YouTube delivery. Final exports target 4K high-bitrate H.264/H.265 with two-pass settings tuned for web clarity.",
       ariaCaps: "Capabilities",
@@ -78,6 +81,9 @@ export default function Cycling() {
     es: {
       title: "YouTube, Video y Dron",
       ariaSection: "YouTube, Video y Dron",
+      headline: "Ride & Fly: historias desde la tierra y el cielo",
+      story: "Además de mi trabajo tecnológico, produzco documentales y videos aéreos para compartir los paisajes, lugares y patrimonio cultural de Colombia. Este es el espacio audiovisual del que nació Misión Patrimonio: una travesía en motocicleta que reúne vuelos con dron, grabaciones 360° y lo que sucede detrás de cámaras.",
+      technicalLabel: "Conoce mi proceso de producción audiovisual",
       lead:
         "Soy desarrollador full-stack y también produzco contenido cinematográfico para YouTube. Como piloto de dron certificado, planifico vuelos con verificación de espacio aéreo, ventanas de clima y listas de toma; en el aire ejecuto arcos, órbitas, pasadas con paralaje y revelados para transmitir escala y ritmo. En DaVinci Resolve sigo un flujo basado en nodos: ingest & sync, selección de tomas, ensamble alineado al ritmo, time-remapping/speed-ramping con curvas suaves, estabilización (Cropping vs. Lock), óptica de flujo para estimación de movimiento, tilt-shift con power windows graduales, máscaras con tracking, calificadores HSL y aislamientos secundarios (cielo/piedra/vegetación). Grado bajo DaVinci YRGB Color Managed / CST, equilibrando primarias, moldeando contraste/pivote, halation sutil y film-grain, más títulos limpios y lower-thirds minimalistas. El audio pasa por reducción de ruido, EQ, compresión suave de bus y normalización de loudness para YouTube. Los masters finales apuntan a 4K H.264/H.265 a alto bitrate con dos pasadas, optimizados para claridad web.",
       ariaCaps: "Capacidades",
@@ -151,13 +157,17 @@ export default function Cycling() {
       aria-label={t.ariaSection}
     >
       <Fade bottom duration={900} distance="28px">
-        <h1 className="cycling-title">{t.title}</h1>
+        <h1 className="cycling-title">{t.headline}</h1>
       </Fade>
 
       <Fade bottom duration={1100} distance="36px">
         <div className="vd-hero">
           <div className="vd-hero-copy">
-            <p className="lead">{t.lead}</p>
+            <p className="lead">{t.story}</p>
+            <details className="cycling-technical-details">
+              <summary>{t.technicalLabel}</summary>
+              <p className="lead">{t.lead}</p>
+            </details>
 
             <ul className="vd-badges" aria-label={t.ariaCaps}>
               {t.badges.map((b, i) => <li key={i}>{b}</li>)}

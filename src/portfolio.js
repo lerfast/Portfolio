@@ -1,16 +1,20 @@
 // src/portfolio.js
 import emoji from "react-easy-emoji";
+import { missionPatrimonioContent } from "./data/missionPatrimonio";
 
 /** ===== Diccionario bilingüe ===== */
 const content = {
   en: {
+    missionPatrimonio: missionPatrimonioContent.en,
     nav: {
       skills: "Skills",
       projects: "Projects",
       certs: "Certifications",
+      drones: "Drones",
+      threeD: "3DGS",
+      mission: "Misión Patrimonio",
       blogs: "Blogs",
       contact: "Contact Me",
-      
     },
     ui: {
       whatIDo: "What I Do",
@@ -37,7 +41,7 @@ const content = {
     socialMediaLinks: {
       github: "https://github.com/lerfast",
       linkedin: "https://www.linkedin.com/in/luisemiliorojas/",
-      gmail: "luisemiliorojas@oshlix.com",
+      gmail: "luisemiliorojas@hotmail.com",
       whatsapp: "https://wa.me/573187757620",
       youtube: "https://www.youtube.com/@rojastech1",
     },
@@ -130,7 +134,7 @@ const content = {
     // Contact
     contactInfo: {
       subtitle: "Let's connect! Feel free to reach out.",
-      email_address: "luisemiliorojas@oshlix.com",
+      email_address: "luisemiliorojas@hotmail.com",
     },
 
     // Cycling / Video
@@ -153,13 +157,16 @@ const content = {
   },
 
   es: {
+    missionPatrimonio: missionPatrimonioContent.es,
     nav: {
       skills: "Habilidades",
       projects: "Proyectos",
       certs: "Certificaciones",
+      drones: "Drones",
+      threeD: "3DGS",
+      mission: "Misión Patrimonio",
       blogs: "Blogs",
       contact: "Contáctame",
-      
     },
     ui: {
       whatIDo: "Lo que hago",
@@ -184,7 +191,7 @@ const content = {
     socialMediaLinks: {
       github: "https://github.com/lerfast",
       linkedin: "https://www.linkedin.com/in/luisemiliorojas/",
-      gmail: "luisemiliorojas@oshlix.com",
+      gmail: "luisemiliorojas@hotmail.com",
       whatsapp: "https://wa.me/573187757620",
       youtube: "https://www.youtube.com/@rojastech1",
     },
@@ -272,7 +279,7 @@ const content = {
 
     contactInfo: {
       subtitle: "¡Conectemos! Escríbeme con confianza.",
-      email_address: "luisemiliorojas@oshlix.com",
+      email_address: "luisemiliorojas@hotmail.com",
     },
 
     cyclingSection: {

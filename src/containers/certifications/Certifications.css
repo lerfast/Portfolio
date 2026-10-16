@@ -103,3 +103,12 @@
   }
   .certs-header { padding-left: 0; text-align: center; }
 }
+
+/* Keep wide institutional logos and card contents inside their grid cells. */
+.certs-grid .cert-tilt { min-width: 0; }
+.certs-section .logo_img { max-width: calc(100% - 6px); object-fit: contain; }
+.certs-section .content-details { box-sizing: border-box; }
+@media (max-width: 768px) {
+  .certs-section .cert-body-title,
+  .certs-section .cert-body-subtitle { overflow-wrap: anywhere; line-height: 1.45; }
+}

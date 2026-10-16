@@ -9,8 +9,23 @@
 }
 
 .contact-title {
-  font-size: 65px;
-  font-weight: 400;
+  /* Igual que el encabezado de Blogs: azul/cian y tipografia destacada. */
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  margin: 10px 0 6px;
+  padding-bottom: 0.2em;
+  display: inline-block;
+  max-width: 100%;
+  overflow: visible;
+  text-align: center;
+  color: #0ea5e9; /* Respaldo si no se admite background-clip. */
+  background: linear-gradient(135deg, #22c1ee 0%, #0ea5e9 50%, #0f2740 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0 transparent;
 }
 
 .contact-detail,
@@ -58,14 +73,7 @@
 /* Media Query */
 @media (max-width: 1380px), (max-width: 768px) {
   .contact-title {
-    font-size: 56px;
-    font-weight: 400;
-    text-align: center;
-  }
-
-  .contact-title {
     font-size: 40px;
-    text-align: center;
   }
 
   .contact-subtitle {
@@ -86,5 +94,14 @@
 
   .contact-image-div {
     display: none;
+  }
+}
+
+/* Igualar el tamano movil al encabezado de Blogs. */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 30px;
+    line-height: 1.25;
+    padding-bottom: 0.25em;
   }
 }

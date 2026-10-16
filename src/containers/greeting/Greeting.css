@@ -1,3 +1,121 @@
+/* Keep the redesigned presentation below the desktop breakpoint. */
+@media (max-width: 1023px) {
+.greet-main {
+  width: 90%;
+  max-width: 1280px;
+  box-sizing: border-box;
+  padding: 48px 10px 40px;
+  margin: 1rem auto 0;
+  --hero-text: #0f2740;
+  --hero-muted: #475569;
+  --hero-accent: #087ba5;
+  --hero-border: rgba(14, 165, 233, .25);
+  --btn-primary-bg: linear-gradient(135deg, #22C1EE 0%, #0EA5E9 50%, #0F2740 100%);
+  --btn-primary-text: #fff;
+}
+
+.dark-mode .greet-main {
+  --hero-text: #e5e7eb;
+  --hero-muted: #b5c2d3;
+  --hero-accent: #55c9ef;
+  --hero-border: rgba(85, 201, 239, .3);
+}
+
+.greet-main .greeting-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.greet-main .greeting-main > * { min-width: 0; }
+
+.greet-main .greeting-text {
+  margin: 0 0 28px;
+  text-align: left;
+  font-size: clamp(40px, 4.8vw, 68px);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  color: var(--hero-text);
+  overflow-wrap: anywhere;
+}
+.greet-main .glitch { color: var(--hero-accent); }
+
+.greet-main .greeting-primary-roles,
+.greet-main .greeting-complementary-roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.greet-main .greeting-primary-roles {
+  display: grid;
+  gap: 12px;
+  padding-left: 20px;
+  border-left: 3px solid var(--hero-accent);
+  color: var(--hero-text);
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 600;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.greet-main .greeting-primary-roles li:first-child {
+  font-size: 1.18em;
+  font-weight: 800;
+}
+
+.greet-main .greeting-complementary-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 24px;
+  color: var(--hero-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.greet-main .greeting-complementary-roles li {
+  padding: 5px 12px;
+  border: 1px solid var(--hero-border);
+  border-radius: 999px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.greet-main .greeting-text-p {
+  color: var(--hero-muted);
+  text-align: left;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.greet-main .greeting-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.greet-main .greeting-image-div .lottie-container { width: 100%; max-width: 520px; }
+.greet-main .greeting-image-div svg,
+.greet-main .greeting-image-div canvas,
+.greet-main .greeting-image-div img { max-width: 100%; height: auto; }
+
+.greet-main .social-media-div { justify-content: flex-start; gap: 8px; }
+.greet-main .social-media-div a { margin: 0; }
+.greet-main .button-greeting-div .main-button {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0;
+  white-space: normal;
+}
+
+}
+
+.greeting-desktop-subtitle { display: none; }
+
+@media (min-width: 1024px) {
 .greet-main {
   width: 90%;
   padding: 20px 10px;
@@ -38,6 +156,15 @@
   justify-content: center;
 }
 .greeting-image-div > img { max-width: 100%; height: auto; }
+
+  .greeting-roles { display: none; }
+  .greeting-desktop-subtitle { display: block; }
+}
+
+@media (min-width: 1024px) and (max-width: 1380px) {
+  .greeting-text { font-size: 50px; }
+  .greeting-text-p { font-size: 20px; }
+}
 
 /* ===== Botonera (mismo estilo azul que en Projects) ===== */
 .button-greeting-div {
@@ -117,26 +244,30 @@
   100% { transform: rotate(0deg); }
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .greeting-text { font-size: 50px; }
-  .greeting-text-p { font-size: 20px; }
-}
-
 @media (max-width: 846px) {
-  .greeting-main { display: block; }
+  .greet-main { padding: 24px 0 20px; margin-top: 0; }
+  .greet-main .greeting-main { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .greet-main .greeting-text { font-size: clamp(34px, 7.5vw, 48px); margin-bottom: 22px; }
+  .greet-main .greeting-primary-roles { font-size: 18px; padding-left: 14px; gap: 10px; }
+  .greet-main .greeting-complementary-roles { margin: 18px 0; font-size: 13px; }
+  .greet-main .button-greeting-div { gap: 10px; margin-top: 18px; }
+  .greet-main .button-greeting-div .main-button { font-size: 13px; padding: 12px 14px; }
+  .greet-main .greeting-image-div .lottie-container { max-width: 300px; }
 }
 
-@media (max-width: 768px) {
-  .button-greeting-div { justify-content: center; }
-
-  .greeting-text {
-    font-size: 30px;
-    text-align: center;
+/* ===== Mobile: inicio del perfil visible debajo del menu compacto ===== */
+@media (max-width: 846px) {
+  #greeting {
+    scroll-margin-top: 90px;
+    padding-top: 28px;
   }
-  .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
+
+  .greet-main .greeting-text {
+    display: block;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding: 0;
+    line-height: 1.18;
   }
 }

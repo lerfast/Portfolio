@@ -6,8 +6,7 @@ import "./Main.css";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
-// 1) Importa Commitment
-import Commitment from "./commitment/Commitment"; 
+import Commitment from "./commitment/Commitment";
 import Projects from "./projects/Projects";
 import Certifications from "./certifications/Certifications";
 import Blogs from "./blogs/Blogs";
@@ -15,6 +14,9 @@ import Profile from "./profile/Profile";
 import Footer from "../components/footer/Footer";
 import Top from "./topbutton/Top";
 import Cycling from "../components/cycling/Cycling";
+import MissionPatrimonio from "./missionPatrimonio/MissionPatrimonio";
+import DroneOperations from "./droneOperations/DroneOperations";
+import GaussianSplatting from "./gaussianSplatting/GaussianSplatting";
 
 const Main = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -37,16 +39,27 @@ const Main = () => {
     <div className={isDark ? "dark-mode" : null}>
       <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
         <Header />
+        {/* Identidad profesional, desarrollo y Oshlix */}
         <Greeting />
         <Skills />
-
-        {/* 2) Añadimos la nueva sección de Commitment justo aquí */}
-        <Commitment />
-
         <Projects />
+
+        {/* Seguridad y Salud en el Trabajo y credenciales */}
+        <Commitment />
         <Certifications />
-        <Blogs />
+
+        {/* Segunda especialidad: operaciones aéreas profesionales */}
+        <DroneOperations />
+
+        {/* Innovación y demostración interactiva 3DGS */}
+        <GaussianSplatting />
+
+        {/* Producción audiovisual, serie y destinos documentados */}
         <Cycling />
+        <MissionPatrimonio />
+
+        {/* Artículos y contacto */}
+        <Blogs />
         <Profile />
         <Footer />
         <Top />

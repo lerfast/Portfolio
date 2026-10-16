@@ -8,7 +8,6 @@ import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 
 // Lotties
 import ohsAnimation from "../../assets/lottie/ohs.json";
-import droneAnimation from "../../assets/lottie/dronepilot.json";
 
 export default function Commitment() {
   const { isDark } = useContext(StyleContext);
@@ -34,21 +33,6 @@ export default function Commitment() {
           </Fade>
         </div>
 
-        {/* Block 2 — Drone: lottie LEFT + text RIGHT */}
-        <div className="commitment-block commitment-block--invert">
-          <Fade left duration={1200}>
-            <div className="commitment-lottie-div">
-              <DisplayLottie animationData={droneAnimation} />
-            </div>
-          </Fade>
-
-          <Fade bottom duration={1200} distance="40px">
-            <div className="commitment-text-div">
-              <h2 className="commitment-block-title">{commitmentSection.droneTitle}</h2>
-              <p className="commitment-text">{commitmentSection.droneDescription}</p>
-            </div>
-          </Fade>
-        </div>
       </section>
     </Fade>
   );
