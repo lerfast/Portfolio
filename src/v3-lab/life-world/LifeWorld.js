@@ -104,7 +104,7 @@ function FilmIntro({t,lang,onGame,onPortfolio,onSection,onQuick,onLanguage}){
       </div>}
     </nav>
     <h1 id="ler-intro-title"><small className="ler-intro-animate" style={{'--seq':2}}>{t.hello}</small><span className="ler-intro-full-name ler-intro-animate" style={{'--seq':3}}>{t.first} <em>{t.last}</em></span></h1>
-    <div className="ler-intro-role-list ler-intro-animate" style={{'--seq':4}}><div><b>01</b><span>{t.profession1}</span></div><div><b>02</b><span>{t.profession2}</span></div><div><b>03</b><span>{t.profession3}</span></div></div>
+    <div className="ler-intro-role-list ler-intro-animate" style={{'--seq':4}}><div><b>01</b><span>{t.profession1}</span></div><div><b>02</b><span>{t.profession2}</span></div><div><b>03</b><span>{t.profession3}</span></div><div><b>04</b><span>{t.profession4}</span></div></div>
     <p className="ler-intro-statement ler-intro-animate" style={{'--seq':5}}>{t.proposition}</p><p className="ler-intro-purpose ler-intro-animate" style={{'--seq':6}}>{t.mission}</p>
     <div className="ler-intro-actions ler-intro-animate" style={{'--seq':7}}>
       <button className="ler-primary ler-enter" type="button" onClick={onPortfolio}><LifeWorldIcon name="arrow" size={19}/>{t.professionalTour}<span aria-hidden="true">↗</span></button>
