@@ -31,7 +31,7 @@ const content = {
       greetingText: "Hi all, I'm ",
       greetingName: "Luis",
       subTitle: emoji(
-        "Business Administrator | Specialist in Occupational Health and Safety Management | Software Developer | Video Editor | Professional Drone Pilot"
+        "Business Administrator | Specialist in Occupational Health and Safety Management | Software Developer | Video Editor | Licensed Professional Drone Pilot (valid license)"
       ),
       resumeLink:
         "https://drive.google.com/file/d/16KOJpFXgMhibKc7grFxfytRfSmcaQaFT/view?usp=drive_link",
@@ -56,7 +56,7 @@ const content = {
         emoji("⚡ Business Administration & Project Management"),
         emoji("⚡ OHS consulting and safety-by-design thinking"),
         emoji("⚡ Video editing & color (DaVinci Resolve)"),
-        emoji("⚡ Aerial cinematography — professional drone pilot"),
+        emoji("⚡ Aerial cinematography — licensed professional drone pilot (valid license)"),
       ],
       softwareSkills: [
         { skillName: "HTML5", fontAwesomeClassname: "fab fa-html5", id: "html-5" },
@@ -105,6 +105,16 @@ const content = {
           alt_name: "Microverse",
           color_code: "#DDEFE6",
         },
+        {
+          title: "Licensed Professional UAS Drone Pilot",
+          subtitle: "Valid pilot license · Aerocivil Colombia",
+          logo_url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Logo-aeronautica.svg",
+          certificate_link: "https://www.aerocivil.gov.co/",
+          institution_link: true,
+          institution_hover_label: "Aerocivil · Official website",
+          alt_name: "Aeronáutica Civil de Colombia (Aerocivil)",
+          color_code: "#F5F7F9",
+        },
       ],
     },
 
@@ -152,7 +162,7 @@ const content = {
         "My commitment goes beyond coding. As an OHS specialist, I'm dedicated to safeguarding workplaces, ensuring every process is safe, and prioritizing human well-being in everything we do. Let's build technology that not only changes business, but also helps save lives.",
       droneTitle: "Aerial Perspective",
       droneDescription:
-        "Aerial operations have also shaped how I build products and solve problems. As a professional drone pilot, flying has taught me to read environments from above, anticipate risks, and appreciate patterns at scale. That perspective helps me design safer systems, plan better workflows, and bring cinematic clarity to storytelling through video.",
+        "Aerial operations have also shaped how I build products and solve problems. As a licensed professional drone pilot (valid license), flying has taught me to read environments from above, anticipate risks, and appreciate patterns at scale. That perspective helps me design safer systems, plan better workflows, and bring cinematic clarity to storytelling through video.",
     },
   },
 
@@ -182,7 +192,7 @@ const content = {
       greetingText: "Hola a todos, soy ",
       greetingName: "Luis",
       subTitle: emoji(
-        "Administrador de Empresas | Especialista en Gerencia de la Seguridad y Salud en el Trabajo | Desarrollador de Software | Editor de video | Piloto profesional de drones"
+        "Administrador de Empresas | Especialista en Gerencia de la Seguridad y Salud en el Trabajo | Desarrollador de Software | Editor de video | Piloto profesional de drones con licencia vigente"
       ),
       resumeLink:
         "https://drive.google.com/file/d/16KOJpFXgMhibKc7grFxfytRfSmcaQaFT/view?usp=drive_link",
@@ -205,7 +215,7 @@ const content = {
         emoji("⚡ Administración y gestión de proyectos"),
         emoji("⚡ Consultoría en SST y diseño seguro"),
         emoji("⚡ Edición y color de video (DaVinci Resolve)"),
-        emoji("⚡ Cinematografía aérea — piloto profesional de drones"),
+        emoji("⚡ Cinematografía aérea — piloto profesional de drones con licencia vigente"),
       ],
       softwareSkills: [
         { skillName: "HTML5", fontAwesomeClassname: "fab fa-html5", id: "html-5" },
@@ -253,6 +263,16 @@ const content = {
           alt_name: "Microverse",
           color_code: "#DDEFE6",
         },
+        {
+          title: "Piloto profesional de drones UAS",
+          subtitle: "Licencia vigente · Aeronáutica Civil de Colombia (Aerocivil)",
+          logo_url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Logo-aeronautica.svg",
+          certificate_link: "https://www.aerocivil.gov.co/",
+          institution_link: true,
+          institution_hover_label: "Aerocivil · Sitio institucional",
+          alt_name: "Aeronáutica Civil de Colombia (Aerocivil)",
+          color_code: "#F5F7F9",
+        },
       ],
     },
 
@@ -295,7 +315,7 @@ const content = {
         "Mi compromiso va más allá del código. Como especialista en SST, trabajo por resguardar los lugares de trabajo, asegurar que cada proceso sea seguro y priorizar el bienestar humano en todo lo que hacemos. Construyamos tecnología que no solo transforme los negocios, sino que también ayude a salvar vidas.",
       droneTitle: "Perspectiva Aérea",
       droneDescription:
-        "Las operaciones aéreas también moldearon cómo construyo productos y soluciono problemas. Como piloto profesional de drones, volar me enseñó a leer el entorno desde arriba, anticipar riesgos y apreciar los patrones a escala. Esa perspectiva me ayuda a diseñar sistemas más seguros, planear mejores flujos de trabajo y aportar claridad cinematográfica al storytelling en video.",
+        "Las operaciones aéreas también moldearon cómo construyo productos y soluciono problemas. Como piloto profesional de drones con licencia vigente, volar me enseñó a leer el entorno desde arriba, anticipar riesgos y apreciar los patrones a escala. Esa perspectiva me ayuda a diseñar sistemas más seguros, planear mejores flujos de trabajo y aportar claridad cinematográfica al storytelling en video.",
     },
   },
 };

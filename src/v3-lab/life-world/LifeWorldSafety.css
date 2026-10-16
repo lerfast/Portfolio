@@ -1,0 +1,51 @@
+/* Entrega C — The Oshlix lab is a conceptual portfolio simulation.
+   Isolated styling: no impact on V2, greeting, hero or other projects. */
+.ler-phase-world .ler-detail-panel-osh,
+.ler-phase-world .ler-detail-panel-risk{width:min(545px,calc(100% - 4px));}
+.ler-safety-guide{margin:18px 0 16px;padding:17px;border:1px solid rgba(92,224,234,.35);border-radius:18px;
+ background:linear-gradient(145deg,rgba(6,52,77,.86),rgba(11,66,76,.78));box-shadow:inset 0 1px rgba(255,255,255,.1);}
+.ler-safety-guide-head{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.ler-safety-guide-head h3{font-size:clamp(19px,2.3vw,24px);color:#f5ffff;line-height:1.15;margin:6px 0 0;font-weight:800;letter-spacing:-.03em;}
+.ler-safety-guide-head>strong{color:#0c3c50;background:linear-gradient(125deg,#b7fff0,#7eecfa);border-radius:12px;padding:10px;font:800 16px ui-monospace,monospace;white-space:nowrap;}
+.ler-phase-world .ler-safety-guide>p{font-size:12px;line-height:1.55;color:#bce9f2;margin:12px 0 14px;}
+.ler-safety-guide-steps{display:grid;gap:8px;}
+.ler-safety-mission{appearance:none;display:flex;align-items:center;gap:12px;text-align:left;cursor:pointer;padding:12px;
+ background:rgba(7,32,48,.85);color:#f6fdff;border:1px solid rgba(138,225,240,.27);border-radius:12px;width:100%;
+ transition:transform .18s ease,border-color .18s ease,background .18s ease;}
+.ler-safety-mission:hover,.ler-safety-mission:focus-visible{background:rgba(24,109,129,.55);border-color:#86eaf9;transform:translateX(3px)}
+.ler-safety-mission-number{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:9px;
+ background:rgba(244,165,94,.18);color:#ffd098;font:900 14px ui-monospace,monospace;}
+.ler-safety-mission.is-complete .ler-safety-mission-number{color:#b8ffdc;background:rgba(55,188,141,.21)}
+.ler-safety-mission>span:nth-child(2){display:flex;flex-direction:column;gap:4px;flex:1;min-width:0;}
+.ler-safety-mission strong{font-size:12px;color:#fff;font-weight:750;line-height:1.3;}
+.ler-safety-mission small{font:700 9px ui-monospace,monospace;color:#b5dbe2;letter-spacing:.06em;}
+.ler-safety-mission.is-complete small{color:#9bf7c3}
+.ler-safety-mission-status{display:grid;place-items:center;flex:none;width:30px;height:30px;border:1px solid rgba(157,229,236,.32);border-radius:50%;color:#f9d99e;font-size:17px;}
+.ler-safety-mission.is-complete .ler-safety-mission-status{color:#9bffc8;border-color:#5de8b6;}
+.ler-safety-guide-footer{display:flex;align-items:flex-start;gap:8px;color:#a7c8d4;margin:13px 2px 0;font-size:10px;line-height:1.5;}
+.ler-safety-guide-footer svg{flex:none;color:#92e6ed;}
+.ler-inspection-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:18px 0;}
+.ler-inspection-steps span{border:1px solid rgba(169,222,236,.22);color:#bed4e0;padding:9px 5px;text-align:center;border-radius:9px;
+ font:750 9px ui-monospace,monospace;letter-spacing:.05em;}
+.ler-inspection-steps span.is-active{border-color:#fac28a;color:#ffdaa5;background:rgba(211,119,49,.16)}
+.ler-inspection-steps span.is-complete{border-color:#7bf5bd;color:#aaffd7;background:rgba(33,134,104,.18)}
+.ler-risk-before{display:flex;align-items:center;gap:12px;margin:15px 0;padding:13px;border-radius:12px;background:rgba(240,147,74,.14);
+ border:1px solid rgba(244,170,97,.42);color:#ffe9c8;font-size:12px;line-height:1.5;}
+.ler-risk-before svg{color:#ffd397;flex-shrink:0;}
+.ler-phase-world .ler-detail-panel-risk .ler-safety-apply{display:block;width:100%;margin:15px 0;padding:14px 16px;text-align:center;line-height:1.4;}
+.ler-phase-world .ler-panel-result.ler-safety-result strong{display:block;font-size:13px;color:#fff;margin:9px 0 4px;line-height:1.4;}
+.ler-phase-world .ler-panel-result.ler-safety-result p{margin:5px 0 0;}
+.ler-safety-next-actions{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.ler-phase-world .ler-safety-next-actions button{min-height:42px;text-align:center;border-radius:10px;}
+.ler-phase-world .ler-safety-next-actions .ler-secondary{color:#fff;background:rgba(49,180,191,.25);border:1px solid rgba(130,235,240,.47);}
+.ler-safety-all-done{background:rgba(28,150,113,.25);border:1px solid rgba(88,239,177,.45);
+ color:#c4ffe3;padding:11px 14px;border-radius:10px;font:800 11px ui-monospace,monospace;}
+@media(max-width:520px){
+ .ler-safety-guide{padding:12px;margin:12px 0;}
+ .ler-safety-guide-head h3{font-size:18px}
+ .ler-safety-mission{padding:9px;gap:8px}
+ .ler-safety-mission-number{width:31px;height:35px;font-size:12px}
+ .ler-safety-mission strong{font-size:11px}
+ .ler-inspection-steps span{font-size:8px;letter-spacing:0}
+}
+@media(prefers-reduced-motion:reduce){.ler-safety-mission{transition:none}.ler-safety-mission:hover{transform:none}}

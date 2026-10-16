@@ -1,0 +1,341 @@
+/*
+ * LER V3 — Pulido visual global · 16 Oct 2026
+ * Only affects .v3-portfolio. The V2 page and LIFE WORLD are deliberately untouched.
+ * Imported after the V3 chapter stylesheet; existing text, imagery and links stay in React.
+ */
+.v3-portfolio {
+  --v3-ui-panel:rgba(20,52,77,.66);
+  --v3-ui-panel-solid:rgba(13,40,63,.90);
+  --v3-ui-panel-soft:rgba(56,140,171,.10);
+  --v3-ui-border:rgba(149,225,238,.24);
+  --v3-ui-title:#f0f9ff;
+  --v3-ui-copy:#c1d3e2;
+  --v3-ui-accent:#74eaf1;
+  --v3-ui-button:linear-gradient(118deg,#79eaf1,#a5ebdc);
+  --v3-ui-button-text:#09273a;
+  --v3-ui-shadow:0 22px 57px rgba(0,8,24,.22);
+  --v3-ui-radius:22px;
+  --v3-ui-image-ground:#f7f8f4;
+}
+.v3-portfolio.v3-theme-light {
+  --v3-ui-panel:rgba(255,255,255,.76);
+  --v3-ui-panel-solid:rgba(246,251,253,.98);
+  --v3-ui-panel-soft:rgba(6,129,164,.07);
+  --v3-ui-border:rgba(24,110,144,.19);
+  --v3-ui-title:#102e47;
+  --v3-ui-copy:#3e5b6e;
+  --v3-ui-accent:#057993;
+  --v3-ui-button:linear-gradient(115deg,#067d9c,#13718e);
+  --v3-ui-button-text:#fff;
+  --v3-ui-shadow:0 17px 44px rgba(31,90,124,.10);
+  --v3-ui-image-ground:#f8f9f6;
+}
+
+/* Layout and navigation: anchors must reveal the ACT title, not start at legacy content. */
+.v3-portfolio .v3-chapter { min-width:0; scroll-margin-top:82px; padding-top:clamp(72px,8vw,118px); }
+.v3-portfolio .v3-chapter-header { overflow:visible; }
+.v3-portfolio .v3-chapter-header h2 { overflow:visible; padding-block:.035em .09em; }
+.v3-portfolio .v3-chapter-content,
+.v3-portfolio .v3-chapter-content > *,
+.v3-portfolio .v3-chapter-content .main { min-width:0; }
+.v3-portfolio .v3-chapter-content .main,
+.v3-portfolio .v3-chapter-content .main.dark-mode { background:transparent; box-shadow:none; }
+/* V2 has a universal .dark-mode with a solid charcoal background and forced white text. */
+.v3-portfolio .v3-chapter-content .dark-mode { background:transparent; }
+.v3-portfolio .v3-chapter-content p.dark-mode,
+.v3-portfolio .v3-chapter-content h1.dark-mode,
+.v3-portfolio .v3-chapter-content h2.dark-mode,
+.v3-portfolio .v3-chapter-content div.dark-mode { background:transparent; }
+.v3-portfolio .v3-chapter-content p,
+.v3-portfolio .v3-chapter-content li { overflow-wrap:break-word; }
+.v3-portfolio .v3-chapter-content img { display:block; }
+.v3-portfolio .v3-chapter-content a:not([class]) { color:var(--v3-ui-accent); }
+.v3-portfolio .v3-chapter-content :is(.skills-text-subtitle,.skills-text,.projects-text,.commitment-text,.certs-sub,.blog-subtitle,.contact-subtitle) {
+  color:var(--v3-ui-copy); background:transparent; line-height:1.75; text-align:left;
+}
+/* Legacy dark-mode uses !important for text: override only the affected paragraphs. */
+.v3-portfolio.v3-theme-dark .v3-chapter-content :is(.skills-text-subtitle,.skills-text,.projects-text,.commitment-text,.blog-subtitle,.contact-subtitle).dark-mode {
+  color:var(--v3-ui-copy) !important;
+}
+/* Page-global legacy gradients should not compete with monumental act titles. */
+.v3-portfolio .v3-chapter-content :is(.skills-heading,.project-title,.commitment-block-title,.certs-title,.cycling-title,.blog-header-text,.contact-title) {
+  color:var(--v3-ui-title); background:none; -webkit-text-fill-color:var(--v3-ui-title);
+  -webkit-text-stroke:0; letter-spacing:-.038em; line-height:1.16; font-weight:850;
+  text-align:left; padding:0 0 .1em; margin:0 0 clamp(16px,2vw,27px);
+  max-width:100%; overflow-wrap:normal; word-break:normal;
+}
+.v3-portfolio .v3-chapter-content :is(.project-title,.certs-title,.cycling-title,.blog-header-text,.contact-title) {
+  font-size:clamp(26px,3.15vw,42px);
+}
+.v3-portfolio .v3-chapter-content .project-title:not(:first-child) { margin-top:clamp(38px,5vw,64px); }
+.v3-portfolio .v3-chapter-content a,
+.v3-portfolio .v3-ending a { text-underline-offset:4px; }
+.v3-portfolio .v3-desktop-nav a:hover,
+.v3-portfolio .v3-desktop-nav a.is-active { color:var(--v3-cyan); }
+.v3-portfolio.v3-theme-light .v3-desktop-nav a:hover,
+.v3-portfolio.v3-theme-light .v3-desktop-nav a.is-active { color:#006d86; }
+.v3-portfolio .v3-hero-actions .v3-button-primary { color:#08233a; }
+.v3-portfolio.v3-theme-light .v3-hero-actions .v3-button-outline { background:rgba(255,255,255,.66); }
+
+/* 01 — Skills. Transparent mineral image display instead of a charcoal rectangle. */
+.v3-portfolio #skills { width:100%; padding:0; color:var(--v3-ui-title); }
+.v3-portfolio #skills .skills-main-div { width:100%; display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(26px,4vw,62px); align-items:center; }
+.v3-portfolio #skills .skills-main-div > * { min-width:0; margin:0; }
+.v3-portfolio #skills .skills-image-div {
+  display:grid; place-items:center; min-height:340px; padding:clamp(17px,3vw,36px);
+  background:radial-gradient(circle at 50% 36%,rgba(78,217,227,.13),transparent 64%),var(--v3-ui-panel-soft);
+  border:1px solid var(--v3-ui-border); border-radius:var(--v3-ui-radius);
+}
+.v3-portfolio #skills .skills-image-div > * { width:100%; max-width:480px; }
+.v3-portfolio #skills .skills-image-div svg,
+.v3-portfolio #skills .skills-image-div canvas { max-width:100%; height:auto; }
+.v3-portfolio #skills .skills-text-div { margin:0; min-width:0; }
+.v3-portfolio #skills .skills-heading { font-size:clamp(28px,3.3vw,45px); }
+.v3-portfolio #skills .skills-text-subtitle { font-size:clamp(15px,1.3vw,18px); margin-bottom:24px; }
+.v3-portfolio #skills .skills-text { font-size:15px; line-height:1.7; margin:0 0 12px; }
+.v3-portfolio #skills .dev-icons { display:flex; justify-content:flex-start; flex-wrap:wrap; gap:7px 17px; padding:0; margin:22px 0 25px; text-align:center; }
+.v3-portfolio #skills .software-skill-inline { margin:0; min-width:60px; }
+.v3-portfolio #skills .software-skill-inline > i { color:var(--v3-ui-accent); opacity:.88; font-size:clamp(27px,2.9vw,41px); }
+.v3-portfolio #skills .software-skill-inline > p { color:var(--v3-ui-copy); line-height:1.4; margin:7px 0 0; }
+
+/* 02 — Oshlix and original three project cards. */
+.v3-portfolio #projects { margin:0; padding:0 0 16px; text-align:left; }
+.v3-portfolio #projects .oshlix-intro-container { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(16px,3.3vw,44px); align-items:center; color:var(--v3-ui-copy); }
+.v3-portfolio #projects .oshlix-intro-container > * { min-width:0; }
+.v3-portfolio #projects .oshlix-text { padding:clamp(20px,3vw,35px); background:var(--v3-ui-panel-soft); border:1px solid var(--v3-ui-border); border-radius:var(--v3-ui-radius); text-align:left; }
+.v3-portfolio #projects .projects-text { font-size:clamp(15px,1.25vw,18px); line-height:1.82; margin:0; color:var(--v3-ui-copy); }
+.v3-portfolio #projects .oshlix-logo { padding:clamp(14px,3vw,36px); border:1px solid var(--v3-ui-border); border-radius:var(--v3-ui-radius); background:var(--v3-ui-image-ground); min-height:200px; }
+.v3-portfolio #projects .oshlix-logo a { display:grid; place-items:center; width:100%; min-height:155px; }
+.v3-portfolio #projects .oshlix-logo-image { display:block; width:min(100%,480px); max-height:220px; height:auto; object-fit:contain; filter:none; }
+.v3-portfolio #projects .projects-shelf-wrapper { margin-top:16px; }
+.v3-portfolio #projects .snap-card { background:var(--v3-ui-panel); border:1px solid var(--v3-ui-border); border-radius:var(--v3-ui-radius); box-shadow:var(--v3-ui-shadow); color:var(--v3-ui-title); }
+.v3-portfolio #projects .snap-media { aspect-ratio:16/10; background:#0c283f; }
+.v3-portfolio #projects .snap-media img { object-fit:cover; width:100%; height:100%; }
+.v3-portfolio #projects .snap-body { display:flex; flex-direction:column; gap:12px; padding:clamp(19px,2vw,27px); color:var(--v3-ui-title); }
+.v3-portfolio #projects .snap-title { font-size:clamp(19px,1.75vw,25px); margin:0; line-height:1.3; color:var(--v3-ui-title); }
+.v3-portfolio #projects .snap-desc { font-size:14px; line-height:1.7; margin:0; color:var(--v3-ui-copy); text-align:left; }
+.v3-portfolio #projects .snap-actions { margin-top:auto; justify-content:flex-start; gap:10px; }
+.v3-portfolio #projects .snap-btn { font-size:12px; min-height:42px; padding:10px 15px; border-radius:11px; }
+.v3-portfolio #projects .snap-btn.primary,
+.v3-portfolio #projects .project-button a { background:var(--v3-ui-button); color:var(--v3-ui-button-text); border:1px solid transparent; box-shadow:none; }
+.v3-portfolio #projects .snap-btn.ghost { color:var(--v3-ui-title); border:1px solid var(--v3-ui-border); background:var(--v3-ui-panel-soft); }
+.v3-portfolio #projects .snap-tags { justify-content:flex-start; margin:6px 0 0; gap:6px; }
+.v3-portfolio #projects .snap-tags li { background:var(--v3-ui-panel-soft); color:var(--v3-ui-copy); border:1px solid var(--v3-ui-border); font-size:10px; }
+.v3-portfolio #projects .project-button { margin:28px auto 0 !important; }
+.v3-portfolio #projects .project-button a { color:var(--v3-ui-button-text) !important; background:var(--v3-ui-button) !important; }
+.v3-portfolio #projects .shelf-gradient.left { background:linear-gradient(90deg,var(--v3-bg),transparent); }
+.v3-portfolio #projects .shelf-gradient.right { background:linear-gradient(270deg,var(--v3-bg),transparent); }
+
+/* 03 — Prevention, human-first SST. */
+.v3-portfolio #commitment { max-width:1250px; padding:0; margin:0 auto; color:var(--v3-ui-title); }
+.v3-portfolio #commitment .commitment-main { padding:0; }
+.v3-portfolio #commitment .commitment-block {
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(320px,.82fr);
+  align-items:start;
+  gap:clamp(28px,4.5vw,74px);
+  margin:0;
+}
+.v3-portfolio #commitment .commitment-text-div {
+  min-width:0;
+  max-width:none;
+  padding:clamp(24px,3vw,34px);
+  border:1px solid var(--v3-ui-border);
+  border-radius:var(--v3-ui-radius);
+  background:linear-gradient(155deg,rgba(86,231,187,.08),transparent 55%),var(--v3-ui-panel);
+  box-shadow:var(--v3-ui-shadow);
+}
+.v3-portfolio #commitment .commitment-block-title { font-size:clamp(29px,3.3vw,47px); line-height:1.16; margin:0 0 16px; }
+.v3-portfolio #commitment .commitment-text { font-size:clamp(15px,1.3vw,19px); line-height:1.88; max-width:64ch; margin:0; }
+.v3-portfolio #commitment .commitment-lottie-div {
+  min-width:0;
+  width:100%;
+  justify-content:center;
+  align-self:start;
+  margin-left:auto;
+  padding:clamp(16px,2.5vw,31px);
+  border:1px solid var(--v3-ui-border);
+  background:radial-gradient(circle at 50% 44%,rgba(255,187,132,.09),transparent 64%),var(--v3-ui-panel-soft);
+  border-radius:var(--v3-ui-radius);
+  box-shadow:var(--v3-ui-shadow);
+}
+.v3-portfolio #commitment .commitment-lottie-div > * { width:min(100%,500px); }
+
+/* 04 — Institutional logos retain their real colors. Only the background behind them changes. */
+.v3-portfolio #certs { margin:0; }
+.v3-portfolio #certs .certs-header { padding:0; margin:0 0 30px; }
+.v3-portfolio #certs .certs-sub { font-size:15px; }
+.v3-portfolio #certs .cert-tilt { min-width:0; border:1px solid var(--v3-ui-border); border-radius:var(--v3-ui-radius); background:var(--v3-ui-panel); box-shadow:var(--v3-ui-shadow); }
+.v3-portfolio #certs .cert-card { display:flex; flex-direction:column; height:100%; box-shadow:none; border-radius:inherit; background:transparent; }
+.v3-portfolio #certs .cert-header { display:grid; place-items:center; min-height:166px; padding:22px 15px; border-radius:0; background:var(--v3-ui-image-ground) !important; }
+.v3-portfolio #certs .content { border-radius:0; }
+.v3-portfolio #certs .logo_img { width:auto; height:auto; max-width:min(100%,290px); max-height:118px; object-fit:contain; margin:auto; }
+.v3-portfolio #certs .cert-body { display:flex; flex:1; flex-direction:column; justify-content:center; gap:11px; padding:22px 18px 25px; }
+.v3-portfolio #certs .cert-body-title { margin:0; font-size:17px; line-height:1.42; font-weight:800; color:var(--v3-ui-title); }
+.v3-portfolio #certs .cert-body-subtitle { margin:0; font-size:13px; line-height:1.55; color:var(--v3-ui-copy); }
+.v3-portfolio #certs .content-overlay { background:rgba(4,22,39,.66); }
+.v3-portfolio #certs .content:focus-within .content-overlay,
+.v3-portfolio #certs .content:focus-within .content-details { opacity:1; }
+.v3-portfolio #certs .content-details h3 { color:#fff; }
+
+/* 05 + 06 — Drone / spatial gallery: adapt their own tokens, leave their media and behavior. */
+.v3-portfolio .drone-operations {
+  --do-text:var(--v3-ui-title); --do-muted:var(--v3-ui-copy);
+  --do-border:var(--v3-ui-border); --do-card:var(--v3-ui-panel); --do-panel:var(--v3-ui-panel-soft);
+  --do-accent:var(--v3-ui-accent); --do-shadow:var(--v3-ui-shadow);
+  width:100%; margin:0 auto; padding:0; border-top:0; color:var(--v3-ui-title);
+}
+.v3-portfolio .drone-stage-visual { border-radius:var(--v3-ui-radius); }
+.v3-portfolio .drone-fieldnote,.v3-portfolio .drone-sms { border-radius:var(--v3-ui-radius); box-shadow:none; }
+.v3-portfolio .drone-service { background:var(--v3-ui-panel); border-radius:18px; }
+.v3-portfolio .gs-section {
+  --gs-fg:var(--v3-ui-title); --gs-muted:var(--v3-ui-copy); --gs-panel:var(--v3-ui-panel-soft);
+  --gs-card:var(--v3-ui-panel); --gs-line:var(--v3-ui-border);
+  --gs-accent:var(--v3-ui-accent); --gs-bright:var(--v3-ui-accent);
+  width:100%; margin:0 auto; padding:0; border-top:0; color:var(--v3-ui-title);
+}
+.v3-portfolio .gs-use-card { background:var(--v3-ui-panel); border-radius:var(--v3-ui-radius); }
+.v3-portfolio .gs-case { border-radius:var(--v3-ui-radius); box-shadow:none; }
+.v3-portfolio .gs-viewer { aspect-ratio:16/9; }
+.v3-portfolio .gs-start { background:var(--v3-ui-button); color:var(--v3-ui-button-text); }
+.v3-portfolio .gs-start:hover { filter:brightness(1.05); background:var(--v3-ui-button); }
+
+/* 07 — Ride & Fly: thumbnails, not animated decorative cables, take center stage. */
+.v3-portfolio #cycling { width:100%; max-width:1250px; margin:0 auto; padding:0; color:var(--v3-ui-title);
+  --fg:var(--v3-ui-title); --muted:var(--v3-ui-copy); --stroke:var(--v3-ui-border);
+  --glass-light:var(--v3-ui-panel); --glass-dark:var(--v3-ui-panel);
+  --btn-primary-bg:var(--v3-ui-button); --btn-primary-text:var(--v3-ui-button-text);
+  --btn-ghost-fg:var(--v3-ui-title); --btn-ghost-border:var(--v3-ui-border); }
+.v3-portfolio #cycling .vd-hero-copy .lead { color:var(--v3-ui-copy); max-width:85ch; text-align:left; line-height:1.84; }
+.v3-portfolio #cycling .cycling-technical-details { background:var(--v3-ui-panel-soft); border:1px solid var(--v3-ui-border); border-radius:16px; padding:14px 19px; }
+.v3-portfolio #cycling .cycling-technical-details summary { color:var(--v3-ui-accent); }
+.v3-portfolio #cycling .vd-badges li,
+.v3-portfolio #cycling .vd-tech li { color:var(--v3-ui-copy); }
+.v3-portfolio #cycling .vd-badges li { background:var(--v3-ui-panel-soft); border:1px solid var(--v3-ui-border); }
+.v3-portfolio #cycling .cycling-btn { border-radius:12px; }
+.v3-portfolio #cycling .cycling-btn.primary { background:var(--v3-ui-button); color:var(--v3-ui-button-text); box-shadow:none; }
+.v3-portfolio #cycling .cycling-btn.ghost { color:var(--v3-ui-title); border:1px solid var(--v3-ui-border); background:var(--v3-ui-panel-soft); }
+.v3-portfolio #cycling .aura::before { content:none; animation:none; }
+.v3-portfolio #cycling .vd-card { border:1px solid var(--v3-ui-border); background:var(--v3-ui-panel); border-radius:var(--v3-ui-radius); overflow:hidden; }
+.v3-portfolio #cycling .vd-card-inner { height:100%; display:flex; flex-direction:column; border:0; background:transparent; padding:13px 13px 23px; box-shadow:none; backdrop-filter:none; }
+.v3-portfolio #cycling .vd-thumb { margin-bottom:20px; border-radius:14px; aspect-ratio:16/9; box-shadow:none; }
+.v3-portfolio #cycling .vd-thumb img { width:100%; height:100%; object-fit:cover; }
+.v3-portfolio #cycling .vd-play::before { background:rgba(5,26,47,.68); border:1px solid rgba(255,255,255,.6); }
+.v3-portfolio #cycling .vd-card-head { padding:0 7px; align-items:flex-start; }
+.v3-portfolio #cycling .vd-card-title { color:var(--v3-ui-title); font-size:18px; }
+.v3-portfolio #cycling .vd-card-link { border:1px solid var(--v3-ui-border); color:var(--v3-ui-accent); background:var(--v3-ui-panel-soft); }
+.v3-portfolio #cycling .vd-card-desc { color:var(--v3-ui-copy); text-align:left; padding:0 7px; margin:13px 0; }
+.v3-portfolio #cycling .vd-tech { color:var(--v3-ui-copy); padding:0 8px 0 25px; margin-top:auto; }
+
+/* 08 — Documentary atlas. Keep the verified covers, trailer and filters. */
+.v3-portfolio .mission-section {
+  --mp-fg:var(--v3-ui-title); --mp-muted:var(--v3-ui-copy);
+  --mp-panel:var(--v3-ui-panel-soft); --mp-card:var(--v3-ui-panel);
+  --mp-line:var(--v3-ui-border); --mp-accent:var(--v3-ui-accent);
+  width:100%; margin:0 auto; padding:0; border-top:0; color:var(--v3-ui-title);
+}
+.v3-portfolio .mission-story { background:radial-gradient(ellipse at 90% 0%,rgba(61,190,217,.16),transparent 50%),linear-gradient(145deg,rgba(11,35,56,.88),rgba(15,47,71,.81)); border:1px solid var(--v3-ui-border); box-shadow:var(--v3-ui-shadow); }
+.v3-portfolio .mission-card { border-radius:var(--v3-ui-radius); background:var(--v3-ui-panel); box-shadow:var(--v3-ui-shadow); }
+.v3-portfolio .mission-filter { background:var(--v3-ui-panel-soft); color:var(--v3-ui-copy); }
+.v3-portfolio .mission-filter--active,
+.v3-portfolio .mission-filter--active:hover { background:var(--v3-ui-button); color:var(--v3-ui-button-text); border-color:transparent; }
+.v3-portfolio .mission-action--primary { background:var(--v3-ui-button); color:var(--v3-ui-button-text); }
+.v3-portfolio .mission-action--primary span { color:var(--v3-ui-button-text); }
+.v3-portfolio .mission-action--primary:hover { background:var(--v3-ui-button); filter:brightness(1.05); color:var(--v3-ui-button-text); }
+.v3-portfolio.v3-theme-light .mission-story { background:radial-gradient(ellipse at 90% 0%,rgba(24,139,172,.12),transparent 50%),var(--v3-ui-panel); color:var(--v3-ui-title); }
+.v3-portfolio.v3-theme-light .mission-story :is(h2,.mission-lead,.mission-copy p) { color:var(--v3-ui-title); }
+.v3-portfolio.v3-theme-light .mission-story .mission-copy p { color:var(--v3-ui-copy); }
+.v3-portfolio.v3-theme-light .mission-story .mission-channel-link,
+.v3-portfolio.v3-theme-light .mission-story .mission-gallery-link { color:var(--v3-ui-accent); border-color:var(--v3-ui-border); background:var(--v3-ui-panel-soft); }
+
+/* 09 — Medium cards. Remove legacy hover flood and charcoal text bars. */
+.v3-portfolio #blogs { width:100%; max-width:1250px; margin:0 auto; padding:0; }
+.v3-portfolio #blogs .blog-header { padding:0; margin:0 0 24px; }
+.v3-portfolio #blogs .blog-header-text { display:block; }
+.v3-portfolio #blogs .blog-subtitle { background:transparent; color:var(--v3-ui-copy); margin:0; font-size:15px; }
+.v3-portfolio #blogs .blog-main-div { margin:0; }
+.v3-portfolio #blogs .blog-tilt { background:var(--v3-ui-panel); border-radius:var(--v3-ui-radius); border:1px solid var(--v3-ui-border); box-shadow:var(--v3-ui-shadow); }
+.v3-portfolio #blogs .blog-container { height:100%; min-height:225px; border-radius:var(--v3-ui-radius); background:transparent; color:var(--v3-ui-title); box-shadow:none; text-align:left; }
+.v3-portfolio #blogs .blog-card { background:transparent; border-radius:inherit; padding:27px 26px 28px; min-height:225px; height:100%; }
+.v3-portfolio #blogs .blog-card::before { content:none; }
+.v3-portfolio #blogs .blog-title { color:var(--v3-ui-title); font-size:20px; line-height:1.42; font-weight:800; margin:0 0 15px; padding-right:17px; }
+.v3-portfolio #blogs .small { color:var(--v3-ui-copy); font-size:14px; line-height:1.75; padding:0; margin:0; }
+/* Legacy .small-dark is !important — contain the override to this component. */
+.v3-portfolio #blogs .small-dark { color:var(--v3-ui-copy) !important; }
+.v3-portfolio #blogs h3.small-dark { color:var(--v3-ui-title) !important; }
+.v3-portfolio #blogs .go-corner { top:16px; right:17px; width:34px; height:34px; border-radius:10px; border:1px solid var(--v3-ui-border); background:var(--v3-ui-panel-soft); }
+.v3-portfolio #blogs .go-arrow { margin:0; color:var(--v3-ui-accent); }
+.v3-portfolio #blogs .blog-card:hover>h3 { color:var(--v3-ui-accent); }
+.v3-portfolio #blogs .blog-card:hover>.small { color:var(--v3-ui-copy); }
+
+/* 10 — Contact and restrained footer / visitor counter. */
+.v3-portfolio #contact { margin:0 auto; padding:0; max-width:1250px; width:100%; }
+.v3-portfolio #contact .contact-div-main { display:block; width:100%; }
+.v3-portfolio #contact .contact-div-main > * { flex:initial; }
+.v3-portfolio #contact .contact-header { width:100%; max-width:1040px; text-align:left; min-width:0; margin:0; }
+.v3-portfolio #contact .contact-title { font-size:clamp(30px,4.2vw,52px); margin:0 0 10px; }
+.v3-portfolio #contact .contact-subtitle { font-size:clamp(14px,1.55vw,18px); text-transform:none; letter-spacing:0; margin:0 0 25px; max-width:64ch; }
+.v3-portfolio #contact .contact-text-div { display:flex; flex-direction:column; align-items:flex-start; gap:24px; width:100%; max-width:1040px; margin:0; padding:clamp(22px,4vw,44px); border:1px solid var(--v3-ui-border); border-radius:var(--v3-ui-radius); background:var(--v3-ui-panel); }
+.v3-portfolio #contact .contact-detail-email { display:inline-block; margin:0; max-width:100%; overflow-wrap:anywhere; font-size:clamp(17px,3vw,32px); font-weight:750; color:var(--v3-ui-title); line-height:1.5; }
+.v3-portfolio #contact .contact-detail-email:hover { color:var(--v3-ui-accent); text-shadow:none; }
+.v3-portfolio #contact .contact-socialMedia { justify-content:flex-start; margin:0; width:100%; }
+.v3-portfolio #contact .social-media-div { justify-content:flex-start; gap:10px; }
+.v3-portfolio #contact .social-media-div a { margin:0; width:47px; height:47px; border:1px solid var(--v3-ui-border); background:var(--v3-ui-panel-soft); }
+.v3-portfolio #contact .social-media-div .icon { color:var(--v3-ui-title); font-size:21px; }
+.v3-portfolio #contact .social-media-div a:hover .icon { color:#fff; }
+.v3-portfolio .v3-ending { background:linear-gradient(180deg,rgba(14,45,67,.12),transparent),var(--v3-bg); }
+.v3-portfolio .v3-ending .footer-div { margin:0 auto; padding:19px 0 11px; }
+.v3-portfolio .v3-ending .footer-text { color:var(--v3-muted) !important; margin:0; font-size:12px; letter-spacing:.015em; text-align:center; }
+.v3-portfolio .v3-ending .footer-text.dark-mode { background:transparent; }
+.v3-portfolio .v3-ending .visit-counter { margin:8px auto 0; opacity:.67; text-align:center; }
+.v3-portfolio .v3-ending .visit-counter img { max-width:100%; height:auto; }
+
+/* Subtle focus and interactions without forcing mouse effects on touchscreens. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .v3-portfolio #projects .snap-card:hover,
+  .v3-portfolio #cycling .vd-card:hover,
+  .v3-portfolio .mission-card:hover { border-color:rgba(117,226,235,.55); box-shadow:0 25px 62px rgba(0,13,32,.28); }
+}
+@media (max-width:950px) {
+  .v3-portfolio #skills .skills-main-div { grid-template-columns:1fr; }
+  .v3-portfolio #skills .skills-image-div { min-height:245px; max-width:600px; width:100%; margin:auto; }
+  .v3-portfolio #projects .oshlix-intro-container { grid-template-columns:1fr; }
+  .v3-portfolio #projects .oshlix-logo { min-height:150px; }
+}
+@media (max-width:720px) {
+  .v3-portfolio .v3-chapter { padding:72px 15px 62px; scroll-margin-top:73px; }
+  .v3-portfolio .v3-chapter-header { padding:0 3px 21px; margin-bottom:28px; }
+  .v3-portfolio .v3-chapter-header h2 { font-size:clamp(32px,8vw,52px); line-height:1.11; }
+  .v3-portfolio .v3-chapter-content :is(.skills-heading,.project-title,.certs-title,.cycling-title,.blog-header-text,.contact-title) { font-size:clamp(26px,6.5vw,36px); }
+  .v3-portfolio #skills .skills-main-div { gap:19px; }
+  .v3-portfolio #skills .skills-image-div { min-height:210px; padding:15px; order:initial; }
+  .v3-portfolio #skills .skills-text-div { margin:0; }
+  .v3-portfolio #skills .dev-icons { gap:12px; justify-content:center; }
+  .v3-portfolio #projects .oshlix-text { padding:19px; }
+  .v3-portfolio #projects .oshlix-logo { padding:20px; }
+  .v3-portfolio #projects .snap-body { padding:19px; }
+  .v3-portfolio #commitment .commitment-block { grid-template-columns:1fr; align-items:stretch; }
+  .v3-portfolio #commitment .commitment-text-div,
+  .v3-portfolio #commitment .commitment-lottie-div { min-width:0; width:100%; max-width:none; }
+  .v3-portfolio #certs .certs-header { text-align:left; }
+  .v3-portfolio #certs .certs-title { text-align:left; }
+  .v3-portfolio #cycling .vd-card-head { flex-wrap:wrap; }
+  .v3-portfolio .gs-viewer { aspect-ratio:4/5; }
+  .v3-portfolio .mission-story { margin-bottom:40px; padding:23px 19px; }
+  .v3-portfolio .mission-section { width:100%; }
+  .v3-portfolio #contact .contact-text-div { padding:23px 18px; }
+  .v3-portfolio #contact .social-media-div a { width:43px; height:43px; }
+  .v3-portfolio .v3-visual-micro { max-width:44%; }
+}
+@media (max-width:410px) {
+  .v3-portfolio #projects .snap-actions { flex-direction:column; align-items:stretch; }
+  .v3-portfolio #projects .snap-btn { width:100%; }
+  .v3-portfolio #projects .snap-tags { justify-content:center; }
+  .v3-portfolio .v3-header .v3-nav-actions { gap:4px; }
+  .v3-portfolio #contact .contact-detail-email { font-size:16px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .v3-portfolio #projects .snap-card,
+  .v3-portfolio #cycling .vd-card,
+  .v3-portfolio .mission-card { transition:none; }
+}

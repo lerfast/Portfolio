@@ -1,0 +1,120 @@
+/* LER V3 — Cinematic professional wing. Only appears BEFORE optional gameplay.
+ * Existing V2/V3 components retain their data and links; these selectors are scoped. */
+.ler-universe .ler-journey.v3-portfolio {
+ position:absolute;inset:0;z-index:4;width:100%;height:100%;min-height:0;
+ display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:70px minmax(0,1fr) 42px;
+ color:var(--v3-ui-title);background:transparent;overflow:hidden;
+ --v3-bg:#071b32;--v3-text:#f0f9ff;--v3-muted:#bad0dd;
+ --v3-line:rgba(147,224,240,.22);--v3-cyan:#75eaf1;
+ font-family:Montserrat,Inter,'Helvetica Neue',Arial,sans-serif;
+}
+.ler-universe .ler-journey.v3-theme-light {
+ --v3-bg:#f4f9fd;--v3-text:#102e47;--v3-muted:#3e5b6e;
+ --v3-line:rgba(24,110,144,.2);--v3-cyan:#057993;
+}
+.ler-journey::before {content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(5,24,44,.90) 0%,rgba(6,27,49,.78) 46%,rgba(6,27,49,.43) 100%);
+}
+.ler-journey.v3-theme-light::before {background:linear-gradient(100deg,rgba(245,250,253,.96),rgba(242,249,252,.90) 65%,rgba(229,244,249,.76));}
+.ler-journey-top {grid-row:1;z-index:12;display:flex;align-items:center;justify-content:space-between;gap:10px;
+ background:rgba(6,25,45,.75);border-bottom:1px solid var(--v3-ui-border);backdrop-filter:blur(24px);
+ padding:8px clamp(18px,3vw,48px);color:#f1faff;
+}
+.ler-journey.v3-theme-light .ler-journey-top{background:rgba(239,248,252,.88);color:#102c43;}
+.ler-universe .ler-journey-brand {display:flex;align-items:center;gap:16px;background:transparent;border:0;color:inherit;text-align:left;white-space:nowrap;padding:6px 0;}
+.ler-journey-brand b{font-size:28px;letter-spacing:-.09em;line-height:1;font-weight:950;}
+.ler-journey-brand b span{color:#70e7ed;}.ler-journey-brand small{font:700 9px/1.5 ui-monospace,monospace;letter-spacing:.16em;opacity:.75;}
+.ler-journey-top-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;}
+.ler-journey-counter{font:850 12px ui-monospace,monospace;letter-spacing:.13em;margin-right:14px;}
+.ler-journey-counter span{opacity:.5;}
+.ler-universe .ler-journey-top-actions button{height:40px;min-width:40px;padding:0 11px;display:inline-flex;align-items:center;justify-content:center;gap:11px;
+ border:1px solid var(--v3-ui-border);border-radius:10px;background:var(--v3-ui-panel-soft);color:inherit;font-weight:800;font-size:12px;}
+.ler-universe .ler-journey-top-actions button:hover{border-color:var(--v3-cyan);}
+.ler-journey-menu-toggle span{font-size:18px;line-height:1;}
+.ler-journey-index{position:absolute;top:70px;right:0;z-index:11;width:min(370px,100%);height:calc(100% - 112px);
+ overflow-y:auto;display:grid;align-content:start;gap:5px;padding:19px 20px 30px;
+ background:rgba(6,29,51,.96);box-shadow:-25px 20px 70px rgba(0,12,25,.35);border-left:1px solid var(--v3-ui-border);
+ transform:translateX(105%);visibility:hidden;transition:transform .42s cubic-bezier(.2,.8,.2,1),visibility .42s;
+}
+.ler-journey.v3-theme-light .ler-journey-index{background:rgba(240,249,253,.98);}
+.ler-journey-index.is-open{transform:translateX(0);visibility:visible;}
+.ler-universe .ler-journey-index button{border:1px solid transparent;border-radius:12px;background:transparent;display:flex;align-items:center;gap:14px;
+ text-align:left;color:var(--v3-ui-title);min-height:52px;padding:10px 13px;font-size:13px;font-weight:700;}
+.ler-universe .ler-journey-index button>span:first-child{font:800 11px ui-monospace,monospace;color:var(--v3-ui-accent);}
+.ler-universe .ler-journey-index button:hover,.ler-universe .ler-journey-index button.is-current{border-color:var(--v3-ui-border);background:var(--v3-ui-panel);}
+.ler-journey-viewport{grid-row:2;position:relative;z-index:2;min-width:0;min-height:0;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;
+ overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-color:rgba(85,202,225,.54) transparent;}
+.ler-journey-viewport:focus{outline:none;}
+.ler-journey-frame{position:relative;width:100%;max-width:1450px;margin:0 auto;padding:clamp(34px,5vh,65px) clamp(22px,6vw,100px) clamp(28px,4vw,55px);animation:ler-journey-enter .65s both cubic-bezier(.16,.8,.22,1);}
+@keyframes ler-journey-enter{from{opacity:.2;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.ler-journey-watermark{position:absolute;top:0;right:4%;font:950 clamp(110px,21vw,300px)/.9 Montserrat,Arial,sans-serif;
+ letter-spacing:-.13em;color:var(--v3-section-accent);opacity:.075;pointer-events:none;user-select:none;}
+.ler-journey-heading{position:relative;z-index:1;padding:0 0 29px;margin-bottom:clamp(22px,3vw,42px);border-bottom:1px solid var(--v3-ui-border);}
+.ler-journey-eyebrow{display:flex;align-items:center;gap:13px;font:850 11px/1.5 ui-monospace,monospace;letter-spacing:.12em;color:var(--v3-section-accent);margin-bottom:24px;}
+.ler-journey-eyebrow i{display:inline-block;width:34px;height:2px;background:currentColor;}.ler-journey-eyebrow span{color:var(--v3-ui-copy);}
+.ler-universe .ler-journey-heading h1{font-size:clamp(36px,5.6vw,79px);line-height:1.06;letter-spacing:-.055em;
+ max-width:980px;margin:0 0 23px;text-wrap:balance;font-weight:850;color:var(--v3-ui-title);}
+.ler-journey-heading p{font-size:clamp(15px,1.32vw,20px);color:var(--v3-ui-copy);max-width:760px;line-height:1.65;margin:0;}
+.ler-journey-heading>small{display:block;margin-top:22px;font-size:9px;letter-spacing:.15em;color:var(--v3-ui-copy);font-weight:750;}
+.ler-universe .ler-journey-content{width:100%;max-width:1250px;min-height:200px;margin:0 auto;color:var(--v3-ui-title);}
+.ler-universe .ler-journey-content>*{max-width:100%;}
+.ler-journey-loading{padding:40px 25px;border:1px solid var(--v3-ui-border);border-radius:18px;background:var(--v3-ui-panel);}
+.ler-journey-bottom{display:flex;align-items:stretch;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:clamp(35px,5vw,75px);padding-top:28px;border-top:1px solid var(--v3-ui-border);}
+.ler-universe .ler-journey-prev,.ler-universe .ler-journey-next{min-height:60px;padding:15px 20px;border:1px solid var(--v3-ui-border);border-radius:13px;
+ background:var(--v3-ui-panel);color:var(--v3-ui-title);font-size:13px;font-weight:780;text-align:left;display:flex;align-items:center;gap:11px;}
+.ler-journey-bottom button>span{color:var(--v3-ui-copy);font-size:11px;}
+.ler-universe .ler-journey-next{margin-left:auto;background:var(--v3-ui-button);color:var(--v3-ui-button-text);border-color:transparent;}
+.ler-journey-next>span{color:inherit!important;opacity:.76;}
+.ler-journey-bottom button:hover{transform:translateY(-2px);box-shadow:var(--v3-ui-shadow);}
+.ler-journey-footerbar{grid-row:3;z-index:6;border-top:1px solid var(--v3-ui-border);background:rgba(5,26,47,.83);padding:0 clamp(18px,3vw,48px);
+ display:flex;align-items:center;justify-content:space-between;gap:10px;color:#c3dcec;font:800 9px/1.4 ui-monospace,monospace;letter-spacing:.12em;}
+.ler-journey.v3-theme-light .ler-journey-footerbar{background:rgba(239,248,251,.95);color:#38576b;}
+.ler-universe .ler-journey-footerbar button{border:0;background:none;color:inherit;text-decoration:underline;text-underline-offset:4px;padding:8px;font:inherit;}
+.ler-universe .ler-journey.v3-portfolio :is(.v3-chapter-content,.mission-section,.gs-section){max-width:100%;}
+/* Avoid inherited V2 outer margins and suppress extra full-page backgrounds. */
+.ler-universe .ler-journey #contact{margin-left:0!important;}
+.ler-universe .ler-journey #contact .contact-header{margin-left:0;}
+.ler-universe .ler-journey .contact-margin-top{margin-top:12px;}
+.ler-universe .ler-journey #commitment .commitment-block{margin:0;}
+.ler-universe .ler-journey :is(.gs-section,.mission-section,.drone-operations){background:transparent;}
+@media(max-width:800px){
+ .ler-universe .ler-journey.v3-portfolio{grid-template-rows:64px minmax(0,1fr) 42px;}
+ .ler-journey-top{padding:9px 14px;}.ler-journey-brand small{display:none;}
+ .ler-journey-index{top:64px;height:calc(100% - 106px);}
+ .ler-journey-frame{padding:37px 17px 26px;}
+ .ler-journey-heading{padding-bottom:23px;margin-bottom:28px;}
+ .ler-journey-heading h1{max-width:100%;}
+ .ler-journey-heading p{line-height:1.6;}
+ .ler-journey-bottom button>span{display:none;}
+ .ler-journey-footerbar{letter-spacing:.05em;font-size:8px;}
+}
+@media(max-width:480px){
+ .ler-journey-brand b{font-size:25px;}.ler-journey-counter{margin-right:0;font-size:10px;}
+ .ler-universe .ler-journey-top-actions button{min-width:33px;height:35px;padding:0 7px;font-size:10px;}
+ .ler-journey-menu-toggle{font-size:0!important;gap:4px!important;}.ler-journey-menu-toggle span{font-size:18px;}
+ .ler-journey-frame{padding:29px 14px 23px;}.ler-universe .ler-journey-heading h1{font-size:clamp(31px,9vw,47px);}
+ .ler-journey-heading p{font-size:14px;}.ler-journey-eyebrow{font-size:9px;gap:9px;}
+ .ler-journey-bottom button{min-height:50px!important;padding:12px!important;font-size:12px!important;}
+ .ler-journey-footerbar span{max-width:63%;}
+}
+@media(prefers-reduced-motion:reduce){.ler-journey-frame{animation:none}.ler-journey-index{transition:none}.ler-journey-bottom button:hover{transform:none}}
+
+/* Intro CTA hierarchy: professional portfolio first, interactive game second. */
+.ler-universe .ler-intro-actions .ler-enter {min-width:clamp(230px,22vw,295px);}
+.ler-universe .ler-intro-actions .ler-game-optional {min-height:53px;gap:10px;border-radius:12px;
+ border-color:rgba(148,220,246,.49);background:rgba(12,54,94,.55);color:#f5fbff;
+ font:800 11px/1.5 Inter,Montserrat,Arial,sans-serif;letter-spacing:.04em;}
+.ler-universe .ler-intro-actions .ler-game-optional:hover{background:rgba(27,102,145,.7);border-color:#9eeafa;}
+.ler-universe .ler-portfolio-portal-transition {position:absolute;z-index:7;inset:0;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;gap:16px;text-align:center;color:#f6fcff;
+ background:radial-gradient(circle at center,rgba(5,48,80,.34),rgba(6,23,46,.68));}
+.ler-portfolio-portal-transition strong{font-size:clamp(34px,6vw,70px);font-weight:850;letter-spacing:-.05em;}
+.ler-portfolio-portal-transition p{max-width:600px;color:#c6e4f0;}
+@media(max-width:800px){.ler-universe .ler-intro-actions .ler-game-optional{font-size:10px;max-width:100%;}}
+
+/* Retain the authentic V2/V3 footer and visitor counter in the final gallery. */
+.ler-universe .ler-journey .ler-journey-preserved-footer{border-top:1px solid var(--v3-ui-border);margin-top:42px;padding-top:22px;color:var(--v3-ui-copy);}
+.ler-universe .ler-journey .ler-journey-preserved-footer .footer-div{margin:0 auto;padding:14px 0;text-align:center;color:var(--v3-ui-copy);}
+.ler-universe .ler-journey .ler-journey-preserved-footer .footer-text{color:var(--v3-ui-copy)!important;background:transparent!important;font-size:12px;text-align:center;}
+.ler-universe .ler-journey .ler-journey-preserved-footer .visit-counter{display:flex;justify-content:center;max-width:100%;margin:10px auto;opacity:.75;}
+.ler-universe .ler-journey .ler-journey-preserved-footer img{max-width:100%;height:auto;}

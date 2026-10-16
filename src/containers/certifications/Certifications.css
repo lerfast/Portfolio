@@ -89,7 +89,14 @@
   .certs-grid .cert-tilt { grid-column: span 6; }
 }
 @media (min-width: 1024px) {
-  .certs-grid .cert-tilt { grid-column: span 4; }
+  .certs-grid .cert-tilt { grid-column: span 6; }
+}
+@media (min-width: 1180px) {
+  .certs-grid .cert-tilt { grid-column: span 3; }
+}
+.certs-section .cert-logo-fallback {
+  display:flex;min-height:95px;align-items:center;justify-content:center;
+  color:#174577;font-size:clamp(18px,2vw,27px);font-weight:900;letter-spacing:.08em;
 }
 
 /* Ajustes de tipografías para pantallas más pequeñas */

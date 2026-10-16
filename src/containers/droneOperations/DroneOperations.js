@@ -12,7 +12,7 @@ const COPY = {
     eyebrow: "Second professional specialty",
     heading: "Professional drone operations",
     lead: "Aerial perspective supported by operational planning, situational awareness, and responsibility.",
-    credential: "Certified UAS pilot · Civil Aviation Authority of Colombia (Aerocivil)",
+    credential: "Licensed professional UAS drone pilot · Valid license · Aerocivil Colombia",
     servicesHeading: "Capabilities and applications",
     services: [
       { title: "Aerial photography and video", description: "Visual documentation for architecture, landscapes, buildings, and audiovisual projects." },
@@ -39,7 +39,7 @@ const COPY = {
     eyebrow: "Segunda especialidad profesional",
     heading: "Operaciones profesionales con drones",
     lead: "Una perspectiva aérea respaldada por planeación, conciencia situacional y responsabilidad operacional.",
-    credential: "Piloto profesional UAS certificado por la Aeronáutica Civil de Colombia (Aerocivil)",
+    credential: "Piloto profesional de drones UAS con licencia vigente · Aeronáutica Civil de Colombia (Aerocivil)",
     servicesHeading: "Capacidades y aplicaciones",
     services: [
       { title: "Fotografía y video aéreo", description: "Documentación visual de arquitectura, paisajes, edificaciones y proyectos audiovisuales." },
